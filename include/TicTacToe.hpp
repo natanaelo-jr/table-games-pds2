@@ -5,9 +5,7 @@
 
 class TicTacToe: public Game{
     public:
-        TicTacToe();
-        TicTacToe(Player player1, Player player2);
-        TicTacToe(Player player1, Player player2, int cols, int rows);
+        //todo: Fazer os construtores reaproveitando a papai.
 
         void play();
         Player* checkWinner();

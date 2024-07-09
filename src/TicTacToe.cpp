@@ -12,7 +12,7 @@ void TicTacToe::play(){
         }
         int row, col;
         std::cin >> row >>  col;
-        makePlay(row, col) ? printBoard() : printBoard();
+        makePlay(row, col) ? printBoard(), changePlayer() : printBoard();
         winner = checkWinner();
         if(winner != nullptr){
             //todo: Refatorar o caso de vitória.

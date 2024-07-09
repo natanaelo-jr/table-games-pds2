@@ -5,5 +5,8 @@
 
 int main(){
     
+    TicTacToe *game = new TicTacToe();
+    game->play();
+    
     return 0;
 }
