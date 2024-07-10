@@ -1,24 +1,15 @@
 #include <iostream>
 #include <string>
 #include "Player.hpp"
-#include "Game.hpp"
 #include "Players.hpp"
 #include "TicTacToe.hpp"
 
 int main() {
-    Players players;
-    std::string command;
-    std::cin >> command;
+    Player* p1 = new Player("Natan", "Nana");
+    Player* p2 = new Player("Julia", "Juju");
 
-    while (command != "FS") {
-        if (command == "CJ") {
-            std::string nome;
-            std::string apelido;
-            std::cin >> nome >> apelido;
-            players.signUpPlayer(nome, apelido); 
-        }
-        std::cin >> command;
-    }
+    Game* game = new TicTacToe(p1, p2);
+    game->play();
 
     return 0;
 }

@@ -3,50 +3,14 @@
 #include "Player.hpp"
 
 //todo: Refatorar os construtores.
-Game::Game(){
-    Player player1;
-    Player player2;
-    this->player1 = player1;
-    this->player2 = player2;
-    this->currentPlayer = &this->player1;
-    cols = 3;
-    rows = 3;
-    board = new char*[rows];
+Game::Game() : Game(new Player("Player 1", "P1"), new Player("Player 2", "P2")){}
+
+Game::Game(Player* player1, Player* player2) : Game(player1, player2, 3, 3){}
     
-    for(int i = 0; i < rows; i++){
-        board[i] = new char[cols];
-    }
-
-    for(int i = 0; i < rows; i++){
-        for(int j = 0; j < cols; j++)
-            board[i][j] = ' ';
-    }
-}
-
-Game::Game(Player player1, Player player2){
+Game::Game(Player* player1, Player* player2, int cols, int rows){
     this->player1 = player1;
     this->player2 = player2;
-    this->currentPlayer = &this->player1;
-
-    cols = 3;
-    rows = 3;
-
-    board = new char*[rows];
-    for(int i = 0; i < rows; i++){
-        board[i] = new char[cols];
-    }
-
-    for(int i = 0; i < rows; i++){
-        for(int j = 0; j < cols; j++)
-            board[i][j] = ' ';
-    }
-}
-    
-
-Game::Game(Player player1, Player player2, int cols, int rows){
-    this->player1 = player1;
-    this->player2 = player2;
-    this->currentPlayer = &this->player1;
+    this->currentPlayer = this->player1;
     this->cols = cols;
     this->rows = rows;
 
@@ -91,11 +55,11 @@ bool Game::makePlay(int row, int col){
         }
 
         if(getSquare(row, col) == ' '){
-            if(getCurrentPlayer() == &player1){
+            if(getCurrentPlayer() == player1){
                 setSquare(row, col, 'X');
                 return true;
             }
-            if(getCurrentPlayer() == &player2){
+            if(getCurrentPlayer() == player2){
                 setSquare(row, col, 'O');
                 return true;
             }
@@ -113,7 +77,7 @@ char Game::getSquare(int row, int col){
 }
 
 void Game::printBoard(){
-    std::cout << player1.getNickname() << " X " << player2.getNickname() << std::endl;
+    std::cout << player1->getNickname() << " X " << player2->getName() << std::endl;
     std::cout << "Vez de " << currentPlayer->getNickname() << std::endl;
     for(int i = 0; i < rows; i++){
         for(int j = 0; j < cols; j++){
@@ -125,31 +89,26 @@ void Game::printBoard(){
 }
 
 void Game::changePlayer(){
-    //todo: tirar os couts
-    if(currentPlayer == &player1){
-        std::cout << "trocando de player" << std::endl;
-        this->currentPlayer = &player2;
+    if(currentPlayer == player1){
+        this->currentPlayer = player2;
         return;
     }
-    if(currentPlayer == &player2){
-        std::cout << "trocando de player" << std::endl;
-        this->currentPlayer = &player1;
+    if(currentPlayer == player2){
+        this->currentPlayer = player1;
         return;
     }
 }
 
-
 Player* Game::getCurrentPlayer(){
-    //todo: Refatorar (funcao redundante).
-    if(currentPlayer == &player1){
-        return &player1;
-    }
+    return currentPlayer;
+}
 
-    if(currentPlayer == &player2){
-        return &player2;
-    }
+Player* Game::getPlayer1(){
+    return player1;
+}
 
-    return nullptr;
+Player* Game::getPlayer2(){
+    return player2;
 }
 
 void Game::play(){

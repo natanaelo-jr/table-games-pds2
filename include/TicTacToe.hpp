@@ -5,10 +5,12 @@
 
 class TicTacToe: public Game{
     public:
-        //todo: Fazer os construtores reaproveitando a papai.
+        TicTacToe();
+        TicTacToe(Player* player1, Player*player2);
 
         void play();
         Player* checkWinner();
+        void win(Player* player);
         bool verifySequence(int row, int col);
         bool isFull();
 };
