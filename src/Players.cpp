@@ -5,48 +5,53 @@ Players::Players(){
     
 }
 
-bool Players::playerExists(std::string name, std::string apelido) {
-    for (auto& player : players) {
-        if (player.getName() == name && player.getNickname() == apelido) {
-            return true;
-        }
-    }
-    return false; 
-}
-
-
-Player Players::searchPlayer(std::string name, std::string apelido) {
-    for (auto& player : players) {
-        if (player.getName() == name && player.getNickname() == apelido) {
+Player* Players::search(std::string name, std::string nickname) {
+    for(auto player : players){
+        if(player->getName() == name && player->getName() == nickname){
             return player;
         }
     }
-    return Player();
+    return nullptr;
 }
-
-void Players::signUpPlayer(std::string name, std::string apelido) {
-    if (playerExists(name, apelido)) {
-        std::cout << "ERRO: jogador repetido" << std::endl;
-    } else {
-        players.push_back(Player(name, apelido));
-        std::cout << "Jogador " << apelido << " cadastrado com sucesso" << std::endl;
-    }
-}
-
-void Players::deletePlayer(std::string name, std::string apelido) {
-    if (playerExists(name, apelido)) {
-        for (auto iterator = players.begin(); iterator != players.end(); ++iterator) {
-            if (iterator->getName() == name && iterator->getNickname() == apelido) {
-                players.erase(iterator);
-                std::cout << "Jogador " << apelido << " removido com sucesso" << std::endl;
-                return;
-            }
+Player* Players::searchByNickname(std::string nickname){
+    for(auto player : players){
+        if(player->getNickname() == nickname){
+            return player;
         }
     }
-    else
+    return nullptr;
+}
+
+void Players::signUpPlayer(std::string name, std::string nickname) {
+    if (search(name, nickname) != nullptr) {
+        std::cout << "ERRO: jogador repetido" << std::endl;
+    }else{
+        players.insert(new Player(name, nickname));
+        std::cout << "Jogador " << nickname << " cadastrado com sucesso" << std::endl;
+    }
+}
+
+void Players::deletePlayer(std::string nickname) {
+    Player* player = searchByNickname(nickname);
+    if(player != nullptr) {
+        delete player;
+        players.erase(player);
+        std::cout << "Jogador " << nickname << " removido com sucesso" << std::endl;
+        return;
+            
+        
+    }
     std::cout << "ERRO: jogador inexistente" << std::endl;
 }
 
 void Players::displayPlayers() {
+    for(auto player : players){
+        std::cout << player->getNickname() << " " << player->getName() << std::endl;
+        //todo: imprimir os status de cada jogo.
+    }
   
+}
+
+bool ComparePlayer::operator()(const Player* p1,const Player* p2) const{
+    return p1->getNickname() < p2->getNickname();
 }

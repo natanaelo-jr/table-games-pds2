@@ -2,20 +2,24 @@
 #define PLAYERS_HPP
 
 #include <string>
-#include <vector>
+#include <set>
 #include "Player.hpp"
+
+struct ComparePlayer{
+    bool operator()(const Player* player1,const Player* player2) const;
+};
 
 class Players{
     private: 
-    std::vector<Player> players;
+        std::set<Player*, ComparePlayer> players;
 
-    public: 
-    Players();
-    Player searchPlayer(std::string name, std::string apelido);
-    bool playerExists(std::string name, std::string apelido);
-    void signUpPlayer(std::string name, std::string apelido);
-    void deletePlayer(std::string name, std::string apelido);
-    void displayPlayers();
+    public:
+        Players();
+        Player* searchByNickname(std::string nickname);
+        Player* search(std::string name, std::string nickname);
+        void signUpPlayer(std::string name, std::string nickname);
+        void deletePlayer(std::string nickname);
+        void displayPlayers();
 };
 
 #endif
