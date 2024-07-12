@@ -1,25 +1,48 @@
 #include "TicTacToe.hpp"
 #include <iostream>
 
+TicTacToe::TicTacToe(Player* player1, Player* player2) : Game(player1, player2, 3, 3){}
+
 void TicTacToe::play(){
     Player* winner = nullptr;
     printBoard();
-    std::cout << "Play starts" << std::endl;
+
     while(true){
         if(isFull()){
             //todo: Refatorar a verificação de empate.
             break;
         }
+
+        //todo: Refatorar a funcao [melhorar if else]
         int row, col;
         std::cin >> row >>  col;
-        makePlay(row, col) ? printBoard() : printBoard();
-        winner = checkWinner();
-        if(winner != nullptr){
-            //todo: Refatorar o caso de vitória.
-            winner->increaseVictories();
-            std::cout << winner->getNickname() << " ganhou a partida!" << std::endl;
-            break;
+        if(makePlay(row, col)){
+            winner = checkWinner();
+            if(winner != nullptr){
+                printBoard();
+                win(winner);
+                break;
+            }
+            else{
+                changePlayer();
+                printBoard();
+            }
         }
+        else{
+            printBoard();
+        }
+    }
+}
+
+void TicTacToe::win(Player* winner){
+    winner->increaseVictories();
+    std::cout << winner->getNickname() << " ganhou a partida!" << std::endl;
+
+    if(winner == getPlayer1()){
+        getPlayer2()->increaseDefeats();
+    }
+    if(winner == getPlayer2()){
+        getPlayer1()->increaseDefeats();
     }
 }
 

@@ -15,11 +15,11 @@ Player::Player(std::string name, std::string nickname){
     defeats = 0;
 }
 
-std::string Player::getName(){
+std::string Player::getName() const{
     return name;
 }
 
-std::string Player::getNickname(){
+std::string Player::getNickname() const{
     return nickname;
 }
 

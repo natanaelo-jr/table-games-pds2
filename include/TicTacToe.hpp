@@ -6,11 +6,11 @@
 class TicTacToe: public Game{
     public:
         TicTacToe();
-        TicTacToe(Player player1, Player player2);
-        TicTacToe(Player player1, Player player2, int cols, int rows);
+        TicTacToe(Player* player1, Player*player2);
 
         void play();
         Player* checkWinner();
+        void win(Player* player);
         bool verifySequence(int row, int col);
         bool isFull();
 };

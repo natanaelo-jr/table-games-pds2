@@ -10,14 +10,14 @@ class Game{
         int cols;
         int rows;
         char **board;
-        Player player1;
-        Player player2;
+        Player* player1;
+        Player* player2;
         Player *currentPlayer;
     
     public:
         Game();
-        Game(Player player1, Player player2);
-        Game(Player player1, Player player2, int rows, int cols);
+        Game(Player* player1, Player* player2);
+        Game(Player* player1, Player* player2, int rows, int cols);
         virtual ~Game();
 
         int getRows();
@@ -25,6 +25,8 @@ class Game{
         void setSquare(int row, int col, char symbol);
         char getSquare(int row, int col);
         Player* getCurrentPlayer();
+        Player* getPlayer1();
+        Player* getPlayer2();
 
         bool makePlay(int row, int col);
         void printBoard();

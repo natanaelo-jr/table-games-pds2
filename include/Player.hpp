@@ -13,8 +13,8 @@ class Player{
     public:
         Player();
         Player(std::string name, std::string nickname);
-        std::string getName();
-        std::string getNickname();
+        std::string getName() const;
+        std::string getNickname() const;
         void setName(std::string name);
         void setNickname(std::string nickname);
         void increaseVictories();
