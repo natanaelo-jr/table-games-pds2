@@ -3,6 +3,7 @@
 #include "Player.hpp"
 #include "Players.hpp"
 #include "TicTacToe.hpp"
+#include "Lig4.hpp"
 
 int main(){
     

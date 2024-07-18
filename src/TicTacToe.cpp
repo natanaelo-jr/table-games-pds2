@@ -20,7 +20,7 @@ void TicTacToe::play(){
             winner = checkWinner();
             if(winner != nullptr){
                 printBoard();
-                win(winner);
+                addStats(winner, getWaitingPlayer());
                 break;
             }
             else{
@@ -34,27 +34,35 @@ void TicTacToe::play(){
     }
 }
 
-void TicTacToe::win(Player* winner){
-    winner->increaseVictories();
-    std::cout << winner->getNickname() << " ganhou a partida!" << std::endl;
+bool TicTacToe::makePlay(int row, int col){
+    row--;
+    col--;
 
-    if(winner == getPlayer1()){
-        getPlayer2()->increaseDefeats();
-    }
-    if(winner == getPlayer2()){
-        getPlayer1()->increaseDefeats();
-    }
-}
+    if((row < getRows() && row >= 0) && (col < getCols() && col >= 0)){
+        if(getSquare(row, col) != ' '){
+            std::cout << "Casa já preenchida" << std::endl;
+            return false;
+        }
 
-bool TicTacToe::isFull(){
-    for(int row = 0; row < getRows(); row++){
-        for(int col = 0; col < getCols(); col++){
-            if(getSquare(row, col) == ' '){
-                return false;
+        if(getSquare(row, col) == ' '){
+            if(getCurrentPlayer() == getPlayer1()){
+                setSquare(row, col, 'X');
+                return true;
+            }
+            if(getCurrentPlayer() == getPlayer2()){
+                setSquare(row, col, 'O');
+                return true;
             }
         }
     }
-    return true;
+    std::cout << "Erro na jogada" << std::endl;
+    return false;
+}
+
+void TicTacToe::addStats(Player* winner, Player* loser){
+    winner->increaseVictories();
+    std::cout << winner->getNickname() << " ganhou a partida!" << std::endl;
+    loser->increaseDefeats();
 }
 
 bool TicTacToe::verifySequence(int row, int col){

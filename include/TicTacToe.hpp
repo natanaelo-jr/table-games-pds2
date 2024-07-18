@@ -5,13 +5,12 @@
 
 class TicTacToe: public Game{
     public:
-        TicTacToe();
         TicTacToe(Player* player1, Player*player2);
-
-        void play();
+        virtual void play() override;
+        bool makePlay(int row, int col);
         Player* checkWinner();
-        void win(Player* player);
+        void addStats(Player* winner, Player* loser);
         bool verifySequence(int row, int col);
-        bool isFull();
 };
+
 #endif
