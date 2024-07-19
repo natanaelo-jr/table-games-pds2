@@ -7,6 +7,7 @@ class Player{
     private:
         std::string name;
         std::string nickname;
+        //todo: adicionar vitorias e derrotas particulares para cada jogo
         int victories;
         int defeats;
 

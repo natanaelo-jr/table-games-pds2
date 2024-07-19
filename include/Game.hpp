@@ -12,7 +12,8 @@ class Game{
         char **board;
         Player* player1;
         Player* player2;
-        Player *currentPlayer;
+        Player* currentPlayer;
+        Player* waitingPlayer;
     
     public:
         Game();
@@ -24,14 +25,15 @@ class Game{
         int getCols();
         void setSquare(int row, int col, char symbol);
         char getSquare(int row, int col);
+        bool isFull();
+        Player* getWaitingPlayer();
         Player* getCurrentPlayer();
         Player* getPlayer1();
         Player* getPlayer2();
 
-        bool makePlay(int row, int col);
         void printBoard();
         void changePlayer();
-        virtual void play();
+        virtual void play() = 0;
 };
 
 #endif

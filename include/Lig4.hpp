@@ -1,13 +1,13 @@
-#ifndef TICTACTOE_HPP
-#define TICTACTOE_HPP
+#ifndef LIG4_HPP
+#define LIG4_HPP
 
 #include "Game.hpp"
 
-class TicTacToe: public Game{
+class Lig4 : public Game{
     public:
-        TicTacToe(Player* player1, Player*player2);
+        Lig4(Player* player1, Player* player2);
         virtual void play() override;
-        bool makePlay(int row, int col);
+        bool makePlay(int col);
         Player* checkWinner();
         void addStats(Player* winner, Player* loser);
         bool verifySequence(int row, int col);
