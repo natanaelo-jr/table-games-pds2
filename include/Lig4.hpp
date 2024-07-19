@@ -10,7 +10,7 @@ class Lig4 : public Game{
         bool makePlay(int col);
         Player* checkWinner();
         void addStats(Player* winner, Player* loser);
-        bool verifySequence();
+        bool verifySequence(int row, int col);
 };
 
 #endif

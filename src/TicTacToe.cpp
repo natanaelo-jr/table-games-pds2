@@ -9,13 +9,13 @@ void TicTacToe::play(){
 
     while(true){
         if(isFull()){
-            //todo: Refatorar a verificação de empate.
+            //todo: implementar a saída de empate.
             break;
         }
 
         //todo: Refatorar a funcao [melhorar if else]
         int row, col;
-        std::cin >> row >>  col;
+        std::cin >> row >> col;
         if(makePlay(row, col)){
             winner = checkWinner();
             if(winner != nullptr){
@@ -40,7 +40,7 @@ bool TicTacToe::makePlay(int row, int col){
 
     if((row < getRows() && row >= 0) && (col < getCols() && col >= 0)){
         if(getSquare(row, col) != ' '){
-            std::cout << "Casa já preenchida" << std::endl;
+            std::cout << "Casa já preenchida!" << std::endl;
             return false;
         }
 
@@ -55,7 +55,7 @@ bool TicTacToe::makePlay(int row, int col){
             }
         }
     }
-    std::cout << "Erro na jogada" << std::endl;
+    std::cout << "Erro na jogada!" << std::endl;
     return false;
 }
 
@@ -69,44 +69,42 @@ bool TicTacToe::verifySequence(int row, int col){
     char symbol = getSquare(row, col);
     bool vertical = true;
     bool horizontal = true;
-    bool diagonaldown = true;
-    bool diagonalup = true;
+    bool downDiagonal = true;
+    bool upDiagonal = true;
 
-    if(symbol == 'E'){
-        //todo Exception error
-    }
-    if(symbol == ' '){
+    if(symbol == 'E' || symbol == ' '){
         return false;
     }
+
     //verifyVertical
-    for(int i = 0; i < 3; i++){
+    for(int i = 1; i < 3; i++){
         if(getSquare(row+i,col) != symbol){
             vertical = false;
             break;
         }
     }
     //verifyHorizontal
-    for(int i = 0; i < 3; i++){
+    for(int i = 1; i < 3; i++){
         if(getSquare(row,col+i) != symbol){
             horizontal = false;
             break;
         }
     }
     //verifyDiagonals
-    for(int i = 0; i < 3; i++){
+    for(int i = 1; i < 3; i++){
         if(getSquare(row+i,col+i) != symbol){
-            diagonaldown = false;
+            downDiagonal = false;
             break;
         }
     }
-    for(int i = 0; i < 3; i++){
+    for(int i = 1; i < 3; i++){
         if(getSquare(row-i,col+i) != symbol){
-            diagonalup = false;
+            upDiagonal = false;
             break;
         }
     }
 
-    return vertical || horizontal || diagonaldown || diagonalup;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+    return vertical || horizontal || downDiagonal || upDiagonal;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
 }
 
 Player* TicTacToe::checkWinner(){
