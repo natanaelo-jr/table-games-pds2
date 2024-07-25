@@ -55,3 +55,6 @@ void Players::displayPlayers() {
 bool ComparePlayer::operator()(const Player* p1,const Player* p2) const{
     return p1->getNickname() < p2->getNickname();
 }
+int Players::getsize(){
+    return players.size();
+}

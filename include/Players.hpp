@@ -20,6 +20,7 @@ class Players{
         void signUpPlayer(std::string name, std::string nickname);
         void deletePlayer(std::string nickname);
         void displayPlayers();
+        int getsize();
 };
 
 #endif
