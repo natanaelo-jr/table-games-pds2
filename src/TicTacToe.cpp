@@ -8,7 +8,6 @@ void TicTacToe::play(){
     printBoard();
 
     while(true){
-        int contador = 0;
         if (isFull() && winner == nullptr){
             std::cout << "Empate!" << std::endl;
             break;
@@ -19,7 +18,6 @@ void TicTacToe::play(){
         std::cin >> row >> col;
         if(makePlay(row, col)){
             winner = checkWinner();
-            std::cout << "contador "<<contador << std::endl;
             if(winner != nullptr){
                 printBoard();
                 addStats(winner, getWaitingPlayer());
