@@ -2,6 +2,7 @@
 #define GAME_HPP
 
 #include <string>
+#include <vector>
 #include "Player.hpp"
 //#include <SFML/Graphics.hpp>
 
@@ -9,7 +10,7 @@ class Game{
     private:
         int cols;
         int rows;
-        char **board;
+        char** board;
         Player* player1;
         Player* player2;
         Player* currentPlayer;
