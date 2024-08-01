@@ -9,7 +9,6 @@ class Menu : public Screen{
         void update(sf::RenderWindow &window);
         void render(sf::RenderWindow &window) override;
         void loadTextures();
-        void handleHover(sf::RenderWindow &window, sf::Sprite &button);
     
     private:
         sf::Texture playButtonTexture;
@@ -28,6 +27,7 @@ class Menu : public Screen{
         sf::Sprite creditsButton;
         sf::Sprite manageButton;
         sf::Sprite exitButton;
+        
         bool isMouseOver(sf::Sprite& button, sf::RenderWindow &window);
 };
 

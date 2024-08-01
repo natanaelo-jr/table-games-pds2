@@ -9,6 +9,7 @@ int main(){
     sf::RenderWindow window(sf::VideoMode(800, 600), "BoardGamesPDS2");
     window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
     Screen* currentScreen = new Menu();
+    window.setMouseCursor(currentScreen->cursor);
     
     while (window.isOpen()) {
         currentScreen->update(window);

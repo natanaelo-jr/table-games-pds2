@@ -3,6 +3,9 @@
 sf::Color backgroundColor = sf::Color::White;
 
 void Menu::loadTextures(){
+    cursorImage.loadFromFile("assets/Cursor.png");
+    cursor.loadFromPixels(cursorImage.getPixelsPtr(), sf::Vector2u(cursorImage.getSize().x, cursorImage.getSize().y), sf::Vector2u(0, 0));
+    
     playButtonTexture.loadFromFile("assets/PlayButton.png");
     hoverPlayButtonTexture.loadFromFile("assets/PlayButtonH.png");
 
@@ -21,6 +24,7 @@ void Menu::loadTextures(){
 
 Menu::Menu(){
     loadTextures();
+
     playButton.setTexture(playButtonTexture);
     playButton.setPosition(247, 124);
 
