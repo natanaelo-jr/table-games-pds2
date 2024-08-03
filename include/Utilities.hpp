@@ -1,6 +1,3 @@
-#ifndef UTILITIES_HPP
-#define UTILITIES_HPP
-
 #include <iostream>
 #include <string>
 #include <set>
@@ -23,7 +20,7 @@ void printInstructions(){
 }
 
 void cleanTerminal(){
-    system("clear");
+    system("clear || cls");
 }
 
 void run(Players players){
@@ -52,15 +49,15 @@ void run(Players players){
                 std::cin >> nickname1 >> nickname2;
                 Player* player1 = players.searchByNickname(nickname1);
                 Player* player2 = players.searchByNickname(nickname2);
-                TicTacToe* game = new TicTacToe(player1, player2);
-                game -> play();
+                Game* game = new TicTacToe(player1, player2);
+                game->play();
                 delete game;
                 while (true){
                     std::cout << "Deseja jogar novamente? (S/N)" << std::endl;
                     std::cin >> playagain;
                     if(playagain == 'S'){
-                        TicTacToe* game = new TicTacToe(player1, player2);
-                        game -> play();
+                        game = new TicTacToe(player1, player2);
+                        game->play();
                         delete game;
                     }
                     else{ //todo: adicionar mensagem e printar os comandos básicos
@@ -81,22 +78,3 @@ void run(Players players){
         }
     }
 }
-
-/*void runWindow(){
-    sf::RenderWindow window(sf::VideoMode(800, 600), "BoardGamesPDS2");
-    Screen* currentScreen = new Menu();
-    
-    while (window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed) {
-                window.close();
-            }
-        }
-        currentScreen->render(window);
-    }
-
-}
-*/
-
-#endif

@@ -1,11 +1,8 @@
-#include "Utilities.hpp"
 #include "Menu.hpp"
+#include <iostream>
 sf::Color backgroundColor = sf::Color::White;
 
 void Menu::loadTextures(){
-    cursorImage.loadFromFile("assets/Cursor.png");
-    cursor.loadFromPixels(cursorImage.getPixelsPtr(), sf::Vector2u(cursorImage.getSize().x, cursorImage.getSize().y), sf::Vector2u(0, 0));
-    
     playButtonTexture.loadFromFile("assets/PlayButton.png");
     hoverPlayButtonTexture.loadFromFile("assets/PlayButtonH.png");
 
@@ -42,7 +39,7 @@ Menu::Menu(){
 }
 
 void Menu::render(sf::RenderWindow &window){
-    window.clear(backgroundColor);
+    window.clear(getBackgroundColor());
     window.draw(playButton);
     window.draw(manageButton);
     window.draw(rankingButton);
@@ -54,6 +51,9 @@ void Menu::render(sf::RenderWindow &window){
 
 bool Menu::isMouseOver(sf::Sprite& button, sf::RenderWindow &window){
     sf::FloatRect buttonBounds = button.getGlobalBounds();
+    buttonBounds.width -=8;
+    buttonBounds.height -=8;
+    buttonBounds.left +=4;
 
     sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
     return buttonBounds.contains(mousePosition.x, mousePosition.y);

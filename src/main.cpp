@@ -1,20 +1,17 @@
 #include <SFML/Graphics.hpp>
 #include "Menu.hpp"
 #include <iostream>
+#include "Utilities.hpp"
 
-int main(){
+int main(){  
     
-    sf::Image icon;
-    icon.loadFromFile("assets/Icon.png");
-    sf::RenderWindow window(sf::VideoMode(800, 600), "BoardGamesPDS2");
-    window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
+    cleanTerminal();
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Board Games PDS2");
     Screen* currentScreen = new Menu();
-    window.setMouseCursor(currentScreen->cursor);
+    currentScreen->setupWindow(window);
     
     while (window.isOpen()) {
-        currentScreen->update(window);
-        currentScreen->handleEvents(window);
-        currentScreen->render(window);
-    }
+        currentScreen->process(window);
+}
     return 0;
 }
