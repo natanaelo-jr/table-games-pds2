@@ -14,23 +14,9 @@ Game::Game(Player* player1, Player* player2, int cols, int rows){
     this->waitingPlayer = this->player2;
     this->cols = cols;
     this->rows = rows;
-
-    board = new char*[rows];
-    for(int i = 0; i < rows; i++){
-        board[i] = new char[cols];
-    }
-
-    for(int i = 0; i < rows; i++){
-        for(int j = 0; j < cols; j++)
-            board[i][j] = ' ';
-    }
+    board = std::vector<std::vector<char>>(rows, std::vector<char>(cols, ' '));
 }
-
 Game::~Game(){
-    for(int i = 0; i < rows; i++){
-        delete[] board[i];
-    }
-    delete board;
 }
 
 int Game::getRows(){
@@ -48,22 +34,11 @@ void Game::setSquare(int row, int col, char symbol){
 
 
 
-char Game::getSquare(int row, int col){
+char Game::getSquare(int row, int col, const BoardType& board){
     if((row < rows && row >= 0) && (col < cols && col >= 0)){
         return board[row][col];
     }
     return 'E';
-}
-
-bool Game::isFull(){
-    for(int row = 0; row < getRows(); row++){
-        for(int col = 0; col < getCols(); col++){
-            if(getSquare(row, col) == ' '){
-                return false;
-            }
-        }
-    }
-    return true;
 }
 
 void Game::printBoard(){
@@ -71,7 +46,7 @@ void Game::printBoard(){
     std::cout << "Vez de " << currentPlayer->getNickname() << std::endl;
     for(int i = 0; i < rows; i++){
         for(int j = 0; j < cols; j++){
-            std::cout << "| " << getSquare(i, j) << " |"; 
+            std::cout << "| " << getSquare(i, j, getBoard()) << " |"; 
         }
         std::cout << std::endl;
         std::cout << std::endl;
@@ -105,4 +80,8 @@ Player* Game::getPlayer1(){
 
 Player* Game::getPlayer2(){
     return player2;
+}
+
+std::vector<std::vector<char>> Game::getBoard(){
+    return board;
 }
