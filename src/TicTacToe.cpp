@@ -25,7 +25,7 @@ void TicTacToe::play(){
             std::cin >> currentPlay.row >> currentPlay.col;
         }
 
-        if(makePlay(currentPlay.row, currentPlay.col)){
+        if(makePlay(currentPlay)){
             winner = checkWinner(getBoard());
             if(winner != nullptr){
                 printBoard();
@@ -43,22 +43,22 @@ void TicTacToe::play(){
     }
 }
 
-bool TicTacToe::makePlay(int row, int col){
-    row--;
-    col--;
+bool TicTacToe::makePlay(Coordinates play){
+    play.setRow(play.getRow() - 1);
+    play.setCol(play.getCol() - 1);
 
-    if((row < getRows() && row >= 0) && (col < getCols() && col >= 0)){
-        if(getSquare(row, col, getBoard()) != ' '){
+    if((isValidSquare(play))){
+        if(getSquare(play, getBoard()) != ' '){
             std::cout << "Casa já preenchida!" << std::endl;
             return false;
         }
-        if(getSquare(row, col, getBoard()) == ' '){
+        if(getSquare(play, getBoard()) == ' '){
             if(getCurrentPlayer() == getPlayer1()){
-                setSquare(row, col, 'X');
+                setSquare(play, 'X');
                 return true;
             }
             if(getCurrentPlayer() == getPlayer2()){
-                setSquare(row, col, 'O');
+                setSquare(play, 'O');
                 return true;
             }
         }
@@ -77,59 +77,96 @@ void TicTacToe::addStats(Player* winner, Player* loser){
     loser->increaseDefeats();
 }
 
-bool TicTacToe::verifySequence(int row, int col, const BoardType &board){
-    char symbol = getSquare(row, col, board);
-    bool vertical = true;
-    bool horizontal = true;
-    bool downDiagonal = true;
-    bool upDiagonal = true;
+bool TicTacToe::verifySequence(const BoardType &board){
+    bool result = false;
+    for(int i = 0; i < getRows(); i++){
+        if(verifyRight({i, 0}, board, 1)){
+            result = true;
+        }
+    }
+    for(int i = 0; i < getCols(); i++){
+        if(verifyDown({0, i}, board, 1)){
+            result = true;
+        }
+    }
 
-    if(symbol == 'E' || symbol == ' '){
+    if(verifyDownRight({0, 0}, board, 1)){
+        result = true;
+    }
+    if(verifyUpRight({2, 0}, board, 1)){
+        result = true;
+    }
+    return result;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+}
+
+bool TicTacToe::verifyRight(Coordinates coord, const BoardType &board, int counter){
+    if(counter == 3){
+        return true;
+    }
+    if(!isValidSquare({coord.row, coord.col+1})){
         return false;
     }
+    char currentSymbol = getSquare(coord, board);
+    char nextSymbol = getSquare({coord.row, coord.col+1}, board);
 
-    //verifyVertical
-    for(int i = 1; i < 3; i++){
-        if(getSquare(row+i, col, board) != symbol){
-            vertical = false;
-            break;
-        }
+    if(currentSymbol == ' ' || currentSymbol != nextSymbol){
+        return false;
     }
-    //verifyHorizontal
-    for(int i = 1; i < 3; i++){
-        if(getSquare(row, col+i, board) != symbol){
-            horizontal = false;
-            break;
-        }
-    }
-    //verifyDiagonals
-    for(int i = 1; i < 3; i++){
-        if(getSquare(row+i, col+i, board) != symbol){
-            downDiagonal = false;
-            break;
-        }
-    }
-    for(int i = 1; i < 3; i++){
-        if(getSquare(row-i, col+i, board) != symbol){
-            upDiagonal = false;
-            break;
-        }
-    }
+    return verifyRight({coord.row, coord.col+1}, board, counter + 1);
+}
 
-    return vertical || horizontal || downDiagonal || upDiagonal;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+bool TicTacToe::verifyDown(Coordinates coord, const BoardType &board, int counter){
+    if(counter == 3){
+        return true;
+    }
+    if(!isValidSquare({coord.row+1, coord.col})){
+        return false;
+    }
+    char currentSymbol = getSquare(coord, board);
+    char nextSymbol = getSquare({coord.row+1, coord.col}, board);
+
+    if(currentSymbol == ' ' || currentSymbol != nextSymbol){
+        return false;
+    }
+    return verifyRight({coord.row+1, coord.col}, board, counter+1);
+}
+
+bool TicTacToe::verifyDownRight(Coordinates coord, const BoardType &board, int counter){
+    if(counter == 3){
+        return true;
+    }
+    if(!isValidSquare({coord.row+1, coord.col+1})){
+        return false;
+    }
+    char currentSymbol = getSquare(coord, board);
+    char nextSymbol = getSquare({coord.row+1, coord.col+1}, board);
+
+    if(currentSymbol == ' ' || currentSymbol != nextSymbol){
+        return false;
+    }
+    return verifyRight({coord.row+1, coord.col+1}, board, counter+1);
+}
+
+bool TicTacToe::verifyUpRight(Coordinates coord, const BoardType &board, int counter){
+    if(counter == 3){
+        return true;
+    }
+    if(!isValidSquare({coord.row-1, coord.col+1})){
+        return false;
+    }
+    char currentSymbol = getSquare(coord, board);
+    char nextSymbol = getSquare({coord.row-1, coord.col+1}, board);
+
+    if(currentSymbol == ' ' || currentSymbol != nextSymbol){
+        return false;
+    }
+    return verifyRight({coord.row-1, coord.col+1}, board, counter+1);
 }
 
 Player* TicTacToe::checkWinner(const BoardType& board){
-    for(int row = 0; row < getRows(); row++){
-        if(verifySequence(row, 0, board)){
-            return getCurrentPlayer();
-        }
-    }
-
-    for(int col = 1; col < getCols(); col++){
-        if(verifySequence(0, col, board)){
-            return getCurrentPlayer();
-        }
+    if(verifySequence(board)){
+        Player* winner = whoseTurn(board) == 1 ? getPlayer1() : getPlayer2();
+        return winner;
     }
     return nullptr;
 }
