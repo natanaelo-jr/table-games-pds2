@@ -46,7 +46,7 @@ void Lig4::play(){
 Player* Lig4::checkWinner(const BoardType& board){
     for(int row = getRows()-1; row >= 0; row--){
         for(int col = 0; col < getCols(); col++){
-            if(verifySequence(row, col, board)){
+            if(verifySequence(board)){
                 return getCurrentPlayer();
             }
         }
@@ -57,16 +57,15 @@ Player* Lig4::checkWinner(const BoardType& board){
 bool Lig4::makePlay(int col){
     col--;
     for(int row = getRows()-1; row >= 0; row--){
-        if(getSquare(row, col, getBoard()) == ' '){
-            getCurrentPlayer() == getPlayer1() ? setSquare(row, col, 'X') : setSquare(row, col, 'O');
+        if(getSquare({row, col}, getBoard()) == ' '){
+            getCurrentPlayer() == getPlayer1() ? setSquare({row, col}, 'X') : setSquare({row, col}, 'O');
             return true;
         }else if(row == 0){
             std::cout << "Coluna Cheia!" << std::endl;
             return false;
         }
     }
-    std::cout << "Erro na jogada!" << std::endl;
-    return false;
+    return false;//todo: tratar excecao
 }
 
 void Lig4::addStats(Player* winner, Player* loser){
@@ -75,51 +74,106 @@ void Lig4::addStats(Player* winner, Player* loser){
     loser->increaseDefeats();
 }
 
-bool Lig4::verifySequence(int row, int col, const BoardType& board){
-    bool horizontal = true;
-    bool vertical = true;
-    bool upDiagonal = true;
-    bool downDiagonal = true;
-    char symbol = getSquare(row, col, board);
+bool Lig4::verifySequence(const BoardType& board){
+    for(int row = 0; row < getRows(); row++){
+        for(int col = 0; col < getCols(); col++){
+            if(col < getCols()-4){
+                if(verifyRight({row, col},board, 1)){
+                    return true;
+                }
+            }
+            if(row < getRows()-4){
+                if(verifyDown({row, col}, board, 1)){
+                    return true;
+                }
+            }
+            if(row < getRows()-4 && col < getCols()-4){
+                if(verifyDownRight({row, col}, board, 1)){
+                    return true;
+                }
+            }
+            if(row >= 3 && col < getCols()-4){
+                if(verifyUpRight({row, col}, board, 1)){
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
 
-    if(symbol == 'E' || symbol == ' '){
+bool Lig4::verifyRight(Coordinates c, const BoardType& board, int counter){
+    if(counter == 4){
+        return true;
+    }
+    if(!isValidSquare({c.getRow(), c.getCol()+1})){
+        return false;
+    }
+    char currentSymbol = getSquare(c, board);
+    char nextSymbol = getSquare({c.getRow(), c.getCol()+1}, board);
+
+    if(currentSymbol == ' ' || currentSymbol != nextSymbol){
+        return false;
+    }
+    
+    return verifyRight({c.getRow(), c.getCol()+1}, board, counter+1);
+}
+
+bool Lig4::verifyDown(Coordinates c, const BoardType& board, int counter){
+    if(counter == 4){
+        return true;
+    }
+    if(!isValidSquare({c.getRow()+1, c.getCol()})){
         return false;
     }
 
-    for(int i = 1; i < 4; i++){
-        if(getSquare(row+i, col, board) != symbol){
-            horizontal = false;
-            break;
-        }
-    }
+    char currentSymbol = getSquare(c, board);
+    char nextSymbol = getSquare({c.getRow()+1, c.getCol()}, board);
 
-    for(int i = 1; i < 4; i++){
-        if(getSquare(row, col+i, board) != symbol){
-            vertical = false;
-            break;
-        }
+    if(currentSymbol == ' ' || currentSymbol != nextSymbol){
+        return false;
     }
+    return verifyDown({c.getRow()+1, c.getCol()}, board, counter+1);
+}
 
-    for(int i = 1; i < 4; i++){
-        if(getSquare(row+i, col+i, board) != symbol){
-            downDiagonal = false;
-            break;
-        }
+bool Lig4::verifyDownRight(Coordinates c, const BoardType& board, int counter){
+    if(counter == 4){
+        return true;
     }
+    if(!isValidSquare({c.getRow()+1, c.getCol()+1})){
+        return false;
+    }
+    char currentSymbol = getSquare(c, board);
+    char nextSymbol = getSquare({c.getRow()+1, c.getCol()+1}, board);
 
-    for(int i = 1; i < 4; i++){
-        if(getSquare(row-i, col+i, board) != symbol){
-            upDiagonal = false;
-            break;
-        }
+    if(currentSymbol == ' ' || currentSymbol != nextSymbol){
+        return false;
     }
-    return horizontal || vertical || upDiagonal || downDiagonal;
+    
+    return verifyRight({c.getRow()+1, c.getCol()+1}, board, counter+1);
+}
+
+bool Lig4::verifyUpRight(Coordinates c, const BoardType& board, int counter){
+    if(counter == 4){
+        return true;
+    }
+    if(!isValidSquare({c.getRow()-1, c.getCol()+1})){
+        return false;
+    }
+    char currentSymbol = getSquare(c, board);
+    char nextSymbol = getSquare({c.getRow()-1, c.getCol()+1}, board);
+
+    if(currentSymbol == ' ' || currentSymbol != nextSymbol){
+        return false;
+    }
+    
+    return verifyRight({c.getRow()-1, c.getCol()+1}, board, counter+1);
 }
 
 std::vector<int> Lig4::possiblePlays(const BoardType& board){
     std::vector<int> plays;
     for(int col = 0; col < getCols(); col++){
-        if(getSquare(0, col, board) == ' '){
+        if(getSquare({0, col}, board) == ' '){
             plays.push_back(col);
         }
     }
@@ -136,10 +190,10 @@ int Lig4::whoseTurn(const BoardType& board){
 
     for(int row = 0; row < getRows(); row++){
         for(int col = 0; col < getCols(); col++){
-            if(getSquare(row, col, board) == 'X'){
+            if(getSquare({row, col}, board) == 'X'){
                 x++;
             }
-            else if(getSquare(row, col, board) == 'O'){
+            else if(getSquare({row, col}, board) == 'O'){
                 o++;
             }
         }
@@ -150,7 +204,7 @@ int Lig4::whoseTurn(const BoardType& board){
 BoardType Lig4::result(const BoardType& board, int play){
     BoardType newBoard = board;
     for(int row = getRows()-1; row >= 0; row--){
-        if(getSquare(row, play, board) == ' '){
+        if(getSquare({row, play}, board) == ' '){
             whoseTurn(board) == 1 ? newBoard[row][play] = 'X' : newBoard[row][play] = 'O';
             break;
         }

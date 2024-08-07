@@ -28,25 +28,28 @@ int Game::getCols(){
 }
 
 
-void Game::setSquare(int row, int col, char symbol){
-    board[row][col] = symbol;
+void Game::setSquare(Coordinates coord, char symbol){
+    board[coord.getRow()][coord.getCol()] = symbol;
 }
 
-
-
-char Game::getSquare(int row, int col, const BoardType& board){
-    if((row < rows && row >= 0) && (col < cols && col >= 0)){
-        return board[row][col];
+bool Game::isValidSquare(Coordinates move){
+    if(move.getRow() < 0 || move.getRow() >= rows || move.getCol() < 0 || move.getCol() >= cols){
+        return false;
     }
-    return 'E';
+    return true;
+}
+
+char Game::getSquare(Coordinates coord, const BoardType& board){
+    if(!isValidSquare(coord)){
+        throw std::invalid_argument("Invalid square");
+    }
+    return board[coord.getRow()][coord.getCol()];
 }
 
 void Game::printBoard(){
-    std::cout << player1->getNickname() << " X " << player2->getNickname() << std::endl;
-    std::cout << "Vez de " << currentPlayer->getNickname() << std::endl;
     for(int i = 0; i < rows; i++){
         for(int j = 0; j < cols; j++){
-            std::cout << "| " << getSquare(i, j, getBoard()) << " |"; 
+            std::cout << "| " << getSquare({i, j}, getBoard()) << " |"; 
         }
         std::cout << std::endl;
         std::cout << std::endl;

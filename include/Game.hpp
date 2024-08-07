@@ -6,19 +6,14 @@
 #include <vector>
 #include <string>
 #include "Player.hpp"
+#include "Coordinates.hpp"
 //#include <SFML/Graphics.hpp>
-
-class Coordinates {
-    public:
-        int row;
-        int col;
-};
 
 class Game{
     private:
         int cols;
         int rows;
-        std::vector<std::vector<char>> board;
+        BoardType board;
         Player* player1;
         Player* player2;
         Player* currentPlayer;
@@ -30,11 +25,12 @@ class Game{
         Game(Player* player1, Player* player2, int rows, int cols);
         virtual ~Game();
 
-        std::vector<std::vector<char>> getBoard();
+        BoardType getBoard();
         int getRows();
         int getCols();
-        void setSquare(int row, int col, char symbol);
-        char getSquare(int row, int col, const BoardType& board);
+        void setSquare(Coordinates coord, char symbol);
+        char getSquare(Coordinates coord, const BoardType& board);
+        bool isValidSquare(Coordinates move);
                 
         Player* getWaitingPlayer();
         Player* getCurrentPlayer();
