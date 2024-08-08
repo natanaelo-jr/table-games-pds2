@@ -1,4 +1,5 @@
 #include "Menu.hpp"
+#include "Sounds.hpp"
 #include <iostream>
 sf::Color backgroundColor = sf::Color::White;
 
@@ -69,6 +70,7 @@ void Menu::update(sf::RenderWindow &window){
 }
 
 void Menu::handleEvents(sf::RenderWindow &window){
+    Sounds effects;
     sf::Event event;
     while(window.pollEvent(event)){
         if(event.type == sf::Event::Closed){
@@ -78,17 +80,21 @@ void Menu::handleEvents(sf::RenderWindow &window){
             if(event.mouseButton.button == sf::Mouse::Left){
                 if(isMouseOver(playButton, window)){
                     std::cout << "Play button clicked" << std::endl;
-                }
+                    effects.play();                }
                 if(isMouseOver(manageButton, window)){
                     std::cout << "Manage button clicked" << std::endl;
+                    effects.soundClick();
                 }
                 if(isMouseOver(rankingButton, window)){
                     std::cout << "Ranking button clicked" << std::endl;
+                    effects.soundClick();
                 }
                 if(isMouseOver(creditsButton, window)){
                     std::cout << "Credits button clicked" << std::endl;
+                    effects.soundClick();
                 }
                 if(isMouseOver(exitButton, window)){
+                    effects.soundLost();
                     window.close();
                 }
             }
