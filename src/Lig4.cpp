@@ -77,22 +77,22 @@ void Lig4::addStats(Player* winner, Player* loser){
 bool Lig4::verifySequence(const BoardType& board){
     for(int row = 0; row < getRows(); row++){
         for(int col = 0; col < getCols(); col++){
-            if(col < getCols()-4){
+            if(col <= getCols()-4){
                 if(verifyRight({row, col},board, 1)){
                     return true;
                 }
             }
-            if(row < getRows()-4){
+            if(row <= getRows()-4){
                 if(verifyDown({row, col}, board, 1)){
                     return true;
                 }
             }
-            if(row < getRows()-4 && col < getCols()-4){
+            if(row <= getRows()-4 && col <= getCols()-4){
                 if(verifyDownRight({row, col}, board, 1)){
                     return true;
                 }
             }
-            if(row >= 3 && col < getCols()-4){
+            if(row >= 3 && col <= getCols()-4){
                 if(verifyUpRight({row, col}, board, 1)){
                     return true;
                 }
@@ -150,7 +150,7 @@ bool Lig4::verifyDownRight(Coordinates c, const BoardType& board, int counter){
         return false;
     }
     
-    return verifyRight({c.getRow()+1, c.getCol()+1}, board, counter+1);
+    return verifyDownRight({c.getRow()+1, c.getCol()+1}, board, counter+1);
 }
 
 bool Lig4::verifyUpRight(Coordinates c, const BoardType& board, int counter){
@@ -167,7 +167,7 @@ bool Lig4::verifyUpRight(Coordinates c, const BoardType& board, int counter){
         return false;
     }
     
-    return verifyRight({c.getRow()-1, c.getCol()+1}, board, counter+1);
+    return verifyUpRight({c.getRow()-1, c.getCol()+1}, board, counter+1);
 }
 
 std::vector<int> Lig4::possiblePlays(const BoardType& board){

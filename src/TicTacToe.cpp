@@ -128,7 +128,7 @@ bool TicTacToe::verifyDown(Coordinates coord, const BoardType &board, int counte
     if(currentSymbol == ' ' || currentSymbol != nextSymbol){
         return false;
     }
-    return verifyRight({coord.row+1, coord.col}, board, counter+1);
+    return verifyDown({coord.row+1, coord.col}, board, counter + 1);
 }
 
 bool TicTacToe::verifyDownRight(Coordinates coord, const BoardType &board, int counter){
@@ -144,7 +144,7 @@ bool TicTacToe::verifyDownRight(Coordinates coord, const BoardType &board, int c
     if(currentSymbol == ' ' || currentSymbol != nextSymbol){
         return false;
     }
-    return verifyRight({coord.row+1, coord.col+1}, board, counter+1);
+    return verifyDownRight({coord.row+1, coord.col+1}, board, counter+1);
 }
 
 bool TicTacToe::verifyUpRight(Coordinates coord, const BoardType &board, int counter){
@@ -160,7 +160,7 @@ bool TicTacToe::verifyUpRight(Coordinates coord, const BoardType &board, int cou
     if(currentSymbol == ' ' || currentSymbol != nextSymbol){
         return false;
     }
-    return verifyRight({coord.row-1, coord.col+1}, board, counter+1);
+    return verifyUpRight({coord.row-1, coord.col+1}, board, counter+1);
 }
 
 Player* TicTacToe::checkWinner(const BoardType& board){
