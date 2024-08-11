@@ -1,25 +1,26 @@
-#include "Menu.hpp"
+#include "MenuScreen.hpp"
 #include <iostream>
+#include "RankingScreen.hpp"
 sf::Color backgroundColor = sf::Color::White;
 
-void Menu::loadTextures(){
-    playButtonTexture.loadFromFile("assets/PlayButton.png");
-    hoverPlayButtonTexture.loadFromFile("assets/PlayButtonH.png");
+void MenuScreen::loadTextures(){
+    playButtonTexture.loadFromFile("assets/Menu/PlayButton.png");
+    hoverPlayButtonTexture.loadFromFile("assets/Menu/PlayButtonH.png");
 
-    manageButtonTexture.loadFromFile("assets/ManageButton.png");
-    hoverManageButtonTexture.loadFromFile("assets/ManageButtonH.png");
+    manageButtonTexture.loadFromFile("assets/Menu/ManageButton.png");
+    hoverManageButtonTexture.loadFromFile("assets/Menu/ManageButtonH.png");
 
-    rankingButtonTexture.loadFromFile("assets/RankingButton.png");
-    hoverRankingButtonTexture.loadFromFile("assets/RankingButtonH.png");
+    rankingButtonTexture.loadFromFile("assets/Menu/RankingButton.png");
+    hoverRankingButtonTexture.loadFromFile("assets/Menu/RankingButtonH.png");
 
-    creditsButtonTexture.loadFromFile("assets/CreditsButton.png");
-    hoverCreditsButtonTexture.loadFromFile("assets/CreditsButtonH.png");
+    creditsButtonTexture.loadFromFile("assets/Menu/CreditsButton.png");
+    hoverCreditsButtonTexture.loadFromFile("assets/Menu/CreditsButtonH.png");
 
-    exitButtonTexture.loadFromFile("assets/ExitButton.png");
-    hoverExitButtonTexture.loadFromFile("assets/ExitButtonH.png");
+    exitButtonTexture.loadFromFile("assets/Menu/ExitButton.png");
+    hoverExitButtonTexture.loadFromFile("assets/Menu/ExitButtonH.png");
 }
 
-Menu::Menu(){
+MenuScreen::MenuScreen(ScreenManager* screenManager, Players* players) : Screen(players, screenManager){
     loadTextures();
 
     playButton.setTexture(playButtonTexture);
@@ -38,7 +39,7 @@ Menu::Menu(){
     exitButton.setPosition(402, 415);
 }
 
-void Menu::render(sf::RenderWindow &window){
+void MenuScreen::render(sf::RenderWindow &window){
     window.clear(getBackgroundColor());
     window.draw(playButton);
     window.draw(manageButton);
@@ -48,19 +49,7 @@ void Menu::render(sf::RenderWindow &window){
     window.display();
 }
 
-
-bool Menu::isMouseOver(sf::Sprite& button, sf::RenderWindow &window){
-    sf::FloatRect buttonBounds = button.getGlobalBounds();
-    buttonBounds.width -=8;
-    buttonBounds.height -=8;
-    buttonBounds.left +=4;
-
-    sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
-    return buttonBounds.contains(mousePosition.x, mousePosition.y);
-}
-
-
-void Menu::update(sf::RenderWindow &window){
+void MenuScreen::update(sf::RenderWindow &window){
     isMouseOver(playButton, window) ? playButton.setTexture(hoverPlayButtonTexture) : playButton.setTexture(playButtonTexture);
     isMouseOver(manageButton, window) ? manageButton.setTexture(hoverManageButtonTexture) : manageButton.setTexture(manageButtonTexture);
     isMouseOver(rankingButton, window) ? rankingButton.setTexture(hoverRankingButtonTexture) : rankingButton.setTexture(rankingButtonTexture);
@@ -68,7 +57,7 @@ void Menu::update(sf::RenderWindow &window){
     isMouseOver(exitButton, window) ? exitButton.setTexture(hoverExitButtonTexture) : exitButton.setTexture(exitButtonTexture);
 }
 
-void Menu::handleEvents(sf::RenderWindow &window){
+void MenuScreen::handleEvents(sf::RenderWindow &window){
     sf::Event event;
     while(window.pollEvent(event)){
         if(event.type == sf::Event::Closed){
@@ -83,7 +72,7 @@ void Menu::handleEvents(sf::RenderWindow &window){
                     std::cout << "Manage button clicked" << std::endl;
                 }
                 if(isMouseOver(rankingButton, window)){
-                    std::cout << "Ranking button clicked" << std::endl;
+                    getScreenManager()->change(std::make_shared<RankingScreen>(getScreenManager(), getPlayers()));
                 }
                 if(isMouseOver(creditsButton, window)){
                     std::cout << "Credits button clicked" << std::endl;

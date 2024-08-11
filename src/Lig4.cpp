@@ -69,9 +69,9 @@ bool Lig4::makePlay(int col){
 }
 
 void Lig4::addStats(Player* winner, Player* loser){
-    winner->increaseVictories();
+    //winner->increaseVictories();
     std::cout << winner->getNickname() << " ganhou a partida!" << std::endl;
-    loser->increaseDefeats();
+    //loser->increaseDefeats();
 }
 
 bool Lig4::verifySequence(const BoardType& board){

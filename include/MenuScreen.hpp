@@ -2,11 +2,11 @@
 #define MENU_HPP
 #include "Screen.hpp"
 
-class Menu : public Screen{
+class MenuScreen : public Screen{
     public:
-        Menu();
-        void handleEvents(sf::RenderWindow &window);
-        void update(sf::RenderWindow &window);
+        MenuScreen(ScreenManager* screenManager, Players* players);
+        void handleEvents(sf::RenderWindow &window) override;
+        void update(sf::RenderWindow &window) override;
         void render(sf::RenderWindow &window) override;
         void loadTextures();
     
@@ -27,8 +27,6 @@ class Menu : public Screen{
         sf::Sprite creditsButton;
         sf::Sprite manageButton;
         sf::Sprite exitButton;
-        
-        bool isMouseOver(sf::Sprite& button, sf::RenderWindow &window);
-};
+        };
 
 #endif

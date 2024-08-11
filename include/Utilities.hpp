@@ -7,7 +7,6 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics/Texture.hpp>
-#include "Menu.hpp"
 #include <sstream>
 
 void printInstructions(){
