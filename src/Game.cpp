@@ -14,23 +14,9 @@ Game::Game(Player* player1, Player* player2, int cols, int rows){
     this->waitingPlayer = this->player2;
     this->cols = cols;
     this->rows = rows;
-
-    board = new char*[rows];
-    for(int i = 0; i < rows; i++){
-        board[i] = new char[cols];
-    }
-
-    for(int i = 0; i < rows; i++){
-        for(int j = 0; j < cols; j++)
-            board[i][j] = ' ';
-    }
+    board = std::vector<std::vector<char>>(rows, std::vector<char>(cols, ' '));
 }
-
 Game::~Game(){
-    for(int i = 0; i < rows; i++){
-        delete[] board[i];
-    }
-    delete board;
 }
 
 int Game::getRows(){
@@ -42,36 +28,28 @@ int Game::getCols(){
 }
 
 
-void Game::setSquare(int row, int col, char symbol){
-    board[row][col] = symbol;
+void Game::setSquare(Coordinates coord, char symbol){
+    board[coord.getRow()][coord.getCol()] = symbol;
 }
 
-
-
-char Game::getSquare(int row, int col){
-    if((row < rows && row >= 0) && (col < cols && col >= 0)){
-        return board[row][col];
-    }
-    return 'E';
-}
-
-bool Game::isFull(){
-    for(int row = 0; row < getRows(); row++){
-        for(int col = 0; col < getCols(); col++){
-            if(getSquare(row, col) == ' '){
-                return false;
-            }
-        }
+bool Game::isValidSquare(Coordinates move){
+    if(move.getRow() < 0 || move.getRow() >= rows || move.getCol() < 0 || move.getCol() >= cols){
+        return false;
     }
     return true;
 }
 
+char Game::getSquare(Coordinates coord, const BoardType& board){
+    if(!isValidSquare(coord)){
+        throw std::invalid_argument("Invalid square");
+    }
+    return board[coord.getRow()][coord.getCol()];
+}
+
 void Game::printBoard(){
-    std::cout << player1->getNickname() << " X " << player2->getNickname() << std::endl;
-    std::cout << "Vez de " << currentPlayer->getNickname() << std::endl;
     for(int i = 0; i < rows; i++){
         for(int j = 0; j < cols; j++){
-            std::cout << "| " << getSquare(i, j) << " |"; 
+            std::cout << "| " << getSquare({i, j}, getBoard()) << " |"; 
         }
         std::cout << std::endl;
         std::cout << std::endl;
@@ -105,4 +83,8 @@ Player* Game::getPlayer1(){
 
 Player* Game::getPlayer2(){
     return player2;
+}
+
+std::vector<std::vector<char>> Game::getBoard(){
+    return board;
 }

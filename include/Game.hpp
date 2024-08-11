@@ -1,16 +1,20 @@
 #ifndef GAME_HPP
 #define GAME_HPP
+#define BoardType std::vector<std::vector<char>>
+#define MINIMAX_DEPTH 8
 
+#include <vector>
 #include <string>
 #include <vector>
 #include "Player.hpp"
+#include "Coordinates.hpp"
 //#include <SFML/Graphics.hpp>
 
 class Game{
     private:
         int cols;
         int rows;
-        char** board;
+        BoardType board;
         Player* player1;
         Player* player2;
         Player* currentPlayer;
@@ -22,11 +26,13 @@ class Game{
         Game(Player* player1, Player* player2, int rows, int cols);
         virtual ~Game();
 
+        BoardType getBoard();
         int getRows();
         int getCols();
-        void setSquare(int row, int col, char symbol);
-        char getSquare(int row, int col);
-        bool isFull();
+        void setSquare(Coordinates coord, char symbol);
+        char getSquare(Coordinates coord, const BoardType& board);
+        bool isValidSquare(Coordinates move);
+                
         Player* getWaitingPlayer();
         Player* getCurrentPlayer();
         Player* getPlayer1();
