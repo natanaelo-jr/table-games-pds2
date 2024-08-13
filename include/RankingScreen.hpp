@@ -33,6 +33,9 @@ class RankingScreen : public Screen{
         sf::Texture JogadorTexture;
         sf::Sprite Jogador;
 
+        sf::Texture versusTexture;
+        sf::Sprite versus;
+
         sf::Text name;
         sf::Text nickname;
         sf::Text position;
@@ -51,6 +54,7 @@ class RankingScreen : public Screen{
         sf::Color red;
 
         sf::Font textFont;
+
 };
 
 #endif

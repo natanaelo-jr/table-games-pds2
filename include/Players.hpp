@@ -22,6 +22,7 @@ class Players{
         Players();
         Player* searchByNickname(std::string nickname);
         Player* search(std::string name, std::string nickname);
+        std::list<Player*> getPlayers();
         std::list<Player*> getPlayersByVictories();
         void signUpPlayer(std::string name, std::string nickname);
         void deletePlayer(std::string nickname);

@@ -1,6 +1,7 @@
 #include "MenuScreen.hpp"
-#include <iostream>
 #include "RankingScreen.hpp"
+#include "GameSelectionScreen.hpp"
+#include <iostream>
 sf::Color backgroundColor = sf::Color::White;
 
 void MenuScreen::loadTextures(){
@@ -66,7 +67,7 @@ void MenuScreen::handleEvents(sf::RenderWindow &window){
         if(event.type == sf::Event::MouseButtonPressed){
             if(event.mouseButton.button == sf::Mouse::Left){
                 if(isMouseOver(playButton, window)){
-                    std::cout << "Play button clicked" << std::endl;
+                    getScreenManager()->change(std::make_shared<GameSelectionScreen>(getScreenManager(), getPlayers()));
                 }
                 if(isMouseOver(manageButton, window)){
                     std::cout << "Manage button clicked" << std::endl;

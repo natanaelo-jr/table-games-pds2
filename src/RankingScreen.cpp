@@ -126,8 +126,8 @@ void RankingScreen::update(sf::RenderWindow &window){
     nickname.setString(playersList[currentPlayer]->getNickname());
     position.setString(std::to_string(currentPlayer + 1) + "o Lugar");
 
-    TicTacToeWins.setString(std::to_string(playersList[currentPlayer]->getTicTacToeDefeats()));
-    TicTacToeLosses.setString(std::to_string(playersList[currentPlayer]->getTicTacToeVictories()));
+    TicTacToeWins.setString(std::to_string(playersList[currentPlayer]->getTicTacToeVictories()));
+    TicTacToeLosses.setString(std::to_string(playersList[currentPlayer]->getTicTacToeDefeats()));
     Lig4Wins.setString(std::to_string(playersList[currentPlayer]->getLig4Victories()));
     Lig4Losses.setString(std::to_string(playersList[currentPlayer]->getLig4Defeats()));
     MineFieldWins.setString(std::to_string(playersList[currentPlayer]->getMinefieldVictories()));

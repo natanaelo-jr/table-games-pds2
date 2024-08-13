@@ -23,6 +23,14 @@ std::list<Player*> Players::getPlayersByVictories(){
     return playersByVictories;
 }
 
+std::list<Player*> Players::getPlayers(){
+    std::list<Player*> playersList;
+    for(auto player : players){
+        playersList.push_back(player);
+    }
+    return playersList;
+}
+
 Player* Players::searchByNickname(std::string nickname){
     for(auto player : players){
         if(player->getNickname() == nickname){
