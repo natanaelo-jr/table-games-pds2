@@ -26,14 +26,9 @@ void Screen::process(sf::RenderWindow &window){
     render(window);
 }
 
-bool Screen::isMouseOver(sf::Sprite& button, sf::RenderWindow &window){
-    sf::FloatRect buttonBounds = button.getGlobalBounds();
-    buttonBounds.width -=8;
-    buttonBounds.height -=8;
-    buttonBounds.left +=4;
-
+bool Screen::isMouseOver(const sf::FloatRect & bounds, const sf::RenderWindow &window){
     sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
-    return buttonBounds.contains(mousePosition.x, mousePosition.y);
+    return bounds.contains(mousePosition.x, mousePosition.y);
 }
 
 Players* Screen::getPlayers(){

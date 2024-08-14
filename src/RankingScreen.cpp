@@ -121,7 +121,7 @@ void RankingScreen::render(sf::RenderWindow &window){
 }
 
 void RankingScreen::update(sf::RenderWindow &window){
-    isMouseOver(backButton, window) ? backButton.setTexture(hoverBackButtonTexture) : backButton.setTexture(backButtonTexture);
+    isMouseOver(backButton.getGlobalBounds(), window) ? backButton.setTexture(hoverBackButtonTexture) : backButton.setTexture(backButtonTexture);
     name.setString(playersList[currentPlayer]->getName());
     nickname.setString(playersList[currentPlayer]->getNickname());
     position.setString(std::to_string(currentPlayer + 1) + "o Lugar");
@@ -145,10 +145,10 @@ void RankingScreen::handleEvents(sf::RenderWindow &window){
         }
         if(event.type == sf::Event::MouseButtonPressed){
             if(event.mouseButton.button == sf::Mouse::Left){
-                if(isMouseOver(backButton, window)){
+                if(isMouseOver(backButton.getGlobalBounds(), window)){
                     getScreenManager()->change(std::make_shared<MenuScreen>(getScreenManager(), getPlayers()));
                 }
-                if(isMouseOver(nextButton, window)){
+                if(isMouseOver(nextButton.getGlobalBounds(), window)){
                     if (currentPlayer < playersList.size() - 1){
                         currentPlayer++;
                     }
@@ -156,7 +156,7 @@ void RankingScreen::handleEvents(sf::RenderWindow &window){
                         currentPlayer = 0;
                     }
                 }
-                if(isMouseOver(previousButton, window)){
+                if(isMouseOver(previousButton.getGlobalBounds(), window)){
                     if(currentPlayer > 0){
                         currentPlayer--;
                     }

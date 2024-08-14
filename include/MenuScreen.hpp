@@ -27,6 +27,6 @@ class MenuScreen : public Screen{
         sf::Sprite creditsButton;
         sf::Sprite manageButton;
         sf::Sprite exitButton;
-        };
+};
 
 #endif

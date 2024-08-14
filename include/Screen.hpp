@@ -17,7 +17,7 @@ class Screen{
         void process(sf::RenderWindow &window);
         void setupWindow(sf::RenderWindow &window);
         sf::Color getBackgroundColor();
-        bool isMouseOver(sf::Sprite& button, sf::RenderWindow &window);
+        bool isMouseOver(const sf::FloatRect &bounds,const sf::RenderWindow &window);
         Players* getPlayers();
         ScreenManager* getScreenManager();
 

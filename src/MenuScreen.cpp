@@ -1,8 +1,8 @@
 #include "MenuScreen.hpp"
 #include "RankingScreen.hpp"
 #include "GameSelectionScreen.hpp"
+#include "ManageScreen.hpp"
 #include <iostream>
-sf::Color backgroundColor = sf::Color::White;
 
 void MenuScreen::loadTextures(){
     playButtonTexture.loadFromFile("assets/Menu/PlayButton.png");
@@ -51,11 +51,15 @@ void MenuScreen::render(sf::RenderWindow &window){
 }
 
 void MenuScreen::update(sf::RenderWindow &window){
-    isMouseOver(playButton, window) ? playButton.setTexture(hoverPlayButtonTexture) : playButton.setTexture(playButtonTexture);
-    isMouseOver(manageButton, window) ? manageButton.setTexture(hoverManageButtonTexture) : manageButton.setTexture(manageButtonTexture);
-    isMouseOver(rankingButton, window) ? rankingButton.setTexture(hoverRankingButtonTexture) : rankingButton.setTexture(rankingButtonTexture);
-    isMouseOver(creditsButton, window) ? creditsButton.setTexture(hoverCreditsButtonTexture) : creditsButton.setTexture(creditsButtonTexture);
-    isMouseOver(exitButton, window) ? exitButton.setTexture(hoverExitButtonTexture) : exitButton.setTexture(exitButtonTexture);
+    isMouseOver(playButton.getGlobalBounds(), window) && getPlayers()->getsize() > 0 ?
+        playButton.setTexture(hoverPlayButtonTexture) : playButton.setTexture(playButtonTexture);
+
+    isMouseOver(manageButton.getGlobalBounds(), window) ? manageButton.setTexture(hoverManageButtonTexture) : manageButton.setTexture(manageButtonTexture);
+    isMouseOver(rankingButton.getGlobalBounds(), window) && getPlayers()->getsize() > 0 ?
+        rankingButton.setTexture(hoverRankingButtonTexture) : rankingButton.setTexture(rankingButtonTexture);
+
+    isMouseOver(creditsButton.getGlobalBounds(), window) ? creditsButton.setTexture(hoverCreditsButtonTexture) : creditsButton.setTexture(creditsButtonTexture);
+    isMouseOver(exitButton.getGlobalBounds(), window) ? exitButton.setTexture(hoverExitButtonTexture) : exitButton.setTexture(exitButtonTexture);
 }
 
 void MenuScreen::handleEvents(sf::RenderWindow &window){
@@ -66,19 +70,23 @@ void MenuScreen::handleEvents(sf::RenderWindow &window){
         }
         if(event.type == sf::Event::MouseButtonPressed){
             if(event.mouseButton.button == sf::Mouse::Left){
-                if(isMouseOver(playButton, window)){
-                    getScreenManager()->change(std::make_shared<GameSelectionScreen>(getScreenManager(), getPlayers()));
+                if(isMouseOver(playButton.getGlobalBounds(), window)){
+                    if(getPlayers()->getsize() > 0){
+                        getScreenManager()->change(std::make_shared<GameSelectionScreen>(getScreenManager(), getPlayers()));
+                    }
                 }
-                if(isMouseOver(manageButton, window)){
-                    std::cout << "Manage button clicked" << std::endl;
+                if(isMouseOver(manageButton.getGlobalBounds(), window)){
+                    getScreenManager()->change(std::make_shared<ManageScreen>(getScreenManager(), getPlayers()));
                 }
-                if(isMouseOver(rankingButton, window)){
-                    getScreenManager()->change(std::make_shared<RankingScreen>(getScreenManager(), getPlayers()));
+                if(isMouseOver(rankingButton.getGlobalBounds(), window)){
+                    if(getPlayers()->getsize() > 0){
+                        getScreenManager()->change(std::make_shared<RankingScreen>(getScreenManager(), getPlayers()));
+                    }
                 }
-                if(isMouseOver(creditsButton, window)){
+                if(isMouseOver(creditsButton.getGlobalBounds(), window)){
                     std::cout << "Credits button clicked" << std::endl;
                 }
-                if(isMouseOver(exitButton, window)){
+                if(isMouseOver(exitButton.getGlobalBounds(), window)){
                     window.close();
                 }
             }

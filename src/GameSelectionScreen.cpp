@@ -104,38 +104,38 @@ void GameSelectionScreen::handleEvents(sf::RenderWindow &window){
         }
 
         if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left){
-            if(isMouseOver(ticTacToeButton, window)){
+            if(isMouseOver(ticTacToeButton.getGlobalBounds(), window)){
                 SelectedGame = "TicTacToe";
             }
-            if(isMouseOver(lig4Button, window)){
+            if(isMouseOver(lig4Button.getGlobalBounds(), window)){
                 SelectedGame = "Lig4";
             }
-            if(isMouseOver(mineFieldButton, window)){
+            if(isMouseOver(mineFieldButton.getGlobalBounds(), window)){
                 SelectedGame = "MineField";
                 player2Index = 0;
             }
-            if(isMouseOver(reversiButton, window)){
+            if(isMouseOver(reversiButton.getGlobalBounds(), window)){
                 SelectedGame = "Reversi";
             }
-            if(isMouseOver(startButton, window)){
+            if(isMouseOver(startButton.getGlobalBounds(), window)){
                 //todo: começar jogo selecionado com os devidos players
             }
-            if(isMouseOver(backButton, window)){
+            if(isMouseOver(backButton.getGlobalBounds(), window)){
                 getScreenManager()->change(std::make_shared<MenuScreen>(getScreenManager(), getPlayers()));
             }
-            if(isMouseOver(nextPlayer1, window)){
+            if(isMouseOver(nextPlayer1.getGlobalBounds(), window)){
                 player1Index == playerList.size() - 1 ? player1Index = 1 : player1Index++;
                 if(player1Index == player2Index){
                     player1Index == playerList.size() - 1 ? player1Index = 1 : player1Index++;
                 }
             }
-            if(isMouseOver(previousPlayer1, window)){
+            if(isMouseOver(previousPlayer1.getGlobalBounds(), window)){
                 player1Index == 1 ? player1Index = playerList.size() - 1 : player1Index--;
                 if(player1Index == player2Index){
                     player1Index == 1 ? player1Index = playerList.size() - 1 : player1Index--;
                 }
             }
-            if(isMouseOver(nextPlayer2, window)){
+            if(isMouseOver(nextPlayer2.getGlobalBounds(), window)){
                 if(SelectedGame != "MineField"){
                     player2Index == playerList.size() - 1 ? player2Index = 0 : player2Index++;
                     if(player2Index == player1Index){
@@ -143,7 +143,7 @@ void GameSelectionScreen::handleEvents(sf::RenderWindow &window){
                     }
                 }
             }
-            if(isMouseOver(previousPlayer2, window)){
+            if(isMouseOver(previousPlayer2.getGlobalBounds(), window)){
                     if(SelectedGame != "MineField"){
                     player2Index == 0 ? player2Index = playerList.size() - 1 : player2Index--;
                     if(player2Index == player1Index){
@@ -157,10 +157,10 @@ void GameSelectionScreen::handleEvents(sf::RenderWindow &window){
 
 void GameSelectionScreen::update(sf::RenderWindow &window){
     updateSelectedGame();
-    isMouseOver(startButton, window) ? 
+    isMouseOver(startButton.getGlobalBounds(), window) ? 
     startButton.setTexture(hoverStartButtonTexture) : startButton.setTexture(startButtonTexture);
 
-    isMouseOver(backButton, window) ?
+    isMouseOver(backButton.getGlobalBounds(), window) ?
     backButton.setTexture(hoverBackButtonTexture) : backButton.setTexture(backButtonTexture);
     updateTexts();
 
