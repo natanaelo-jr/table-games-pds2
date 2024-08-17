@@ -20,6 +20,10 @@ class Player{
         void setNickname(std::string nickname);
         void increaseVictories();
         void increaseDefeats();
+        void setVictories(int victories);
+        void setDefeats(int defeats);
+        int getVictories() const;
+        int getDefeats() const;
         
 };
 

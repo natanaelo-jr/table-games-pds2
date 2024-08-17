@@ -15,6 +15,8 @@ class Players{
 
     public:
         Players();
+        void loadFromDataFile();
+        void saveToDataFile();
         Player* searchByNickname(std::string nickname);
         Player* search(std::string name, std::string nickname);
         void signUpPlayer(std::string name, std::string nickname);

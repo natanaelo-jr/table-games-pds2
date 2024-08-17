@@ -38,3 +38,19 @@ void Player::increaseVictories(){
 void Player::increaseDefeats(){
     defeats++;
 }
+
+void Player::setVictories(int victories){
+    this->victories = victories;
+}
+
+void Player::setDefeats(int defeats){
+    this->defeats = defeats;
+}
+
+int Player::getVictories() const{
+    return victories;
+}
+
+int Player::getDefeats() const{
+    return defeats;
+}
