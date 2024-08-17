@@ -17,7 +17,6 @@ void TicTacToe::play(){
         }
         if(getCurrentPlayer()->getName() == "CPU"){
             currentPlay = bestPlay(getBoard());
-            std::cout << "Best Move is: " << currentPlay.row << " " << currentPlay.col << std::endl;
         }
         else{
             std::cout << "Vez de " << getCurrentPlayer()->getNickname() << std::endl;

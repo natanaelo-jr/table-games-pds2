@@ -2,6 +2,7 @@
 #include "RankingScreen.hpp"
 #include "GameSelectionScreen.hpp"
 #include "ManageScreen.hpp"
+#include "CreditsScreen.hpp"
 #include <iostream>
 
 void MenuScreen::loadTextures(){
@@ -84,7 +85,7 @@ void MenuScreen::handleEvents(sf::RenderWindow &window){
                     }
                 }
                 if(isMouseOver(creditsButton.getGlobalBounds(), window)){
-                    std::cout << "Credits button clicked" << std::endl;
+                        getScreenManager()->change(std::make_shared<CreditsScreen>(getScreenManager(), getPlayers()));
                 }
                 if(isMouseOver(exitButton.getGlobalBounds(), window)){
                     window.close();
