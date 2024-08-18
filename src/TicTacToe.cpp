@@ -72,8 +72,8 @@ void TicTacToe::addStats(Player* winner, Player* loser){
         std::cout << "Partidas contra o computador não contam para as estatísticas." << std::endl;
         return;
     }
-    //winner->increaseVictories();
-    //loser->increaseDefeats();
+    winner->winTicTacToe();
+    loser->loseTicTacToe();
 }
 
 bool TicTacToe::verifySequence(const BoardType &board){

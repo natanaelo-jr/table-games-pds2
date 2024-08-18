@@ -165,6 +165,7 @@ void MineField::play(){
             try{
                 if(!makePlay(move)){
                     std::cout << getCurrentPlayer()->getNickname() <<" perdeu!" << std::endl;
+                    player -> loseMineField();
                     break;
                 }
                 if(isGameOver()){
@@ -188,7 +189,7 @@ void MineField::play(){
             //todo addstatus
         }else{
             std::cout << "Vitória de " << (p1win ? getPlayer1()->getNickname() : getPlayer2()->getNickname()) << std::endl;
-            //todo addstatus
+            player -> winMineField();
         }
     }
 }
