@@ -1,8 +1,8 @@
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 // Tests for the Game class
 #include "Game.hpp"
 #include "TicTacToe.hpp"
 #include "Player.hpp"
-#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 
 TEST_CASE("Testando a classe Game"){
