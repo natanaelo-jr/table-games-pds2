@@ -280,3 +280,8 @@ int Lig4::bestPlay(const BoardType& board){
     bestPlay++;
     return bestPlay;
 }
+virtual void addStats(Player* player) override{
+    player->winLig4();
+    changePlayer(); 
+    player->loseLig4();
+}

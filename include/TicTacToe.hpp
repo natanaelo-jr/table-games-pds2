@@ -23,6 +23,7 @@ class TicTacToe: public Game{
         bool terminalState(const BoardType &board);
         int whoseTurn(const BoardType& board);
         BoardType result(const BoardType& board, Coordinates play);
+        virtual void addStats(Player* player) override;
         
         int minimax(const BoardType& board, int alpha, int beta, bool maximizing);
         Coordinates bestPlay(const BoardType& board);

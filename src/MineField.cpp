@@ -165,12 +165,15 @@ void MineField::play(){
             try{
                 if(!makePlay(move)){
                     std::cout << getCurrentPlayer()->getNickname() <<" perdeu!" << std::endl;
+                    player -> addStats();
                     break;
                 }
                 if(isGameOver()){
                     player == 1 ? p1win = true : p1win = false;
                     player == 2 ? p2win = true : p2win = false;
                     std::cout << getCurrentPlayer()->getNickname() << " ganhou!" << std::endl;
+                    changePlayer();
+                    player -> addStats();
                     break;
                 }         
             }catch(const std::exception& e){
@@ -240,4 +243,9 @@ void MineField::resetGame(){
             referenceField[i][j] = 0;
         }
     }
+}
+virtual void addStats(Player* player) override{
+    player -> loseMinefield();
+    changePlayer();
+    player -> winMinefield();
 }

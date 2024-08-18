@@ -24,6 +24,7 @@ class MineField : public Game{
         bool isVersusGame();
         bool isGameOver();
         void resetGame();
+        virtual void addStats(Player* player) override;
 };
 
 #endif

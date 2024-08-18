@@ -285,3 +285,8 @@ Coordinates TicTacToe::bestPlay(const BoardType& board){
     bestPlay.col++;
     return bestPlay;
 }
+virtual void addStats(Player* player) override{
+    player -> winTicTacToe();
+    changeplayer();
+    player -> loseTicTacToe();
+}
