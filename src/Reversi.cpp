@@ -134,9 +134,15 @@ std::vector<Coordinates> Reversi::getPossiblePlays(char symbol, const BoardType 
                     int dCol = directions[i][1];
 
                     Coordinates aux = searcherForPlay(row + dRow, col + dCol, dRow, dCol, symbol, opposite, false, board);
-                    if (aux.getRow() != -1 && aux.getCol() != -1) {
-                        validPlays.push_back(aux);
-                    }       
+                    
+                        for (auto play : validPlays) {
+                            if (play.getRow() == aux.getRow() && play.getCol() == aux.getCol()) {
+                                aux = {-1, -1};
+                            }
+                        }
+                        if (aux.getRow() != -1 && aux.getCol() != -1) {
+                            validPlays.push_back(aux);
+                        }       
                 }
             } 
         }
