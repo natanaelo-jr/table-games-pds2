@@ -15,6 +15,7 @@ class Lig4 : public Game{
         bool verifyDown(Coordinates c, const BoardType& board, int counter);
         bool verifyDownRight(Coordinates c, const BoardType& board, int counter);
         bool verifyUpRight(Coordinates c, const BoardType& board, int counter);
+        virtual void addStats(Player* player) override;
 
         virtual std::vector<int> possiblePlays(const BoardType& board);
         bool terminalState(const BoardType &board);
