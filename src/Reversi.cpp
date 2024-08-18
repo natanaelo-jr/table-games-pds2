@@ -1,6 +1,7 @@
 #include "Reversi.hpp"
 #include <iostream>
 #include <vector>
+#include <set>
 #include <iterator>
 
 Reversi::Reversi(Player* player1, Player* player2) : Game(player1, player2, 8, 8) {
@@ -14,19 +15,83 @@ void Reversi::initializeBoard() {
     setSquare({4, 4}, 'X');
 }
 
-void Reversi::play(){
-    /*Player* winner = nullptr;
+bool Reversi::makePlay(int row, int col) {
+    char symbol;
+    getCurrentPlayer() == getPlayer1() ? symbol = 'X' : symbol = 'O';
+
+    if (!verifyPlay(row, col, symbol))
+        return false;
+    
+
+    setSquare({row, col}, symbol);
+
+    int directions[8][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}, {-1, -1}, {1, 1}, {-1, 1}, {1, -1}};
+    for (int i = 0; i < 8; i++) {
+        int dRow = directions[i][0];
+        int dCol = directions[i][1];
+        turnPieces(row + dRow, dRow, col + dCol, dCol, symbol, true, getBoard());
+        
+        /*if (turnPieces(row + dRow, dRow, col + dCol, dCol, symbol, true, getBoard())) { //false
+            int flipRow = row + dRow;
+            int flipCol = col + dCol;
+            while (getSquare({flipRow, flipCol}, getBoard()) != symbol && getSquare({flipRow, flipCol}, getBoard()) != ' ') {
+                setSquare({flipRow, flipCol}, symbol);
+                flipRow += dRow;
+                flipCol += dCol;
+            }
+        }*/
+    }
+    return true;
+}
+
+
+void Reversi::play() {
+    int row; 
+    int col;
+    Player* winner = nullptr;
     printBoard();
     while(true){
-        if(getPossiblePlays('X', getBoard()).size() == 0){
-            winner = checkWinner();
-        break;
+        char symbol;
+        getCurrentPlayer() == getPlayer1() ? symbol = 'X' : symbol = 'O';
+        std::cout << "Vez de " << getCurrentPlayer()->getNickname() << std::endl;
+        if(getPossiblePlays(symbol, getBoard()).empty()){
+            std::cout << getCurrentPlayer()->getNickname() << " não possui jogadas" << std::endl;
+            changePlayer();
         }
-        
-        int row, col;
+        std::cout << "Digite a linha e a coluna da sua jogada: " << std::endl;
+        if(getCurrentPlayer() == getPlayer1()){
+            std::cout << "Jogadas Possíveis: " << std::endl;
+            for(auto play : getPossiblePlays('X' , getBoard())){
+                std::cout << play.getRow() << " " << play.getCol() << std::endl;
+            }
+        }else{
+            std::cout << "Jogadas Possíveis: " << std::endl;
+            for(auto play : getPossiblePlays('O' , getBoard())){
+                std::cout << play.getRow() << " " << play.getCol() << std::endl;
+            }
+        }
+
         std::cin >> row >> col;
-    }*/
+        
+    if(makePlay(row, col)){
+            winner = checkWinner();
+            if(terminalState(getBoard()) && winner != nullptr){
+                printBoard();
+                addStats(winner, getWaitingPlayer());
+                break;
+            }
+            else{
+                changePlayer();
+                printBoard();
+            }
+        }
+        else{
+            printBoard();
+        }
+    }
+
 }
+
 // passedOpponent inciar como false no primeira chamada
 Coordinates Reversi::searcherForPlay(int row, int col, int dRow, int dCol, char symbol, char opposite, bool passedOpponent, const BoardType &board) {
     if (row > 7 || row < 0 || col > 7 || col < 0)
@@ -78,6 +143,7 @@ std::vector<Coordinates> Reversi::getPossiblePlays(char symbol, const BoardType 
     } 
     return validPlays;
 }
+
 bool Reversi::verifyPlay(int row, int col, char symbol){
     std::vector<Coordinates> validPlays = getPossiblePlays(symbol, getBoard());
     if (validPlays.size() == 0) {
@@ -132,6 +198,9 @@ Player* Reversi::checkWinner(){
 }                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 
 bool Reversi::turnPieces(int row, int dRow, int col, int dCol, char symbol, bool isOriginalTile, const BoardType &board){
+    if(!isValidSquare({row, col})){
+        return false;
+    }
     if(getSquare({row, col}, board) == symbol && !isOriginalTile){
         return true;
     }
@@ -140,6 +209,19 @@ bool Reversi::turnPieces(int row, int dRow, int col, int dCol, char symbol, bool
     }
     if(turnPieces(row + dRow, dRow, col + dCol, dCol, symbol, false, board)){
         setSquare({row, col}, symbol);
+        return true;
+    }
+    return false;
+}
+
+void Reversi::addStats(Player* winner, Player* loser){
+    std::cout << winner->getNickname() << " ganhou a partida!" << std::endl;
+    winner->increaseVictories();
+    loser->increaseDefeats();
+}
+
+bool Reversi::terminalState(const BoardType &board){
+    if(getPossiblePlays('X', board).size() == 0 && getPossiblePlays('O', board).size() == 0){
         return true;
     }
     return false;

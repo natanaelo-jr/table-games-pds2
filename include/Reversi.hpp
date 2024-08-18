@@ -19,6 +19,7 @@ class Reversi : public Game{
         std::vector<Coordinates> getPossiblePlays(char symbol, const BoardType& board);
         bool verifyPlay(int row, int col, char symbol);
         bool turnPieces(int row, int dRow, int col, int dCol, char symbol, bool isOriginalTile ,const BoardType &board);
+        bool terminalState (const BoardType &board); 
 };
 
 #endif
