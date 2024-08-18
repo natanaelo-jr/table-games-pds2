@@ -37,3 +37,4 @@ obj/*.o
 bin/*
 obj/*
 .vscode/*
+Data.txt

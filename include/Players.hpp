@@ -20,6 +20,8 @@ class Players{
 
     public:
         Players();
+        void loadFromDataFile();
+        void saveToDataFile();
         Player* searchByNickname(std::string nickname);
         Player* search(std::string name, std::string nickname);
         std::list<Player*> getPlayers();
