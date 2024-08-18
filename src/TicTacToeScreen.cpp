@@ -14,7 +14,6 @@ Screen(players, screenManager){
     phantomPiece.setTexture(pieceXTexture);
     phantomPiece.setColor(sf::Color(255, 255, 255, 128));
 
-//
     finishGame = false;
     cardShape.setFillColor(sf::Color(204, 221, 211));
     cardShape.setSize(sf::Vector2f(500, 200));
@@ -66,6 +65,16 @@ void TicTacToeScreen::update(sf::RenderWindow &window){
         isMouseOver(cardButton1.getGlobalBounds(), window) ? cardButton1.setTexture(hoverPlayAgainTexture) : cardButton1.setTexture(playAgainTexture);
         isMouseOver(cardButton2.getGlobalBounds(), window) ? cardButton2.setTexture(hoverBackMenuTexture) : cardButton2.setTexture(backMenuTexture);
     }
+
+    if(game->getCurrentPlayer()->getName() == "CPU" && !finishGame){
+        Coordinates play = game->bestPlay(game->getBoard());
+        sf::FloatRect tile;
+        tile.left = screenOffset.x + (tileSize * (play.getCol() - 1));
+        tile.top = screenOffset.y + (tileSize * (play.getRow() - 1));
+        tile.width = tileSize;
+        tile.height = tileSize;
+        processPlay(tile);
+    }
 }
 void TicTacToeScreen::handleEvents(sf::RenderWindow &window){
     sf::Event event;
@@ -75,21 +84,19 @@ void TicTacToeScreen::handleEvents(sf::RenderWindow &window){
         }
         if(event.type == sf::Event::MouseButtonPressed){
             if(event.mouseButton.button == sf::Mouse::Left){
-                for(auto playTile: getPossiblePlays()){
-                    if(isMouseOver(playTile, window)){
-                        if(!game->terminalState(game->getBoard()) && 
-                        game->makePlay({getTileCoordinates(playTile).getRow() +1, getTileCoordinates(playTile).getCol() +1})
-                        ){
-                            processPlay(playTile);
-                        }
-                    }
-                }
                 if(finishGame){
                     if(isMouseOver(cardButton1.getGlobalBounds(), window)){
                         getScreenManager()->change(std::make_shared<TicTacToeScreen>(getScreenManager(), game->getPlayer1(), game->getPlayer2(), getPlayers()));
                     }
                     if(isMouseOver(cardButton2.getGlobalBounds(), window)){
                         getScreenManager()->change(std::make_shared<MenuScreen>(getScreenManager(), getPlayers()));
+                    }
+                }
+                for(auto playTile: getPossiblePlays()){
+                    if(isMouseOver(playTile, window)){
+                        if(!game->terminalState(game->getBoard())){
+                            processPlay(playTile);
+                        }
                     }
                 }
             }
@@ -127,8 +134,8 @@ void TicTacToeScreen::processPlay(sf::FloatRect &playTile){
         getTileCoordinates(playTile).getCol() * tileSize + screenOffset.x,
         getTileCoordinates(playTile).getRow() * tileSize + screenOffset.y
     );
-
     pieces.push_back(piece);
+    game->makePlay({getTileCoordinates(playTile).getRow() +1, getTileCoordinates(playTile).getCol() +1});
 
     if(game->terminalState(game->getBoard())){
         std::cout << "Terminal State" << std::endl;
@@ -144,9 +151,10 @@ void TicTacToeScreen::processPlay(sf::FloatRect &playTile){
             cardText.setOrigin(cardText.getLocalBounds().width / 2, 0);
             cardText.setPosition(416, 222);
         }
+    }else{
+        game->changePlayer();
+        game->printBoard();
     }
-    game->changePlayer();
-    game->printBoard();
 }
 
 void TicTacToeScreen::updatePhantomPiece(sf::RenderWindow &window){

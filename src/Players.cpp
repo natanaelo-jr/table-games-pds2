@@ -1,4 +1,6 @@
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include "Players.hpp"
 
 Players::Players(){
@@ -84,4 +86,37 @@ bool CompareByVictories::operator()(const Player* p1,const Player* p2) const{
 
 int Players::getsize(){
     return players.size();
+}
+
+void Players::loadFromDataFile(){
+    std::ifstream file("Data.txt", std::ios::in | std::ios::binary);
+    if(file.is_open()){
+        std::string line;
+        std::stringstream linestream;
+
+        while(getline(file, line)){
+            std::stringstream linestream;
+            linestream << line;
+            std::string name, nickname;
+            linestream >> name >> nickname;
+            Player* player = new Player(name, nickname);
+            int victories, defeats;
+            linestream >> victories >> defeats;
+            players.insert(player);
+        }
+        file.close();
+    }
+}
+
+void Players::saveToDataFile(){
+    std::ofstream file("Data.txt", std::ios::out | std::ios::binary);
+    if(file.is_open()){
+        for(auto player : players){
+            file << player->getName() << " " << player->getNickname() << " " << player->getVictories() << " " << player->getDefeats();
+            if(player != *players.rbegin()){
+                file << std::endl;
+            }
+        }
+        file.close();
+    }
 }

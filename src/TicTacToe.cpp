@@ -164,7 +164,7 @@ bool TicTacToe::verifyUpRight(Coordinates coord, const BoardType &board, int cou
 
 Player* TicTacToe::checkWinner(const BoardType& board){
     if(verifySequence(board)){
-        Player* winner = whoseTurn(board) == 1 ? getPlayer1() : getPlayer2();
+        Player* winner = whoseTurn(board) == 2 ? getPlayer1() : getPlayer2();
         return winner;
     }
     return nullptr;

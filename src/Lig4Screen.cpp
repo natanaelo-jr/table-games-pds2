@@ -96,6 +96,15 @@ void Lig4Screen::update(sf::RenderWindow &window){
         isMouseOver(cardButton1.getGlobalBounds(), window) ? cardButton1.setTexture(hoverPlayAgainTexture) : cardButton1.setTexture(playAgainTexture);
         isMouseOver(cardButton2.getGlobalBounds(), window) ? cardButton2.setTexture(hoverBackMenuTexture) : cardButton2.setTexture(backMenuTexture);
     }
+    if(game->getCurrentPlayer()->getName() == "CPU" && !finishGame){
+        int move = game->bestPlay(game->getBoard());
+        sf::FloatRect tile;
+        tile.left = screenOffset.x + (tileSize * move);
+        tile.top = screenOffset.y;
+        tile.width = tileSize;
+        tile.height = game->getRows() * tileSize;
+        processPlay(tile);
+    }
 }
 
 void Lig4Screen::handleEvents(sf::RenderWindow &window){
@@ -106,19 +115,19 @@ void Lig4Screen::handleEvents(sf::RenderWindow &window){
         }
         if(event.type == sf::Event::MouseButtonPressed){
             if(event.mouseButton.button == sf::Mouse::Left){
-                for(auto playTile: getPossiblePlays()){
-                    if(isMouseOver(playTile, window)){
-                        if(!game->terminalState(game->getBoard())){
-                            processPlay(playTile);
-                        }
-                    }
-                }
                 if(finishGame){
                     if(isMouseOver(cardButton1.getGlobalBounds(), window)){
                         getScreenManager()->change(std::make_shared<Lig4Screen>(getScreenManager(), game->getPlayer1(), game->getPlayer2(), getPlayers()));
                     }
                     if(isMouseOver(cardButton2.getGlobalBounds(), window)){
                         getScreenManager()->change(std::make_shared<MenuScreen>(getScreenManager(), getPlayers()));
+                    }
+                }
+                for(auto playTile: getPossiblePlays()){
+                    if(isMouseOver(playTile, window)){
+                        if(!game->terminalState(game->getBoard())){
+                            processPlay(playTile);
+                        }
                     }
                 }
             }
@@ -175,9 +184,10 @@ void Lig4Screen::processPlay(sf::FloatRect &playTile){
             cardText.setPosition(416, 222);
         }
     
+    }else{
+        game->printBoard();
+        game->changePlayer();
     }
-    game->printBoard();
-    game->changePlayer();
 }
 
 void Lig4Screen::updatePhantomPiece(sf::RenderWindow &window){

@@ -2,6 +2,7 @@
 #include "MenuScreen.hpp"
 #include "TicTacToeScreen.hpp"
 #include "Lig4Screen.hpp"
+#include <iostream>
 
 GameSelectionScreen::GameSelectionScreen(ScreenManager* screenManager, Players* players) : Screen(players, screenManager){
     loadTextures();
@@ -121,10 +122,11 @@ void GameSelectionScreen::handleEvents(sf::RenderWindow &window){
             }
             if(isMouseOver(startButton.getGlobalBounds(), window)){
                 if(selectedGame.getString() == "TicTacToe"){
+                    std::cout << playerList[player1Index]->getNickname() << " vs " << playerList[player2Index]->getNickname() << std::endl;
                     getScreenManager()->change(std::make_shared<TicTacToeScreen>(
-                        getScreenManager(), 
-                        getPlayers()->searchByNickname(player1.getString()),
-                        getPlayers()->searchByNickname(player2.getString()),
+                        getScreenManager(),
+                        playerList[player1Index],
+                        playerList[player2Index],
                         getPlayers()
                     ));
                 }
@@ -134,8 +136,8 @@ void GameSelectionScreen::handleEvents(sf::RenderWindow &window){
                 if(selectedGame.getString() == "Lig4"){
                     getScreenManager()->change(std::make_shared<Lig4Screen>(
                         getScreenManager(), 
-                        getPlayers()->searchByNickname(player1.getString()),
-                        getPlayers()->searchByNickname(player2.getString()),
+                        playerList[player1Index],
+                        playerList[player2Index],
                         getPlayers()
                     ));
                 }
