@@ -1,15 +1,22 @@
+#include <SFML/Graphics.hpp>
+#include "MenuScreen.hpp"
+#include "RankingScreen.hpp"
+#include "GameSelectionScreen.hpp"
+#include "TicTacToeScreen.hpp"
+#include "Lig4Screen.hpp"
 #include <iostream>
-#include <string>
-#include <set>
-#include "Players.hpp"
-#include "TicTacToe.hpp"
-#include "Lig4.hpp"
-#include "MineField.hpp"
+#include "Utilities.hpp"
 
-int main(){
+int main(){  
+    Players* players = new Players();
+    ScreenManager* screenManager = new ScreenManager();
+    screenManager->push(std::make_shared<MenuScreen>(screenManager, players));
 
-    Game* game = new Lig4(new Player("p1","p1"), new Player(Player("p2","p2")));
-    game->play();
-    delete game;
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Board Games PDS2");
+    screenManager->setupWindow(window);
+
+    while (window.isOpen()) {
+        screenManager->getCurrentState()->process(window);
+    }
     return 0;
 }

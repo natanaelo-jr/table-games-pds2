@@ -17,7 +17,6 @@ void TicTacToe::play(){
         }
         if(getCurrentPlayer()->getName() == "CPU"){
             currentPlay = bestPlay(getBoard());
-            std::cout << "Best Move is: " << currentPlay.row << " " << currentPlay.col << std::endl;
         }
         else{
             std::cout << "Vez de " << getCurrentPlayer()->getNickname() << std::endl;
@@ -73,8 +72,8 @@ void TicTacToe::addStats(Player* winner, Player* loser){
         std::cout << "Partidas contra o computador não contam para as estatísticas." << std::endl;
         return;
     }
-    winner->increaseVictories();
-    loser->increaseDefeats();
+    //winner->increaseVictories();
+    //loser->increaseDefeats();
 }
 
 bool TicTacToe::verifySequence(const BoardType &board){
@@ -165,7 +164,7 @@ bool TicTacToe::verifyUpRight(Coordinates coord, const BoardType &board, int cou
 
 Player* TicTacToe::checkWinner(const BoardType& board){
     if(verifySequence(board)){
-        Player* winner = whoseTurn(board) == 1 ? getPlayer1() : getPlayer2();
+        Player* winner = whoseTurn(board) == 2 ? getPlayer1() : getPlayer2();
         return winner;
     }
     return nullptr;

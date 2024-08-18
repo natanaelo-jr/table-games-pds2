@@ -18,7 +18,6 @@ void Lig4::play(){
         //todo: Refatorar a funcao [melhorar if else] (igual tictactoe)
         if(getCurrentPlayer()->getName() == "CPU"){
             play = bestPlay(getBoard());
-            std::cout << "Best Move is: " << play << std::endl;
         }
         else{
             std::cout << "Vez de " << getCurrentPlayer()->getNickname() << std::endl;
@@ -69,9 +68,9 @@ bool Lig4::makePlay(int col){
 }
 
 void Lig4::addStats(Player* winner, Player* loser){
-    winner->increaseVictories();
+    //winner->increaseVictories();
     std::cout << winner->getNickname() << " ganhou a partida!" << std::endl;
-    loser->increaseDefeats();
+    //loser->increaseDefeats();
 }
 
 bool Lig4::verifySequence(const BoardType& board){

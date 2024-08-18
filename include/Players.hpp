@@ -3,9 +3,14 @@
 
 #include <string>
 #include <set>
+#include <list>
 #include "Player.hpp"
 
 struct ComparePlayer{
+    bool operator()(const Player* player1,const Player* player2) const;
+};
+
+struct CompareByVictories{
     bool operator()(const Player* player1,const Player* player2) const;
 };
 
@@ -19,6 +24,8 @@ class Players{
         void saveToDataFile();
         Player* searchByNickname(std::string nickname);
         Player* search(std::string name, std::string nickname);
+        std::list<Player*> getPlayers();
+        std::list<Player*> getPlayersByVictories();
         void signUpPlayer(std::string name, std::string nickname);
         void deletePlayer(std::string nickname);
         void displayPlayers();

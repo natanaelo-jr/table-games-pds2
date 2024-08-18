@@ -1,10 +1,11 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 #define BoardType std::vector<std::vector<char>>
-#define MINIMAX_DEPTH 8
+#define MINIMAX_DEPTH 5
 
 #include <vector>
 #include <string>
+#include <vector>
 #include "Player.hpp"
 #include "Coordinates.hpp"
 //#include <SFML/Graphics.hpp>
