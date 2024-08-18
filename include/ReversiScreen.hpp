@@ -1,28 +1,36 @@
-#ifndef TICTACTOESCREEN_HPP
-#define TICTACTOESCREEN_HPP
+#ifndef REVERSISCREEN_HPP
+#define REVERSISCREEN_HPP
 #include "Screen.hpp"
-#include "TicTacToe.hpp"
+#include "Reversi.hpp"
 
-class TicTacToeScreen : public Screen{
+class ReversiScreen : public Screen{
     public:
-        TicTacToeScreen(ScreenManager* screenManager, Player* player1, Player* player2, Players* players);
+        ReversiScreen(ScreenManager* screenManager, Player* player1, Player* player2, Players* players);
         void handleEvents(sf::RenderWindow &window) override;
         void update(sf::RenderWindow &window) override;
         void render(sf::RenderWindow &window) override;
+
         void updatePhantomPiece(sf::RenderWindow &window);
         void loadTextures();
         Coordinates getTileCoordinates(sf::FloatRect &tile);
         std::vector<sf::FloatRect> getPossiblePlays();
         void processPlay(sf::FloatRect &playTile);
 
+
     private:
         float tileSize;
-        TicTacToe* game;
+        Reversi* game;
         sf::Vector2f screenOffset;
-        sf::Texture pieceOTexture;
-        sf::Texture pieceXTexture;
+        sf::Texture pieceBTexture;
+        sf::Texture pieceWTexture;
         sf::Texture boardTexture;
         sf::Sprite phantomPiece;
+        sf::Font font;
+
+        sf::Text player1Nick;
+        sf::Text player2Nick;
+        sf::Sprite player1Piece;
+        sf::Sprite player2Piece;
 
         std::vector<sf::Sprite> pieces;
         sf::Sprite board;
@@ -31,8 +39,6 @@ class TicTacToeScreen : public Screen{
         sf::Sprite cardButton1;
         sf::Sprite cardButton2;
         sf::Text cardText;
-
-        bool finishGame;
         
 };
 

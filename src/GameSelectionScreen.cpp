@@ -1,5 +1,7 @@
 #include "GameSelectionScreen.hpp"
 #include "MenuScreen.hpp"
+#include "TicTacToeScreen.hpp"
+#include "Lig4Screen.hpp"
 
 GameSelectionScreen::GameSelectionScreen(ScreenManager* screenManager, Players* players) : Screen(players, screenManager){
     loadTextures();
@@ -118,7 +120,28 @@ void GameSelectionScreen::handleEvents(sf::RenderWindow &window){
                 SelectedGame = "Reversi";
             }
             if(isMouseOver(startButton.getGlobalBounds(), window)){
-                //todo: começar jogo selecionado com os devidos players
+                if(selectedGame.getString() == "TicTacToe"){
+                    getScreenManager()->change(std::make_shared<TicTacToeScreen>(
+                        getScreenManager(), 
+                        getPlayers()->searchByNickname(player1.getString()),
+                        getPlayers()->searchByNickname(player2.getString()),
+                        getPlayers()
+                    ));
+                }
+                if(selectedGame.getString() == "Reversi"){
+
+                }
+                if(selectedGame.getString() == "Lig4"){
+                    getScreenManager()->change(std::make_shared<Lig4Screen>(
+                        getScreenManager(), 
+                        getPlayers()->searchByNickname(player1.getString()),
+                        getPlayers()->searchByNickname(player2.getString()),
+                        getPlayers()
+                    ));
+                }
+                if(selectedGame.getString() == "Minefield"){
+
+                }
             }
             if(isMouseOver(backButton.getGlobalBounds(), window)){
                 getScreenManager()->change(std::make_shared<MenuScreen>(getScreenManager(), getPlayers()));

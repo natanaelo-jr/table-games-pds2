@@ -1,8 +1,8 @@
-#include "TicTacToeScreen.hpp"
+/*#include "MineFieldScreen.hpp"
 #include "MenuScreen.hpp"
 #include <iostream>
 
-TicTacToeScreen::TicTacToeScreen(ScreenManager* screenManager, Player* player1, Player* player2, Players* players):
+MineFieldScreen::TicTacToeScreen(ScreenManager* screenManager, Player* player1, Player* player2, Players* players):
 Screen(players, screenManager){
     tileSize = 100.0f;
     screenOffset = sf::Vector2f(250.0f, 150.0f);
@@ -129,6 +129,7 @@ void TicTacToeScreen::processPlay(sf::FloatRect &playTile){
     );
 
     pieces.push_back(piece);
+    game->changePlayer();
 
     if(game->terminalState(game->getBoard())){
         std::cout << "Terminal State" << std::endl;
@@ -145,7 +146,6 @@ void TicTacToeScreen::processPlay(sf::FloatRect &playTile){
             cardText.setPosition(416, 222);
         }
     }
-    game->changePlayer();
     game->printBoard();
 }
 
@@ -162,4 +162,4 @@ void TicTacToeScreen::updatePhantomPiece(sf::RenderWindow &window){
             phantomPiece.setColor(sf::Color(255, 255, 255, 128));
         }
     }
-}
+}*/

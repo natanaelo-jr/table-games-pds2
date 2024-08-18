@@ -18,7 +18,6 @@ void Lig4::play(){
         //todo: Refatorar a funcao [melhorar if else] (igual tictactoe)
         if(getCurrentPlayer()->getName() == "CPU"){
             play = bestPlay(getBoard());
-            std::cout << "Best Move is: " << play << std::endl;
         }
         else{
             std::cout << "Vez de " << getCurrentPlayer()->getNickname() << std::endl;
