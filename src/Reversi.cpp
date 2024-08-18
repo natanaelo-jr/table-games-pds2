@@ -222,8 +222,8 @@ bool Reversi::turnPieces(int row, int dRow, int col, int dCol, char symbol, bool
 
 void Reversi::addStats(Player* winner, Player* loser){
     std::cout << winner->getNickname() << " ganhou a partida!" << std::endl;
-    winner->increaseVictories();
-    loser->increaseDefeats();
+    winner->winReversi();
+    loser->loseReversi();
 }
 
 bool Reversi::terminalState(const BoardType &board){

@@ -102,8 +102,8 @@ void Players::loadFromDataFile(){
             Player* player = new Player(name, nickname);
             int victories, defeats;
             linestream >> victories >> defeats;
-            player->setVictories(victories);
-            player->setDefeats(defeats);
+           // player->setVictories(victories);
+           // player->setDefeats(defeats);
             players.insert(player);
         }
         file.close();
