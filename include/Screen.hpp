@@ -16,11 +16,16 @@ class Screen{
         virtual void loadTextures() = 0;
         void process(sf::RenderWindow &window);
         void setupWindow(sf::RenderWindow &window);
+        void drawCard();
         sf::Color getBackgroundColor();
         bool isMouseOver(const sf::FloatRect &bounds,const sf::RenderWindow &window);
         Players* getPlayers();
         ScreenManager* getScreenManager();
-
+        sf::Texture backMenuTexture;
+        sf::Texture hoverBackMenuTexture;
+        sf::Texture playAgainTexture;
+        sf::Texture hoverPlayAgainTexture;
+        sf::Font cardFont;
 
     private:
         sf::Color backgroundColor;

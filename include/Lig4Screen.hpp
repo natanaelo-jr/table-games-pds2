@@ -16,6 +16,7 @@ class Lig4Screen : public Screen{
         std::vector<sf::FloatRect> getPossiblePlays();
         void processPlay(sf::FloatRect &playTile);
 
+
     private:
         float tileSize;
         Lig4* game;
@@ -33,7 +34,13 @@ class Lig4Screen : public Screen{
 
         std::vector<sf::Sprite> pieces;
         sf::Sprite board;
-        
+
+        sf::RectangleShape cardShape;
+        sf::Sprite cardButton1;
+        sf::Sprite cardButton2;
+        sf::Text cardText;
+
+        bool finishGame;
 };
 
 #endif

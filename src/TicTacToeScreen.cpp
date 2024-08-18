@@ -1,4 +1,5 @@
 #include "TicTacToeScreen.hpp"
+#include "MenuScreen.hpp"
 #include <iostream>
 
 TicTacToeScreen::TicTacToeScreen(ScreenManager* screenManager, Player* player1, Player* player2, Players* players):
@@ -6,13 +7,27 @@ Screen(players, screenManager){
     tileSize = 100.0f;
     screenOffset = sf::Vector2f(250.0f, 150.0f);
     game = new TicTacToe(player1, player2);
-
-    
     loadTextures();
+
     board.setTexture(boardTexture);
     board.setPosition(250, 150);
     phantomPiece.setTexture(pieceXTexture);
     phantomPiece.setColor(sf::Color(255, 255, 255, 128));
+
+//
+    finishGame = false;
+    cardShape.setFillColor(sf::Color(204, 221, 211));
+    cardShape.setSize(sf::Vector2f(500, 200));
+    cardShape.setPosition(166, 204);
+
+    cardText.setFont(cardFont);
+    cardText.setCharacterSize(40);
+    cardText.setFillColor(sf::Color(22, 69, 54));
+
+    cardButton1.setTexture(playAgainTexture);
+    cardButton1.setPosition(296, 290);
+    cardButton2.setTexture(backMenuTexture);
+    cardButton2.setPosition(296, 337);
 }
 
 void TicTacToeScreen::loadTextures(){
@@ -28,6 +43,13 @@ void TicTacToeScreen::render(sf::RenderWindow &window){
     for(auto piece: pieces){
         window.draw(piece);
     }
+    if(finishGame){
+        window.draw(cardShape);
+        window.draw(cardButton1);
+        window.draw(cardButton2);
+        window.draw(cardText);
+    }
+
     window.display();
 }
 
@@ -39,7 +61,11 @@ void TicTacToeScreen::update(sf::RenderWindow &window){
     }else{
         phantomPiece.setColor(sf::Color(255, 255, 255, 0));
     }
-    
+
+    if(finishGame){
+        isMouseOver(cardButton1.getGlobalBounds(), window) ? cardButton1.setTexture(hoverPlayAgainTexture) : cardButton1.setTexture(playAgainTexture);
+        isMouseOver(cardButton2.getGlobalBounds(), window) ? cardButton2.setTexture(hoverBackMenuTexture) : cardButton2.setTexture(backMenuTexture);
+    }
 }
 void TicTacToeScreen::handleEvents(sf::RenderWindow &window){
     sf::Event event;
@@ -56,6 +82,14 @@ void TicTacToeScreen::handleEvents(sf::RenderWindow &window){
                         ){
                             processPlay(playTile);
                         }
+                    }
+                }
+                if(finishGame){
+                    if(isMouseOver(cardButton1.getGlobalBounds(), window)){
+                        getScreenManager()->change(std::make_shared<TicTacToeScreen>(getScreenManager(), game->getPlayer1(), game->getPlayer2(), getPlayers()));
+                    }
+                    if(isMouseOver(cardButton2.getGlobalBounds(), window)){
+                        getScreenManager()->change(std::make_shared<MenuScreen>(getScreenManager(), getPlayers()));
                     }
                 }
             }
@@ -95,13 +129,23 @@ void TicTacToeScreen::processPlay(sf::FloatRect &playTile){
     );
 
     pieces.push_back(piece);
-    game->changePlayer();
 
     if(game->terminalState(game->getBoard())){
         std::cout << "Terminal State" << std::endl;
-        if(game->checkWinner(game->getBoard()) != nullptr){
+        finishGame = true;
+        Player* winner;
+        winner = game->checkWinner(game->getBoard());
+        if(winner != nullptr){
+            cardText.setString(game->checkWinner(game->getBoard())->getNickname() + " Ganhou!");
+            cardText.setOrigin(cardText.getLocalBounds().width / 2, 0);
+            cardText.setPosition(416, 222);
+        }else{
+            cardText.setString("Empate!");
+            cardText.setOrigin(cardText.getLocalBounds().width / 2, 0);
+            cardText.setPosition(416, 222);
         }
     }
+    game->changePlayer();
     game->printBoard();
 }
 

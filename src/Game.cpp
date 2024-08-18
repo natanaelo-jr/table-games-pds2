@@ -15,7 +15,11 @@ Game::Game(Player* player1, Player* player2, int cols, int rows){
     this->cols = cols;
     this->rows = rows;
     board = std::vector<std::vector<char>>(rows, std::vector<char>(cols, ' '));
+    
+
+
 }
+
 Game::~Game(){
 }
 
