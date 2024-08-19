@@ -32,6 +32,7 @@ class Game{
          * @brief Construtor padrão da classe Game
          */
         Game();
+      
         /**
          * @brief Construtor da classe Game
          * 
@@ -39,6 +40,7 @@ class Game{
          * @param player2 Ponteiro para o jogador 2
          */
         Game(Player* player1, Player* player2);
+      
         /**
          * @brief Construtor da classe Game
          * 
@@ -48,6 +50,7 @@ class Game{
          * @param cols Número de colunas do tabuleiro
          */
         Game(Player* player1, Player* player2, int rows, int cols);
+      
         /**
          * @brief Destrutor da classe Game
          */
@@ -63,6 +66,7 @@ class Game{
         BoardType getBoard();
         int getRows();
         int getCols();
+      
         /**
          * @brief Métodos setters para os atributos da classe Game
          * 
@@ -86,12 +90,14 @@ class Game{
          * @return Ponteiro para o jogador que está esperando a jogada
          */        
         Player* getWaitingPlayer();
+
         /**
          * @brief Retorna o jogador atual
          * 
          * @return Ponteiro para o jogador atual
          */
         Player* getCurrentPlayer();
+        
         /**
          * @brief Ponteiro para os jogadores
          * 
@@ -105,6 +111,7 @@ class Game{
          * @brief Imprime o tabuleiro do jogo
          */
         void printBoard();
+        
         /**
          * @brief Troca o jogador atual com o jogador que está esperando a jogada
          * 
@@ -113,7 +120,7 @@ class Game{
          */
         void changePlayer();
 
-        
+
         virtual void play() = 0;
 };
 
