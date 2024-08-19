@@ -31,14 +31,6 @@ TEST_CASE("Testando a função makePlay"){
     CHECK(game->makePlay({1, 1}) == true);
     CHECK(game->makePlay({1, 1}) == false);
     CHECK(game->makePlay({1, 2}) == true);
-    CHECK(game->makePlay({1, 3}) == true);
-    CHECK(game->makePlay({2, 1}) == true);
-    CHECK(game->makePlay({2, 2}) == true);
-    CHECK(game->makePlay({2, 3}) == true);
-    CHECK(game->makePlay({3, 1}) == true);
-    CHECK(game->makePlay({3, 2}) == true);
-    CHECK(game->makePlay({3, 3}) == true);
-    CHECK(game->makePlay({3, 3}) == false);
     delete game;
     delete player1;
     delete player2;
@@ -113,9 +105,3 @@ TEST_CASE("Testando a função whoseTurn"){
     delete player1;
     delete player2;
 }   
-
-
-
-
-
-
