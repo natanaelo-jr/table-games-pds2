@@ -18,7 +18,7 @@ OBJECT_FILES := $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
 EXECUTABLE := $(BIN_DIR)/main
 
 # Arquivo de teste
-TEST_SOURCE := $(TEST_DIR)/test_Lig4.cpp
+TEST_SOURCE := $(TEST_DIR)/test_Reversi.cpp
 TEST_OBJECT_FILE := $(patsubst $(TEST_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(TEST_SOURCE))
 TEST_EXECUTABLE := $(BIN_DIR)/test
 
