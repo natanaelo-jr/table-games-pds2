@@ -5,9 +5,20 @@
 #include "Game.hpp"
 #include <vector>
 
+/**
+ * @brief Classe TicTacToe
+ * 
+ * Classe responsável por gerenciar o jogo TicTacToe.
+ */
 
 class TicTacToe: public Game{
     public:
+        /**
+         * @brief Construtor da classe TicTacToe
+         * 
+         * @param player1 Ponteiro para o jogador 1
+         * @param player2 Ponteiro para o jogador 2
+         */
         TicTacToe(Player* player1, Player*player2);
         virtual void play() override;
         bool makePlay(Coordinates play);
