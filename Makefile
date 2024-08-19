@@ -10,7 +10,6 @@ EXECUTABLE	:= main
 SOURCES := $(wildcard $(SRC)/*.cpp)
 OBJECT_FILES := $(patsubst $(SRC)/%.cpp, $(OBJECTS)/%.o, $(SOURCES))
 
-
 all: createbin createobj $(BIN)/$(EXECUTABLE)
 
 createbin:
