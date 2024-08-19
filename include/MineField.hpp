@@ -19,11 +19,14 @@ class MineField : public Game{
         int getNumberOfBombs();
         virtual void play() override;
         bool makePlay(Coordinates move);
+        void revealBoard();
         void setReferenceField(Coordinates firstPlay);
         void recursiveOpen(Coordinates reference);
+        std::vector<Coordinates> getPossiblePlays();
         bool isVersusGame();
         bool isGameOver();
         void resetGame();
+        void addStats(Player* player, Player* loser) override;
 };
 
 #endif

@@ -3,13 +3,14 @@
 #include "RankingScreen.hpp"
 #include "GameSelectionScreen.hpp"
 #include "TicTacToeScreen.hpp"
+#include "Lig4Screen.hpp"
+#include "MineFieldScreen.hpp"
+#include "ReversiScreen.hpp"
 #include <iostream>
 #include "Utilities.hpp"
 
 int main(){  
-    
-    Players *players = new Players();
-
+    Players* players = new Players();
     ScreenManager* screenManager = new ScreenManager();
     screenManager->push(std::make_shared<MenuScreen>(screenManager, players));
 
@@ -19,6 +20,5 @@ int main(){
     while (window.isOpen()) {
         screenManager->getCurrentState()->process(window);
     }
-
     return 0;
 }

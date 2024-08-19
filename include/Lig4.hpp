@@ -2,6 +2,7 @@
 #define LIG4_HPP
 
 #include "Game.hpp"
+#include <unordered_map>
 
 /**
  * @class Lig4
@@ -13,6 +14,9 @@
 
 
 class Lig4 : public Game{
+    private:
+        std::unordered_map<std::string, int> transpositionTable;
+
     public:
         /**
         * @brief Construtor da classe Lig4.
@@ -57,6 +61,7 @@ class Lig4 : public Game{
         * @param board Estado atual do tabuleiro.
         * @return true se uma sequência vencedora foi encontrada, false caso contrário.
         */
+
         bool verifySequence(const BoardType& board);
         /**
         * @brief Verifica uma sequência na direção direita.
@@ -94,6 +99,12 @@ class Lig4 : public Game{
         * @return true se uma sequência foi completada, false caso contrário.
         */
         bool verifyUpRight(Coordinates c, const BoardType& board, int counter);
+ 
+        /**
+        * @brief Converte o tabuleiro em uma string para salvamento. (Útil no minimax)
+        */
+        std::string boardToString(const BoardType& board);
+
         /**
         * @brief Retorna as jogadas possíveis no estado atual do tabuleiro.
         * 
@@ -101,6 +112,7 @@ class Lig4 : public Game{
         * @return Vetor de inteiros representando as colunas onde é possível jogar.
         */
         virtual std::vector<int> possiblePlays(const BoardType& board);
+  
         /**
         * @brief Verifica se o estado atual do tabuleiro é terminal.
          * 

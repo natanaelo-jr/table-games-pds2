@@ -94,6 +94,7 @@ void ManageScreen::handleEvents(sf::RenderWindow &window){
     sf::Event event;
     while(window.pollEvent(event)){
         if(event.type == sf::Event::Closed){
+            window.setMouseCursor(sf::Cursor());
             window.close();
         }
         if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left){
@@ -136,7 +137,7 @@ void ManageScreen::handleTextInput(sf::Event &event){
 
                 }
             }else
-            if(nicknameString.getString().getSize() <= 10 && event.text.unicode < 128  && event.text.unicode != 13){
+            if(nicknameString.getString().getSize() < 10 && event.text.unicode < 128  && event.text.unicode != 13){
                 nicknameString.setString(nicknameString.getString() + static_cast<char>(event.text.unicode));
             }
 
@@ -154,7 +155,7 @@ void ManageScreen::handleTextInput(sf::Event &event){
                     nameString.setString(str);
                 }
             }else
-            if(nameString.getString().getSize() <= 10 && event.text.unicode < 128 && event.text.unicode != 13){
+            if(nameString.getString().getSize() < 10 && event.text.unicode < 128 && event.text.unicode != 13){
                 nameString.setString(nameString.getString() + static_cast<char>(event.text.unicode));
             }
         }

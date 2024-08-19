@@ -235,7 +235,7 @@ bool TicTacToe::verifyUpRight(Coordinates coord, const BoardType &board, int cou
  */
 Player* TicTacToe::checkWinner(const BoardType& board){
     if(verifySequence(board)){
-        Player* winner = whoseTurn(board) == 1 ? getPlayer1() : getPlayer2();
+        Player* winner = whoseTurn(board) == 2 ? getPlayer1() : getPlayer2();
         return winner;
     }
     return nullptr;
@@ -313,13 +313,13 @@ int TicTacToe::whoseTurn(const BoardType& board){
 int TicTacToe::minimax(const BoardType& board, int alpha, int beta, bool maximizing){
     std::vector<Coordinates> plays = possiblePlays(board);
     if(terminalState(board)){
-        if(plays.empty()){
+        if(plays.empty() && checkWinner(board) == nullptr){
             return 0;
         }
-        if(whoseTurn(board) == 1){
+        if(whoseTurn(board) == 1 && verifySequence(board)){
             return -1;
         }
-        if(whoseTurn(board) == 2){
+        if(whoseTurn(board) == 2 && verifySequence(board)){
             return 1;
         }
         return 0;
@@ -359,7 +359,7 @@ int TicTacToe::minimax(const BoardType& board, int alpha, int beta, bool maximiz
 
 Coordinates TicTacToe::bestPlay(const BoardType& board){
     std::vector<Coordinates> plays = possiblePlays(board);
-    Coordinates bestPlay = plays[0];
+    Coordinates bestPlay = {-1, -1};
     int value = -1000;
     
     if(whoseTurn(board) == 1){
@@ -385,4 +385,3 @@ Coordinates TicTacToe::bestPlay(const BoardType& board){
     bestPlay.col++;
     return bestPlay;
 }
-

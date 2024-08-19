@@ -1,37 +1,43 @@
-#ifndef TICTACTOESCREEN_HPP
-#define TICTACTOESCREEN_HPP
+#ifndef MINEFIELDSCREEN_HPP
+#define MINEFIELDSCREEN_HPP
 #include "Screen.hpp"
-#include "TicTacToe.hpp"
+#include "MineField.hpp"
 
-class TicTacToeScreen : public Screen{
+class MineFieldScreen : public Screen{
     public:
-        TicTacToeScreen(ScreenManager* screenManager, Player* player1, Player* player2, Players* players);
+        MineFieldScreen(ScreenManager* screenManager, Player* player, Players* players);
         void handleEvents(sf::RenderWindow &window) override;
         void update(sf::RenderWindow &window) override;
         void render(sf::RenderWindow &window) override;
-        void updatePhantomPiece(sf::RenderWindow &window);
+
         void loadTextures();
+        void updatePieces();
         Coordinates getTileCoordinates(sf::FloatRect &tile);
         std::vector<sf::FloatRect> getPossiblePlays();
         void processPlay(sf::FloatRect &playTile);
+        void placeFlag(Coordinates coord);
+        void removeFlag(Coordinates coord);
+        bool isFlagOnTile(Coordinates coord);
+
 
     private:
+        bool isNewGame;
         float tileSize;
-        TicTacToe* game;
+        MineField* game;
         sf::Vector2f screenOffset;
-        sf::Texture pieceOTexture;
-        sf::Texture pieceXTexture;
+        sf::Texture BombTexture;
+        sf::Texture BandTexture;
+        sf::Texture QuadTexture;
         sf::Texture boardTexture;
-        sf::Sprite phantomPiece;
         sf::Font font;
+        sf::Font numberFont;
 
-        sf::Text player1Nick;
-        sf::Text player2Nick;
-        sf::Sprite player1Piece;
-        sf::Sprite player2Piece;
-
+        sf::Text playerNick;
+        sf::Sprite playerPiece;
 
         std::vector<sf::Sprite> pieces;
+        std::vector<sf::Sprite> flags;
+        std::vector<sf::Text> numbers;
         sf::Sprite board;
 
         sf::RectangleShape cardShape;
@@ -40,7 +46,6 @@ class TicTacToeScreen : public Screen{
         sf::Text cardText;
 
         bool finishGame;
-        
 };
 
 #endif

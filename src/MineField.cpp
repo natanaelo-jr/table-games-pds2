@@ -238,13 +238,19 @@ void MineField::play(){
             try{
                 if(!makePlay(move)){
                     std::cout << getCurrentPlayer()->getNickname() <<" perdeu!" << std::endl;
-                    getCurrentPlayer()->loseMinefield();
+
+                    addStats(nullptr, player);
                     break;
                 }
                 if(isGameOver()){
                     player == 1 ? p1win = true : p1win = false;
                     player == 2 ? p2win = true : p2win = false;
                     std::cout << getCurrentPlayer()->getNickname() << " ganhou!" << std::endl;
+                    Player* player = getCurrentPlayer();
+                    changePlayer();
+                    addStats(player, nullptr); 
+                    
+                    
                     break;
                 }         
             }catch(const std::exception& e){
@@ -253,18 +259,27 @@ void MineField::play(){
         }
     }
 
-    if(!isVersusGame()){
-        //todo addstatus p1
+    /*if(!isVersusGame()){
         p1win ? void() : void();
     }else{
         if(p1win == p2win){
             std::cout << "Empate!" << std::endl;
             //todo addstatus
-        }else{
+        } else{
             std::cout << "Vitória de " << (p1win ? getPlayer1()->getNickname() : getPlayer2()->getNickname()) << std::endl;
+            if(p1win){
+                addStats(getPlayer1(), getPlayer2());
+            }
+            else if(p2win){
+                addStats(getPlayer2(), getPlayer1());
+            }
+
             p1win ? getPlayer1()->winMinefield() : getPlayer2()->winMinefield(); //NATAAAAAAAAAAAAAAAn
+
         }
-    }
+    }*/
+  
+  //A FEATURE VERSUSGAME FOI DESCONTINUADA, USAREMOS APENAS O JOGO COM APENAS UM JOGADOR.
 }
 
 /**
@@ -331,6 +346,33 @@ void MineField::resetGame(){
     for(int i = 0; i < getFieldSize(); i++){
         for(int j = 0; j < getFieldSize(); j++){
             referenceField[i][j] = 0;
+        }
+    }
+}
+ void MineField::addStats(Player* player, Player* loser) {
+    loser -> loseMinefield();
+    changePlayer();
+    player -> winMinefield();  
+}
+
+std::vector<Coordinates> MineField::getPossiblePlays(){
+    std::vector<Coordinates> plays;
+    for(int row = 0; row < getRows(); row++){
+        for(int col = 0; col < getCols(); col++){
+            if(getSquare({row, col}, getBoard()) == ' '){
+                plays.push_back({row, col});
+            }
+        }
+    }
+    return plays;
+}
+
+void MineField::revealBoard(){
+    for(int i = 0; i < getFieldSize(); i++){
+        for(int j = 0; j < getFieldSize(); j++){
+            if(getReference({i, j}) == 9){
+                setSquare({i, j}, getReference({i, j}) + '0');
+            }
         }
     }
 }

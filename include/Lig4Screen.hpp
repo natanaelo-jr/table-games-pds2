@@ -1,26 +1,28 @@
-#ifndef TICTACTOESCREEN_HPP
-#define TICTACTOESCREEN_HPP
+#ifndef LIG4SCREEN_HPP
+#define LIG4SCREEN_HPP
 #include "Screen.hpp"
-#include "TicTacToe.hpp"
+#include "Lig4.hpp"
 
-class TicTacToeScreen : public Screen{
+class Lig4Screen : public Screen{
     public:
-        TicTacToeScreen(ScreenManager* screenManager, Player* player1, Player* player2, Players* players);
+        Lig4Screen(ScreenManager* screenManager, Player* player1, Player* player2, Players* players);
         void handleEvents(sf::RenderWindow &window) override;
         void update(sf::RenderWindow &window) override;
         void render(sf::RenderWindow &window) override;
+
         void updatePhantomPiece(sf::RenderWindow &window);
         void loadTextures();
         Coordinates getTileCoordinates(sf::FloatRect &tile);
         std::vector<sf::FloatRect> getPossiblePlays();
         void processPlay(sf::FloatRect &playTile);
 
+
     private:
         float tileSize;
-        TicTacToe* game;
+        Lig4* game;
         sf::Vector2f screenOffset;
-        sf::Texture pieceOTexture;
-        sf::Texture pieceXTexture;
+        sf::Texture pieceVTexture;
+        sf::Texture pieceATexture;
         sf::Texture boardTexture;
         sf::Sprite phantomPiece;
         sf::Font font;
@@ -29,7 +31,6 @@ class TicTacToeScreen : public Screen{
         sf::Text player2Nick;
         sf::Sprite player1Piece;
         sf::Sprite player2Piece;
-
 
         std::vector<sf::Sprite> pieces;
         sf::Sprite board;
@@ -40,7 +41,6 @@ class TicTacToeScreen : public Screen{
         sf::Text cardText;
 
         bool finishGame;
-        
 };
 
 #endif

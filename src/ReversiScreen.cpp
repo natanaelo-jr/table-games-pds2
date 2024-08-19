@@ -1,39 +1,41 @@
-#include "TicTacToeScreen.hpp"
+#include "ReversiScreen.hpp"
 #include "MenuScreen.hpp"
 #include <iostream>
 
-TicTacToeScreen::TicTacToeScreen(ScreenManager* screenManager, Player* player1, Player* player2, Players* players):
+ReversiScreen::ReversiScreen(ScreenManager* screenManager, Player* player1, Player* player2, Players* players):
 Screen(players, screenManager){
-    tileSize = 100.0f;
-    screenOffset = sf::Vector2f(250.0f, 150.0f);
-    game = new TicTacToe(player1, player2);
+    tileSize = 56.0f;
+    screenOffset = sf::Vector2f(176.0f, 132.0f);
+    game = new Reversi(player1, player2);
     loadTextures();
 
-    player1Piece.setTexture(pieceXTexture);
+    player1Piece.setTexture(pieceWTexture);
     player1Piece.setPosition(0, 0);
 
-    player2Piece.setTexture(pieceOTexture);
-    player2Piece.setPosition(700, 0);
+    player2Piece.setTexture(pieceBTexture);
+    player2Piece.setPosition(744, 0);
 
     player1Nick.setFont(font);
     player1Nick.setCharacterSize(48);
     player1Nick.setFillColor(sf::Color::White);
     player1Nick.setString(game->getPlayer1()->getNickname());
-    player1Nick.setPosition(100, 20);
+    player1Nick.setPosition(66, 0);
 
     player2Nick.setFont(font);
     player2Nick.setCharacterSize(48);
     player2Nick.setFillColor(sf::Color::White);
     player2Nick.setString(game->getPlayer2()->getNickname());
     player2Nick.setOrigin(player2Nick.getLocalBounds().width, 0);
-    player2Nick.setPosition(700, 20);
+    player2Nick.setPosition(734, 0);
+
 
     board.setTexture(boardTexture);
-    board.setPosition(250, 150);
-    phantomPiece.setTexture(pieceXTexture);
-    phantomPiece.setColor(sf::Color(255, 255, 255, 128));
+    board.setPosition(176, 132);
+    phantomPiece.setTexture(pieceWTexture);
+    phantomPiece.setColor(sf::Color(255, 255, 255, 0));
 
-    finishGame = false;
+    cardText.setFont(cardFont);
+
     cardShape.setFillColor(sf::Color(204, 221, 211));
     cardShape.setSize(sf::Vector2f(500, 200));
     cardShape.setPosition(166, 204);
@@ -46,16 +48,22 @@ Screen(players, screenManager){
     cardButton1.setPosition(296, 290);
     cardButton2.setTexture(backMenuTexture);
     cardButton2.setPosition(296, 337);
+
+    updatePieces();
+    updateShadows();
+
+    finishGame = false;
 }
 
-void TicTacToeScreen::loadTextures(){
-    pieceOTexture.loadFromFile("assets/TicTacToe/O.png");
-    pieceXTexture.loadFromFile("assets/TicTacToe/X.png");
-    boardTexture.loadFromFile("assets/TicTacToe/TicTacToeBoard.png");
+void ReversiScreen::loadTextures(){
+    pieceBTexture.loadFromFile("assets/Reversi/BlackPiece.png");
+    pieceWTexture.loadFromFile("assets/Reversi/WhitePiece.png");
+    boardTexture.loadFromFile("assets/Reversi/ReversiBoard.png");
+    shadowTexture.loadFromFile("assets/Reversi/Sombra.png");
     font.loadFromFile("assets/font/Sniglet-Regular.ttf");
 }
 
-void TicTacToeScreen::render(sf::RenderWindow &window){
+void ReversiScreen::render(sf::RenderWindow &window){
     window.clear(getBackgroundColor());
     window.draw(board);
     window.draw(player1Nick);
@@ -63,6 +71,9 @@ void TicTacToeScreen::render(sf::RenderWindow &window){
     window.draw(player2Nick);
     window.draw(player2Piece);
     window.draw(phantomPiece);
+    for(auto shadowPiece: possiblePieces){
+        window.draw(shadowPiece);
+    }
     for(auto piece: pieces){
         window.draw(piece);
     }
@@ -77,7 +88,7 @@ void TicTacToeScreen::render(sf::RenderWindow &window){
 }
 
 
-void TicTacToeScreen::update(sf::RenderWindow &window){
+void ReversiScreen::update(sf::RenderWindow &window){
     if(!game->terminalState(game->getBoard()) && isMouseOver(board.getGlobalBounds(), window)){
         phantomPiece.setColor(sf::Color(255, 255, 255, 128));
         updatePhantomPiece(window);
@@ -85,7 +96,7 @@ void TicTacToeScreen::update(sf::RenderWindow &window){
         phantomPiece.setColor(sf::Color(255, 255, 255, 0));
     }
 
-    if(game->getCurrentPlayer() == game->getPlayer1()){
+     if(game->getCurrentPlayer() == game->getPlayer1()){
         player1Nick.setFillColor(sf::Color(255,255,255,255));
         player1Piece.setColor(sf::Color(255,255,255,255));
         player2Nick.setFillColor(sf::Color(255,255,255,155));
@@ -112,18 +123,10 @@ void TicTacToeScreen::update(sf::RenderWindow &window){
             cardButton2.setColor(sf::Color(255, 255, 255, 50));
         }
     }
-
-    if(game->getCurrentPlayer()->getName() == "CPU" && !finishGame){
-        Coordinates play = game->bestPlay(game->getBoard());
-        sf::FloatRect tile;
-        tile.left = screenOffset.x + (tileSize * (play.getCol() - 1));
-        tile.top = screenOffset.y + (tileSize * (play.getRow() - 1));
-        tile.width = tileSize;
-        tile.height = tileSize;
-        processPlay(tile);
-    }
+    
 }
-void TicTacToeScreen::handleEvents(sf::RenderWindow &window){
+
+void ReversiScreen::handleEvents(sf::RenderWindow &window){
     sf::Event event;
     while(window.pollEvent(event)){
         if(event.type == sf::Event::Closed){
@@ -134,7 +137,7 @@ void TicTacToeScreen::handleEvents(sf::RenderWindow &window){
             if(event.mouseButton.button == sf::Mouse::Left){
                 if(finishGame){
                     if(isMouseOver(cardButton1.getGlobalBounds(), window)){
-                        getScreenManager()->change(std::make_shared<TicTacToeScreen>(getScreenManager(), game->getPlayer1(), game->getPlayer2(), getPlayers()));
+                        getScreenManager()->change(std::make_shared<ReversiScreen>(getScreenManager(), game->getPlayer1(), game->getPlayer2(), getPlayers()));
                     }
                     if(isMouseOver(cardButton2.getGlobalBounds(), window)){
                         getScreenManager()->change(std::make_shared<MenuScreen>(getScreenManager(), getPlayers()));
@@ -142,7 +145,7 @@ void TicTacToeScreen::handleEvents(sf::RenderWindow &window){
                 }
                 for(auto playTile: getPossiblePlays()){
                     if(isMouseOver(playTile, window)){
-                        if(!game->terminalState(game->getBoard())){
+                        if(!game->terminalState(game->getBoard())) {
                             processPlay(playTile);
                         }
                     }
@@ -152,17 +155,17 @@ void TicTacToeScreen::handleEvents(sf::RenderWindow &window){
     }
 }
 
-Coordinates TicTacToeScreen::getTileCoordinates(sf::FloatRect &tile){
+Coordinates ReversiScreen::getTileCoordinates(sf::FloatRect &tile){
     Coordinates tileCoordinates;
     tileCoordinates.setRow((tile.top - screenOffset.y) / tileSize);
     tileCoordinates.setCol((tile.left - screenOffset.x) / tileSize);
     return tileCoordinates;
 }
 
-
-std::vector<sf::FloatRect> TicTacToeScreen::getPossiblePlays(){
+std::vector<sf::FloatRect> ReversiScreen::getPossiblePlays(){
     std::vector<sf::FloatRect> possiblePlays;
-    for(auto coord : game->possiblePlays(game->getBoard())){
+    char symbol = game -> getCurrentPlayer() == game -> getPlayer1() ? 'X' : 'O';
+    for(auto coord : game->getPossiblePlays(symbol, game->getBoard())){
         sf::FloatRect tile;
         tile.left = screenOffset.x + (tileSize * coord.getCol());
         tile.top = screenOffset.y + (tileSize * coord.getRow());
@@ -173,57 +176,87 @@ std::vector<sf::FloatRect> TicTacToeScreen::getPossiblePlays(){
     return possiblePlays;
 }
 
-void TicTacToeScreen::processPlay(sf::FloatRect &playTile){
-    sf::Sprite piece;
-    game->getCurrentPlayer() == game->getPlayer1() ? 
-    piece.setTexture(pieceXTexture) : piece.setTexture(pieceOTexture);
-
-    piece.setPosition(
-        getTileCoordinates(playTile).getCol() * tileSize + screenOffset.x,
-        getTileCoordinates(playTile).getRow() * tileSize + screenOffset.y
-    );
-    pieces.push_back(piece);
-    game->makePlay({getTileCoordinates(playTile).getRow() +1, getTileCoordinates(playTile).getCol() +1});
+void ReversiScreen::processPlay(sf::FloatRect &playTile){
+    game->makePlay(getTileCoordinates(playTile).getRow(), getTileCoordinates(playTile).getCol());
+    updatePieces();
 
     if(game->terminalState(game->getBoard())){
-        std::cout << "Terminal State" << std::endl;
         finishGame = true;
-        Player* winner;
-        winner = game->checkWinner(game->getBoard());
-        if(winner != nullptr){
-            cardText.setString(game->checkWinner(game->getBoard())->getNickname() + " Ganhou!");
+        if(game->checkWinner() != nullptr){
+            cardText.setString(game->checkWinner()->getNickname() + " ganhou!");
             cardText.setOrigin(cardText.getLocalBounds().width / 2, 0);
             cardText.setPosition(416, 222);
-            if (winner == game->getPlayer1()){
-                Player* loser = game->getPlayer2();
-                game->addStats(winner, loser);
-            }
-            else if (winner == game->getPlayer2()){
-                Player* loser = game->getPlayer1();
-                game->addStats(winner, loser);
-            }
         }else{
             cardText.setString("Empate!");
             cardText.setOrigin(cardText.getLocalBounds().width / 2, 0);
             cardText.setPosition(416, 222);
         }
     }else{
+    game->changePlayer();
+    if(getPossiblePlays().size() == 0){
         game->changePlayer();
-        game->printBoard();
+    }
+    updateShadows();
+    game->printBoard();
     }
 }
 
-void TicTacToeScreen::updatePhantomPiece(sf::RenderWindow &window){
+void ReversiScreen::updatePhantomPiece(sf::RenderWindow &window){
     for(auto playTile: getPossiblePlays()){
         if(isMouseOver(playTile, window)){
+            if (game -> getCurrentPlayer() == game -> getPlayer1()){
+                phantomPiece.setTexture(pieceWTexture);
+            }
+            else {
+                phantomPiece.setTexture(pieceBTexture);
+            }
             phantomPiece.setPosition(
                 getTileCoordinates(playTile).getCol() * tileSize + screenOffset.x,
                 getTileCoordinates(playTile).getRow() * tileSize + screenOffset.y
             );
 
-            game->getCurrentPlayer() == game->getPlayer1() ?
-            phantomPiece.setTexture(pieceXTexture) : phantomPiece.setTexture(pieceOTexture);
             phantomPiece.setColor(sf::Color(255, 255, 255, 128));
         }
+    }
+}
+
+void ReversiScreen::updatePieces(){
+    pieces.clear();
+
+    for(int row = 0; row < game->getRows(); row++){
+        for(int col = 0; col < game->getCols(); col++){
+            if(game->getSquare({row, col}, game->getBoard()) == 'X'){
+                sf::Sprite piece;
+                piece.setTexture(pieceWTexture);
+                piece.setPosition(
+                    (col * tileSize) + screenOffset.x,
+                    (row * tileSize) + screenOffset.y
+                );
+                pieces.push_back(piece);
+            }
+
+            if(game->getSquare({row, col}, game->getBoard()) == 'O'){
+                sf::Sprite piece;
+                piece.setTexture(pieceBTexture);
+                piece.setPosition(
+                    (col * tileSize) + screenOffset.x,
+                    (row * tileSize) + screenOffset.y
+                );
+                pieces.push_back(piece);
+            }
+        }
+    }
+
+
+}
+
+void ReversiScreen::updateShadows(){
+    possiblePieces.clear();
+    for(auto tile : getPossiblePlays()){
+        sf::Sprite shadowPiece;
+        shadowPiece.setPosition(tile.left, tile.top);
+        shadowPiece.setTexture(shadowTexture);
+        shadowPiece.setColor(sf::Color(255,255,255,100));
+        possiblePieces.push_back(shadowPiece);
     }
 }

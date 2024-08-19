@@ -44,6 +44,7 @@ class TicTacToe: public Game{
          * @return Ponteiro para o jogador vencedor
          */
         Player* checkWinner(const BoardType& board);
+
         /**
          * @brief Método addStats
          * 
@@ -52,7 +53,8 @@ class TicTacToe: public Game{
          * @param winner Ponteiro para o jogador vencedor
          * @param loser Ponteiro para o jogador perdedor
          */
-        void addStats(Player* winner, Player* loser);
+        void addStats(Player* winner, Player* loser) override;
+  
         /**
          * @brief Método verifySequence
          * 
@@ -109,6 +111,7 @@ class TicTacToe: public Game{
          * @return Tabuleiro resultante da jogada
          */
         BoardType result(const BoardType& board, Coordinates play);
+
         /**
          * @brief Método minimax
          * 
@@ -120,6 +123,7 @@ class TicTacToe: public Game{
          * @param maximizing Verdadeiro se é a vez do jogador maximizador e falso caso contrário
          * @return Valor da jogada (quanto maior melhor a jogada)
          */
+
         int minimax(const BoardType& board, int alpha, int beta, bool maximizing);
         /**
          * @brief Método bestPlay

@@ -1,5 +1,10 @@
 #include "GameSelectionScreen.hpp"
 #include "MenuScreen.hpp"
+#include "TicTacToeScreen.hpp"
+#include "Lig4Screen.hpp"
+#include "ReversiScreen.hpp"
+#include "MineFieldScreen.hpp"
+#include <iostream>
 
 GameSelectionScreen::GameSelectionScreen(ScreenManager* screenManager, Players* players) : Screen(players, screenManager){
     loadTextures();
@@ -100,6 +105,7 @@ void GameSelectionScreen::handleEvents(sf::RenderWindow &window){
     sf::Event event;
     while(window.pollEvent(event)){
         if(event.type == sf::Event::Closed){
+            window.setMouseCursor(sf::Cursor());
             window.close();
         }
 
@@ -118,7 +124,39 @@ void GameSelectionScreen::handleEvents(sf::RenderWindow &window){
                 SelectedGame = "Reversi";
             }
             if(isMouseOver(startButton.getGlobalBounds(), window)){
-                //todo: começar jogo selecionado com os devidos players
+                if(selectedGame.getString() == "TicTacToe"){
+                    std::cout << playerList[player1Index]->getNickname() << " vs " << playerList[player2Index]->getNickname() << std::endl;
+                    getScreenManager()->change(std::make_shared<TicTacToeScreen>(
+                        getScreenManager(),
+                        playerList[player1Index],
+                        playerList[player2Index],
+                        getPlayers()
+                    ));
+                }
+                if(selectedGame.getString() == "Reversi"){
+                    getScreenManager()->change(std::make_shared<ReversiScreen>(
+                        getScreenManager(), 
+                        playerList[player1Index],
+                        playerList[player2Index],
+                        getPlayers()
+                    ));
+
+                }
+                if(selectedGame.getString() == "Lig4"){
+                    getScreenManager()->change(std::make_shared<Lig4Screen>(
+                        getScreenManager(), 
+                        playerList[player1Index],
+                        playerList[player2Index],
+                        getPlayers()
+                    ));
+                }
+                if(selectedGame.getString() == "Minefield"){
+                    getScreenManager()->change(std::make_shared<MineFieldScreen>(
+                        getScreenManager(),
+                        playerList[player1Index],
+                        getPlayers()
+                    ));
+                }
             }
             if(isMouseOver(backButton.getGlobalBounds(), window)){
                 getScreenManager()->change(std::make_shared<MenuScreen>(getScreenManager(), getPlayers()));

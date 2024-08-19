@@ -138,6 +138,7 @@ int Players::getsize() {
     return players.size();
 }
 
+
 /**
  * @brief Carrega os dados dos jogadores a partir de um arquivo.
  * 
@@ -157,8 +158,7 @@ void Players::loadFromDataFile() {
             Player* player = new Player(name, nickname);
             int victories, defeats;
             linestream >> victories >> defeats;
-            // player->setVictories(victories);
-            // player->setDefeats(defeats);
+
             players.insert(player);
         }
         file.close();
@@ -181,4 +181,5 @@ void Players::saveToDataFile() {
         }
         file.close();
     }
+
 }

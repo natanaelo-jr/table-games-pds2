@@ -1,7 +1,7 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 #define BoardType std::vector<std::vector<char>>
-#define MINIMAX_DEPTH 8
+#define MINIMAX_DEPTH 7
 
 #include <vector>
 #include <string>
@@ -83,12 +83,19 @@ class Game{
          * @return true se a jogada é válida, false caso contrário
          */
         bool isValidSquare(Coordinates move);
-
+  
+        /**
+        *@brief Atualiza os status dos players
+        *
+        * @param Jogador vencedor e perdedor
+        */
+        virtual void addStats(Player* winner, Player* loser) = 0;
         /**
          * @brief Retorna o jogador que está esperando a jogada
          * 
          * @return Ponteiro para o jogador que está esperando a jogada
          */        
+
         Player* getWaitingPlayer();
 
         /**
