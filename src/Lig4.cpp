@@ -1,5 +1,6 @@
 #include "Lig4.hpp"
 #include <iostream>
+#include <algorithm>
 
 Lig4::Lig4(Player* player1, Player* player2) : Game(player1, player2, 6, 7){}
 
@@ -213,14 +214,19 @@ BoardType Lig4::result(const BoardType& board, int play){
 
 int Lig4::minimax(const BoardType& board, int alpha, int beta, bool maximizing, int depth){
     std::vector<int> plays = possiblePlays(board);
+    std::string boardString = boardToString(board);
+    if(this->transpositionTable.find(boardString) != this->transpositionTable.end()){
+        return this->transpositionTable[boardString];
+    }
+
     if(terminalState(board) || depth == MINIMAX_DEPTH){
-        if(plays.empty()){
+        if(plays.empty() && checkWinner(board) == nullptr){
             return 0;
         }
-        if(whoseTurn(board) == 1){
+        if(whoseTurn(board) == 1 && verifySequence(board)){
             return -1;
         }
-        if(whoseTurn(board) == 2){
+        if(whoseTurn(board) == 2 && verifySequence(board)){
             return 1;
         }
         return 0;
@@ -235,6 +241,7 @@ int Lig4::minimax(const BoardType& board, int alpha, int beta, bool maximizing, 
                 break;
             }
         }
+        this->transpositionTable[boardString] = value;
         return value;
     }
     else{
@@ -246,6 +253,7 @@ int Lig4::minimax(const BoardType& board, int alpha, int beta, bool maximizing, 
                 break;
             }
         }
+        this->transpositionTable[boardString] = value;
         return value;
     }
     throw std::runtime_error("Erro no minimax!");
@@ -254,8 +262,12 @@ int Lig4::minimax(const BoardType& board, int alpha, int beta, bool maximizing, 
 
 int Lig4::bestPlay(const BoardType& board){
     std::vector<int> plays = possiblePlays(board);
+    std::vector<int> orderedPlays = {2, 3, 1, 4, 0, 5};
     int value = -1000;
     int bestPlay = -1;
+    std::sort(plays.begin(), plays.end(), [&orderedPlays](int a, int b) {
+        return std::find(orderedPlays.begin(), orderedPlays.end(), a) < std::find(orderedPlays.begin(), orderedPlays.end(), b);
+    });
 
     if(whoseTurn(board) == 1){
         for(int play : plays){
@@ -276,7 +288,15 @@ int Lig4::bestPlay(const BoardType& board){
             }
         }
     }
-    bestPlay++;
     return bestPlay;
 }
- 
+
+std::string Lig4::boardToString(const BoardType& board){
+    std::string boardString = "";
+    for(int row = 0; row < getRows(); row++){
+        for(int col = 0; col < getCols(); col++){
+            boardString += board[row][col];
+        }
+    }
+    return boardString;
+}

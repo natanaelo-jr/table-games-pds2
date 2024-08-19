@@ -2,8 +2,12 @@
 #define LIG4_HPP
 
 #include "Game.hpp"
+#include <unordered_map>
 
 class Lig4 : public Game{
+    private:
+        std::unordered_map<std::string, int> transpositionTable;
+
     public:
         Lig4(Player* player1, Player* player2);
         virtual void play() override;
@@ -15,8 +19,8 @@ class Lig4 : public Game{
         bool verifyDown(Coordinates c, const BoardType& board, int counter);
         bool verifyDownRight(Coordinates c, const BoardType& board, int counter);
         bool verifyUpRight(Coordinates c, const BoardType& board, int counter);
-        
 
+        std::string boardToString(const BoardType& board);
         virtual std::vector<int> possiblePlays(const BoardType& board);
         bool terminalState(const BoardType &board);
         int whoseTurn(const BoardType& board);

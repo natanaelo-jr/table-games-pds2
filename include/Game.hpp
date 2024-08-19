@@ -1,7 +1,7 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 #define BoardType std::vector<std::vector<char>>
-#define MINIMAX_DEPTH 5
+#define MINIMAX_DEPTH 7
 
 #include <vector>
 #include <string>
