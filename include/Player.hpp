@@ -44,6 +44,14 @@ class Player{
         std::string getName() const;
         std::string getNickname() const;
 
+        /**
+         * @brief Métodos getters para vitórias e derrotas da classe Player
+         * 
+         * Esses métodos retornam o número de vitórias e derrotas do jogador da classe Player. 
+         * usados para ordenar os jogadores no ranking
+         * 
+         * @return O valor do atributo correspondente
+         */
         int getVictories() const;
         int getDefeats() const;
         /**
