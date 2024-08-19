@@ -1,19 +1,24 @@
+#include <SFML/Graphics.hpp>
+#include "MenuScreen.hpp"
+#include "RankingScreen.hpp"
+#include "GameSelectionScreen.hpp"
+#include "TicTacToeScreen.hpp"
 #include <iostream>
-#include <string>
-#include <set>
-#include "Players.hpp"
-#include "TicTacToe.hpp"
-#include "Lig4.hpp"
-#include "MineField.hpp"
-#include "Reversi.hpp"
+#include "Utilities.hpp"
 
-int main(){
-    Reversi* game = new Reversi(new Player("p1", "p1"), new Player("p2", "p2"));
+int main(){  
     
-    
-    /*for(auto play : game->getPossiblePlays('O', game->getBoard())){
-        game->setSquare(play, '.');
-    }*/
+    Players *players = new Players();
 
-    game->play();
+    ScreenManager* screenManager = new ScreenManager();
+    screenManager->push(std::make_shared<MenuScreen>(screenManager, players));
+
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Board Games PDS2");
+    screenManager->setupWindow(window);
+
+    while (window.isOpen()) {
+        screenManager->getCurrentState()->process(window);
+    }
+
+    return 0;
 }

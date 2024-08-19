@@ -10,7 +10,7 @@ class MineField : public Game{
         bool versusGame;
     
     public:
-        MineField(Player* player);
+        MineField(Player* player); //
         MineField(Player* player, int fieldSize, int bombs);
         MineField(Player* player1, Player* player2);
         MineField(Player* player1, Player* player2, int fieldSize, int bombs);

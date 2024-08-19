@@ -33,6 +33,7 @@
 
 *.json
 
+obj/*.o
 bin/*
 obj/*
 .vscode/*
