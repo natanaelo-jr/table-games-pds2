@@ -25,3 +25,4 @@ TEST_CASE("Testando a classe Game"){
     delete player1;
     delete player2;
 }
+
