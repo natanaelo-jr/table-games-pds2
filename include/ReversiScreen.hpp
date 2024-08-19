@@ -9,6 +9,8 @@ class ReversiScreen : public Screen{
         void handleEvents(sf::RenderWindow &window) override;
         void update(sf::RenderWindow &window) override;
         void render(sf::RenderWindow &window) override;
+        void updatePieces();
+        void updateShadows();
 
         void updatePhantomPiece(sf::RenderWindow &window);
         void loadTextures();
@@ -23,6 +25,7 @@ class ReversiScreen : public Screen{
         sf::Vector2f screenOffset;
         sf::Texture pieceBTexture;
         sf::Texture pieceWTexture;
+        sf::Texture shadowTexture;
         sf::Texture boardTexture;
         sf::Sprite phantomPiece;
         sf::Font font;
@@ -33,6 +36,7 @@ class ReversiScreen : public Screen{
         sf::Sprite player2Piece;
 
         std::vector<sf::Sprite> pieces;
+        std::vector<sf::Sprite> possiblePieces;
         sf::Sprite board;
 
         sf::RectangleShape cardShape;

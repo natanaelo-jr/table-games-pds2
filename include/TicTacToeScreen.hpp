@@ -23,6 +23,13 @@ class TicTacToeScreen : public Screen{
         sf::Texture pieceXTexture;
         sf::Texture boardTexture;
         sf::Sprite phantomPiece;
+        sf::Font font;
+
+        sf::Text player1Nick;
+        sf::Text player2Nick;
+        sf::Sprite player1Piece;
+        sf::Sprite player2Piece;
+
 
         std::vector<sf::Sprite> pieces;
         sf::Sprite board;

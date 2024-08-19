@@ -9,6 +9,25 @@ Screen(players, screenManager){
     game = new TicTacToe(player1, player2);
     loadTextures();
 
+    player1Piece.setTexture(pieceXTexture);
+    player1Piece.setPosition(0, 0);
+
+    player2Piece.setTexture(pieceOTexture);
+    player2Piece.setPosition(700, 0);
+
+    player1Nick.setFont(font);
+    player1Nick.setCharacterSize(48);
+    player1Nick.setFillColor(sf::Color::White);
+    player1Nick.setString(game->getPlayer1()->getNickname());
+    player1Nick.setPosition(100, 20);
+
+    player2Nick.setFont(font);
+    player2Nick.setCharacterSize(48);
+    player2Nick.setFillColor(sf::Color::White);
+    player2Nick.setString(game->getPlayer2()->getNickname());
+    player2Nick.setOrigin(player2Nick.getLocalBounds().width, 0);
+    player2Nick.setPosition(700, 20);
+
     board.setTexture(boardTexture);
     board.setPosition(250, 150);
     phantomPiece.setTexture(pieceXTexture);
@@ -33,11 +52,16 @@ void TicTacToeScreen::loadTextures(){
     pieceOTexture.loadFromFile("assets/TicTacToe/O.png");
     pieceXTexture.loadFromFile("assets/TicTacToe/X.png");
     boardTexture.loadFromFile("assets/TicTacToe/TicTacToeBoard.png");
+    font.loadFromFile("assets/font/Sniglet-Regular.ttf");
 }
 
 void TicTacToeScreen::render(sf::RenderWindow &window){
     window.clear(getBackgroundColor());
     window.draw(board);
+    window.draw(player1Nick);
+    window.draw(player1Piece);
+    window.draw(player2Nick);
+    window.draw(player2Piece);
     window.draw(phantomPiece);
     for(auto piece: pieces){
         window.draw(piece);
@@ -59,6 +83,18 @@ void TicTacToeScreen::update(sf::RenderWindow &window){
         updatePhantomPiece(window);
     }else{
         phantomPiece.setColor(sf::Color(255, 255, 255, 0));
+    }
+
+    if(game->getCurrentPlayer() == game->getPlayer1()){
+        player1Nick.setFillColor(sf::Color(255,255,255,255));
+        player1Piece.setColor(sf::Color(255,255,255,255));
+        player2Nick.setFillColor(sf::Color(255,255,255,155));
+        player2Piece.setColor(sf::Color(255,255,255,155));
+    }else{
+        player1Nick.setFillColor(sf::Color(255,255,255,155));
+        player1Piece.setColor(sf::Color(255,255,255,155));
+        player2Nick.setFillColor(sf::Color(255,255,255,255));
+        player2Piece.setColor(sf::Color(255,255,255,255));
     }
 
     if(finishGame){

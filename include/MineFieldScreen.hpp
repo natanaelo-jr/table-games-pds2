@@ -1,27 +1,51 @@
-#ifndef MINEFIELD_HPP
-#define MINEFIELD_HPP
+#ifndef MINEFIELDSCREEN_HPP
+#define MINEFIELDSCREEN_HPP
+#include "Screen.hpp"
+#include "MineField.hpp"
 
-#include "Game.hpp"
-
-class MineField : public Game{
+class MineFieldScreen : public Screen{
     public:
-        MineField(Player* player1, Player* player2);
-        virtual void play() override;
-        bool makePlay(int col);
-        Player* checkWinner(const BoardType& board);
-        void addStats(Player* winner, Player* loser) override;
-        bool verifySequence(const BoardType& board);
-        bool verifyRight(Coordinates c, const BoardType& board, int counter);
-        bool verifyDown(Coordinates c, const BoardType& board, int counter);
-        bool verifyDownRight(Coordinates c, const BoardType& board, int counter);
-        bool verifyUpRight(Coordinates c, const BoardType& board, int counter);
+        MineFieldScreen(ScreenManager* screenManager, Player* player, Players* players);
+        void handleEvents(sf::RenderWindow &window) override;
+        void update(sf::RenderWindow &window) override;
+        void render(sf::RenderWindow &window) override;
 
-        virtual std::vector<int> possiblePlays(const BoardType& board);
-        bool terminalState(const BoardType &board);
-        int whoseTurn(const BoardType& board);
-        BoardType result(const BoardType& board, int play);
-        int minimax(const BoardType& board, int alpha, int beta, bool maximizing, int depth);
-        int bestPlay(const BoardType& board);
+        void loadTextures();
+        void updatePieces();
+        Coordinates getTileCoordinates(sf::FloatRect &tile);
+        std::vector<sf::FloatRect> getPossiblePlays();
+        void processPlay(sf::FloatRect &playTile);
+        void placeFlag(Coordinates coord);
+        void removeFlag(Coordinates coord);
+        bool isFlagOnTile(Coordinates coord);
+
+
+    private:
+        bool isNewGame;
+        float tileSize;
+        MineField* game;
+        sf::Vector2f screenOffset;
+        sf::Texture BombTexture;
+        sf::Texture BandTexture;
+        sf::Texture QuadTexture;
+        sf::Texture boardTexture;
+        sf::Font font;
+        sf::Font numberFont;
+
+        sf::Text playerNick;
+        sf::Sprite playerPiece;
+
+        std::vector<sf::Sprite> pieces;
+        std::vector<sf::Sprite> flags;
+        std::vector<sf::Text> numbers;
+        sf::Sprite board;
+
+        sf::RectangleShape cardShape;
+        sf::Sprite cardButton1;
+        sf::Sprite cardButton2;
+        sf::Text cardText;
+
+        bool finishGame;
 };
 
 #endif

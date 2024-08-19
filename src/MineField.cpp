@@ -258,3 +258,25 @@ void MineField::resetGame(){
     changePlayer();
     player -> winMinefield();  
 }
+
+std::vector<Coordinates> MineField::getPossiblePlays(){
+    std::vector<Coordinates> plays;
+    for(int row = 0; row < getRows(); row++){
+        for(int col = 0; col < getCols(); col++){
+            if(getSquare({row, col}, getBoard()) == ' '){
+                plays.push_back({row, col});
+            }
+        }
+    }
+    return plays;
+}
+
+void MineField::revealBoard(){
+    for(int i = 0; i < getFieldSize(); i++){
+        for(int j = 0; j < getFieldSize(); j++){
+            if(getReference({i, j}) == 9){
+                setSquare({i, j}, getReference({i, j}) + '0');
+            }
+        }
+    }
+}

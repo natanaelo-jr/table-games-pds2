@@ -4,13 +4,19 @@
 #include "GameSelectionScreen.hpp"
 #include "TicTacToeScreen.hpp"
 #include "Lig4Screen.hpp"
+#include "MineFieldScreen.hpp"
+#include "ReversiScreen.hpp"
 #include <iostream>
 #include "Utilities.hpp"
 
 int main(){  
     Players* players = new Players();
     ScreenManager* screenManager = new ScreenManager();
-    screenManager->push(std::make_shared<MenuScreen>(screenManager, players));
+    Player* p1 = new Player ("p1", "Player 1");
+    Player* p2 = new Player ("p2", "Player 2");
+    //Player* player = new Player ("player", "X");
+
+    screenManager->push(std::make_shared<ReversiScreen>(screenManager, p1, p2, players));
 
     sf::RenderWindow window(sf::VideoMode(800, 600), "Board Games PDS2");
     screenManager->setupWindow(window);
