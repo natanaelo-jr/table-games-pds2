@@ -3,6 +3,9 @@
 #include <functional>
 #include <cstddef>
 
+/** 
+* @Brieef */
+
 class Coordinates {
     public:
         int row;
