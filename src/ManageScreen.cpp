@@ -94,6 +94,7 @@ void ManageScreen::handleEvents(sf::RenderWindow &window){
     sf::Event event;
     while(window.pollEvent(event)){
         if(event.type == sf::Event::Closed){
+            window.setMouseCursor(sf::Cursor());
             window.close();
         }
         if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left){
