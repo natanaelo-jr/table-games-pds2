@@ -1,4 +1,5 @@
 #include "ReversiScreen.hpp"
+#include "MenuScreen.hpp"
 #include <iostream>
 
 ReversiScreen::ReversiScreen(ScreenManager* screenManager, Player* player1, Player* player2, Players* players):
@@ -35,6 +36,14 @@ Screen(players, screenManager){
 
     cardText.setFont(cardFont);
 
+    cardShape.setFillColor(sf::Color(204, 221, 211));
+    cardShape.setSize(sf::Vector2f(500, 200));
+    cardShape.setPosition(166, 204);
+
+    cardText.setFont(cardFont);
+    cardText.setCharacterSize(40);
+    cardText.setFillColor(sf::Color(22, 69, 54));
+
     cardButton1.setTexture(playAgainTexture);
     cardButton1.setPosition(296, 290);
     cardButton2.setTexture(backMenuTexture);
@@ -43,6 +52,7 @@ Screen(players, screenManager){
     updatePieces();
     updateShadows();
 
+    finishGame = false;
 }
 
 void ReversiScreen::loadTextures(){
@@ -67,6 +77,13 @@ void ReversiScreen::render(sf::RenderWindow &window){
     for(auto piece: pieces){
         window.draw(piece);
     }
+    if(finishGame){
+        window.draw(cardShape);
+        window.draw(cardButton1);
+        window.draw(cardButton2);
+        window.draw(cardText);
+    }
+
     window.display();
 }
 
@@ -90,6 +107,22 @@ void ReversiScreen::update(sf::RenderWindow &window){
         player2Nick.setFillColor(sf::Color(255,255,255,255));
         player2Piece.setColor(sf::Color(255,255,255,255));
     }
+
+    if(finishGame){
+        isMouseOver(cardButton1.getGlobalBounds(), window) ? cardButton1.setTexture(hoverPlayAgainTexture) : cardButton1.setTexture(playAgainTexture);
+        isMouseOver(cardButton2.getGlobalBounds(), window) ? cardButton2.setTexture(hoverBackMenuTexture) : cardButton2.setTexture(backMenuTexture);
+        if(isMouseOver(cardShape.getGlobalBounds(), window)){
+            cardShape.setFillColor(sf::Color(204, 221, 211, 255));
+            cardText.setFillColor(sf::Color(22, 69, 54, 255));
+            cardButton1.setColor(sf::Color(255, 255, 255, 255));
+            cardButton2.setColor(sf::Color(255, 255, 255, 255));
+        }else{
+            cardShape.setFillColor(sf::Color(204, 221, 211, 50));
+            cardText.setFillColor(sf::Color(22, 69, 54, 50));
+            cardButton1.setColor(sf::Color(255, 255, 255, 50));
+            cardButton2.setColor(sf::Color(255, 255, 255, 50));
+        }
+    }
     
 }
 
@@ -101,6 +134,14 @@ void ReversiScreen::handleEvents(sf::RenderWindow &window){
         }
         if(event.type == sf::Event::MouseButtonPressed){
             if(event.mouseButton.button == sf::Mouse::Left){
+                if(finishGame){
+                    if(isMouseOver(cardButton1.getGlobalBounds(), window)){
+                        getScreenManager()->change(std::make_shared<ReversiScreen>(getScreenManager(), game->getPlayer1(), game->getPlayer2(), getPlayers()));
+                    }
+                    if(isMouseOver(cardButton2.getGlobalBounds(), window)){
+                        getScreenManager()->change(std::make_shared<MenuScreen>(getScreenManager(), getPlayers()));
+                    }
+                }
                 for(auto playTile: getPossiblePlays()){
                     if(isMouseOver(playTile, window)){
                         if(!game->terminalState(game->getBoard())) {
@@ -139,13 +180,24 @@ void ReversiScreen::processPlay(sf::FloatRect &playTile){
     updatePieces();
 
     if(game->terminalState(game->getBoard())){
-        std::cout << "Terminal State" << std::endl;
+        finishGame = true;
         if(game->checkWinner() != nullptr){
+            cardText.setString(game->checkWinner()->getNickname() + " ganhou!");
+            cardText.setOrigin(cardText.getLocalBounds().width / 2, 0);
+            cardText.setPosition(416, 222);
+        }else{
+            cardText.setString("Empate!");
+            cardText.setOrigin(cardText.getLocalBounds().width / 2, 0);
+            cardText.setPosition(416, 222);
         }
-    }
+    }else{
     game->changePlayer();
+    if(getPossiblePlays().size() == 0){
+        game->changePlayer();
+    }
     updateShadows();
     game->printBoard();
+    }
 }
 
 void ReversiScreen::updatePhantomPiece(sf::RenderWindow &window){
@@ -162,8 +214,6 @@ void ReversiScreen::updatePhantomPiece(sf::RenderWindow &window){
                 getTileCoordinates(playTile).getRow() * tileSize + screenOffset.y
             );
 
-            //game->getCurrentPlayer() == game->getPlayer1() ?
-            //phantomPiece.setTexture(pieceWTexture) : phantomPiece.setTexture(pieceBTexture);
             phantomPiece.setColor(sf::Color(255, 255, 255, 128));
         }
     }

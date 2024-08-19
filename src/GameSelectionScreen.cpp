@@ -2,6 +2,8 @@
 #include "MenuScreen.hpp"
 #include "TicTacToeScreen.hpp"
 #include "Lig4Screen.hpp"
+#include "ReversiScreen.hpp"
+#include "MineFieldScreen.hpp"
 #include <iostream>
 
 GameSelectionScreen::GameSelectionScreen(ScreenManager* screenManager, Players* players) : Screen(players, screenManager){
@@ -131,6 +133,12 @@ void GameSelectionScreen::handleEvents(sf::RenderWindow &window){
                     ));
                 }
                 if(selectedGame.getString() == "Reversi"){
+                    getScreenManager()->change(std::make_shared<ReversiScreen>(
+                        getScreenManager(), 
+                        playerList[player1Index],
+                        playerList[player2Index],
+                        getPlayers()
+                    ));
 
                 }
                 if(selectedGame.getString() == "Lig4"){
@@ -142,7 +150,11 @@ void GameSelectionScreen::handleEvents(sf::RenderWindow &window){
                     ));
                 }
                 if(selectedGame.getString() == "Minefield"){
-
+                    getScreenManager()->change(std::make_shared<MineFieldScreen>(
+                        getScreenManager(),
+                        playerList[player1Index],
+                        getPlayers()
+                    ));
                 }
             }
             if(isMouseOver(backButton.getGlobalBounds(), window)){

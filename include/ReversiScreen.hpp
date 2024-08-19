@@ -21,6 +21,7 @@ class ReversiScreen : public Screen{
 
     private:
         float tileSize;
+        bool finishGame;
         Reversi* game;
         sf::Vector2f screenOffset;
         sf::Texture pieceBTexture;

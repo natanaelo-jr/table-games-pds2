@@ -63,6 +63,17 @@ void MineFieldScreen::update(sf::RenderWindow &window){
     if(finishGame){
         isMouseOver(cardButton1.getGlobalBounds(), window) ? cardButton1.setTexture(hoverPlayAgainTexture) : cardButton1.setTexture(playAgainTexture);
         isMouseOver(cardButton2.getGlobalBounds(), window) ? cardButton2.setTexture(hoverBackMenuTexture) : cardButton2.setTexture(backMenuTexture);
+        if(isMouseOver(cardShape.getGlobalBounds(), window)){
+            cardShape.setFillColor(sf::Color(204, 221, 211, 255));
+            cardText.setFillColor(sf::Color(22, 69, 54, 255));
+            cardButton1.setColor(sf::Color(255, 255, 255, 255));
+            cardButton2.setColor(sf::Color(255, 255, 255, 255));
+        }else{
+            cardShape.setFillColor(sf::Color(204, 221, 211, 50));
+            cardText.setFillColor(sf::Color(22, 69, 54, 50));
+            cardButton1.setColor(sf::Color(255, 255, 255, 50));
+            cardButton2.setColor(sf::Color(255, 255, 255, 50));
+        }
     }
 }
 
@@ -137,13 +148,6 @@ void MineFieldScreen::processPlay(sf::FloatRect &playTile){
         game->setReferenceField(coord);
         isNewGame = false;
     }
-
-    for(int i = 0; i < game->getRows(); i++){
-        for(int j = 0; j < game->getCols(); j++){
-            std::cout << game->getReference({i, j}) << " ";
-        }
-        std::cout << std::endl;
-    }
     
     sf::Sprite piece;
     if (!game->makePlay({coord.getRow()+1, coord.getCol()+1})){
@@ -151,7 +155,8 @@ void MineFieldScreen::processPlay(sf::FloatRect &playTile){
         updatePieces();
         cardText.setString(game->getPlayer1()->getNickname() + " perdeu!");
         cardText.setOrigin(cardText.getLocalBounds().width / 2, 0);
-        cardText.setPosition(416, 222);    
+        cardText.setPosition(416, 222);
+        game->getPlayer1()->loseMinefield();
         finishGame = true;
     }
     else {
@@ -159,7 +164,8 @@ void MineFieldScreen::processPlay(sf::FloatRect &playTile){
         if(game->isGameOver()){
             cardText.setString(game->getPlayer1()->getNickname() + " ganhou!");
             cardText.setOrigin(cardText.getLocalBounds().width / 2, 0);
-            cardText.setPosition(416, 222);    
+            cardText.setPosition(416, 222);
+            game->getPlayer1()->winMinefield();
             finishGame = true;
         }
     }

@@ -95,6 +95,17 @@ void Lig4Screen::update(sf::RenderWindow &window){
     if(finishGame){
         isMouseOver(cardButton1.getGlobalBounds(), window) ? cardButton1.setTexture(hoverPlayAgainTexture) : cardButton1.setTexture(playAgainTexture);
         isMouseOver(cardButton2.getGlobalBounds(), window) ? cardButton2.setTexture(hoverBackMenuTexture) : cardButton2.setTexture(backMenuTexture);
+        if(isMouseOver(cardShape.getGlobalBounds(), window)){
+            cardShape.setFillColor(sf::Color(204, 221, 211, 255));
+            cardText.setFillColor(sf::Color(22, 69, 54, 255));
+            cardButton1.setColor(sf::Color(255, 255, 255, 255));
+            cardButton2.setColor(sf::Color(255, 255, 255, 255));
+        }else{
+            cardShape.setFillColor(sf::Color(204, 221, 211, 50));
+            cardText.setFillColor(sf::Color(22, 69, 54, 50));
+            cardButton1.setColor(sf::Color(255, 255, 255, 50));
+            cardButton2.setColor(sf::Color(255, 255, 255, 50));
+        }
     }
     if(game->getCurrentPlayer()->getName() == "CPU" && !finishGame){
         int move = game->bestPlay(game->getBoard());
