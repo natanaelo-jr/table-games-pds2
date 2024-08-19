@@ -51,7 +51,11 @@ class Coordinates {
         void setRow(int row);
         void setCol(int col);
 
-        
+        /**
+         * @brief compara se as coordenadas são iguais ou nn para ordenar no set
+         * 
+         * @param c coordenadas a serem comparadas
+         */
         bool operator<(const Coordinates& c) const;
         bool operator==(const Coordinates& c) const;
 };

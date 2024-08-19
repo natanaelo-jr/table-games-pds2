@@ -63,6 +63,10 @@ class TicTacToe: public Game{
          */
         bool verifySequence(const BoardType& board);
         
+        /**
+         * @brief Métodos chamados pelo verifySequence
+         * verificam se há uma sequência de 3 peças iguais no tabuleiro para cada direção
+         */
         bool verifyRight(Coordinates c, const BoardType& board, int counter);
         bool verifyDown(Coordinates c, const BoardType& board, int counter);
         bool verifyDownRight(Coordinates c, const BoardType& board, int counter);
