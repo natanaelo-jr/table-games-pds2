@@ -297,6 +297,24 @@ int TicTacToe::whoseTurn(const BoardType& board){
     return x == o ? 1 : 2;
 }
 
+/**
+ * @brief Retorna o tabuleiro resultante de uma jogada.
+ * 
+ * @param board Tabuleiro atual.
+ * @param play Coordenadas da jogada.
+ * @return BoardType Tabuleiro resultante da jogada.
+ */
+BoardType TicTacToe::result(const BoardType& board, Coordinates play){
+    BoardType newBoard = board;
+    
+    if(whoseTurn(board) == 1){
+        newBoard[play.row][play.col] = 'X';
+    }
+    else{
+        newBoard[play.row][play.col] = 'O';
+    }
+    return newBoard;
+}
 
 /**
 * @brief Implementa o algoritmo Minimax para escolher a melhor jogada.

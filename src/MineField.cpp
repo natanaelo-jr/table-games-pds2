@@ -239,18 +239,11 @@ void MineField::play(){
                 if(!makePlay(move)){
                     std::cout << getCurrentPlayer()->getNickname() <<" perdeu!" << std::endl;
 
-                    addStats(nullptr, player);
+                    getCurrentPlayer()->loseMinefield();
                     break;
                 }
                 if(isGameOver()){
-                    player == 1 ? p1win = true : p1win = false;
-                    player == 2 ? p2win = true : p2win = false;
-                    std::cout << getCurrentPlayer()->getNickname() << " ganhou!" << std::endl;
-                    Player* player = getCurrentPlayer();
-                    changePlayer();
-                    addStats(player, nullptr); 
-                    
-                    
+                    getCurrentPlayer()->winMinefield();
                     break;
                 }         
             }catch(const std::exception& e){

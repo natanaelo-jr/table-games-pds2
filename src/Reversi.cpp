@@ -117,58 +117,6 @@ void Reversi::play() {
 
 }
 
-// passedOpponent inciar como false no primeira chamada
-Coordinates Reversi::searcherForPlay(int row, int col, int dRow, int dCol, char symbol, char opposite, bool passedOpponent, const BoardType &board) {
-    if (row > 7 || row < 0 || col > 7 || col < 0)
-        return {-1, -1};
-    if (getSquare({row, col}, board) == ' ' && passedOpponent) {
-        Coordinates validPlay (row, col);
-        return validPlay;
-    }
-    // Se encontrar uma casa vazia sem passar por uma peça do oponente, a jogada não é válida
-    if (getSquare({row, col}, board) == ' ') {
-        return {-1, -1};
-    }
-    // Se encontrar uma peça do próprio jogador antes de passar por uma peça do oponente, a jogada não é válida
-    if (getSquare({row, col}, board) == symbol) {
-        return {-1, -1};
-    }
-    // Se encontrar uma peça do oponente, continua a busca na mesma direção
-    if (getSquare({row, col}, board) == opposite) {
-        return searcherForPlay(row + dRow, col + dCol, dRow, dCol, symbol, opposite, true, board);
-    }
-    return {-1, -1};
-}
-
-
-std::vector<Coordinates> Reversi::getPossiblePlays(char symbol, const BoardType &board){
-    std::vector<Coordinates> validPlays;
-    char opposite = (symbol == 'X') ? 'O' : 'X';
-    // PROCURANDO O SÍMBOLO NO BOARD
-    for (int row = 0; row < 7; row++) 
-    {
-        for (int col = 0; col < 7; col++)
-        {
-            if (getSquare({row, col}, board) == symbol)
-            {
-                // Array de direções: {dRow, dCol}
-                int directions[8][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}, {-1, -1}, {1, 1}, {-1, 1}, {1, -1}};
-
-                for (int i = 0; i < 8; i++) {
-                    int dRow = directions[i][0];
-                    int dCol = directions[i][1];
-
-                    Coordinates aux = searcherForPlay(row + dRow, col + dCol, dRow, dCol, symbol, opposite, false, board);
-                    if (aux.getRow() != -1 && aux.getCol() != -1) {
-                        validPlays.push_back(aux);
-                    }       
-                }
-            } 
-        }
-    } 
-    return validPlays;
-}
-
 /**
  * @brief Busca por jogadas válidas em uma direção específica.
  * 
