@@ -2,8 +2,28 @@
 #include <iostream>
 #include <algorithm>
 
+/**
+ * @file Lig4.cpp
+ * 
+ * @brief Implementação da classe Lig4
+ */
+
+/**
+ * @brief Construtor da classe Lig4
+ * inicia o tabuleiro com 6 linhas e 7 colunas e os jogadores 1 e 2
+ *  
+ * @param player1 Ponteiro para o jogador 1
+ * @param player2 Ponteiro para o jogador 2
+ */
 Lig4::Lig4(Player* player1, Player* player2) : Game(player1, player2, 6, 7){}
 
+/**
+ * @brief Inicia o jogo de Lig4
+ * 
+ * executa o jogo de Lig4, executando o necessário para o jogo funcionar 
+ * verificando se há 1 ou 2 jogadores, recebendo jogadas, testando se há vencedores
+ * adicionando estatísticas etc. 
+ */
 void Lig4::play(){
     Player* winner = nullptr;
     int play;
@@ -43,6 +63,12 @@ void Lig4::play(){
     }
 }
 
+/**
+ * @brief Verifica se há um vencedor no tabuleiro atual
+ * 
+ * @param board Estado atual do tabuleiro
+ * @return Ponteiro para o jogador vencedor ou nullptr se não houver vencedor
+ */
 Player* Lig4::checkWinner(const BoardType& board){
     for(int row = getRows()-1; row >= 0; row--){
         for(int col = 0; col < getCols(); col++){
@@ -54,6 +80,11 @@ Player* Lig4::checkWinner(const BoardType& board){
     return nullptr;
 }
 
+/** 
+ * @brief Realiza uma jogada na coluna especificada testnato se é válida
+ * 
+ * @return true se a jogada foi bem-sucedida, false caso contrário
+ */
 bool Lig4::makePlay(int col){
     col--;
     for(int row = getRows()-1; row >= 0; row--){
@@ -68,12 +99,27 @@ bool Lig4::makePlay(int col){
     return false;//todo: tratar excecao
 }
 
+/**
+ * @brief Adiciona estatísticas ao final da partida
+ * 
+ * @param winner Ponteiro para o jogador vencedor
+ * @param loser Ponteiro para o jogador perdedor
+ */
 void Lig4::addStats(Player* winner, Player* loser){
+
     winner -> winLig4();
     std::cout << winner->getNickname() << " ganhou a partida!" << std::endl;
     loser -> loseLig4();
 }
 
+
+/**
+    * @brief Verifica se há uma sequência de três símbolos iguais.
+    * 
+    * @param board Tabuleiro atual.
+    * @return true Se existe uma sequência.
+    * @return false Se não há sequência.
+*/
 bool Lig4::verifySequence(const BoardType& board){
     for(int row = 0; row < getRows(); row++){
         for(int col = 0; col < getCols(); col++){
@@ -102,6 +148,11 @@ bool Lig4::verifySequence(const BoardType& board){
     return false;
 }
 
+/**
+ * @brief Verificam sequencias de 4 peças iguais para alguma direção
+ * 
+ * @return true se a sequência foi completada, false caso contrário
+ */
 bool Lig4::verifyRight(Coordinates c, const BoardType& board, int counter){
     if(counter == 4){
         return true;
@@ -119,6 +170,15 @@ bool Lig4::verifyRight(Coordinates c, const BoardType& board, int counter){
     return verifyRight({c.getRow(), c.getCol()+1}, board, counter+1);
 }
 
+/**
+ * @brief Verifica uma sequência vertical de símbolos.
+ *  
+ * @param coord Coordenadas da peça inicial.
+ * @param board Tabuleiro atual.
+ * @param counter Contador de símbolos na sequência.
+ * @return true Se existe uma sequência completa.
+ * @return false Se não há sequência.
+*/
 bool Lig4::verifyDown(Coordinates c, const BoardType& board, int counter){
     if(counter == 4){
         return true;
@@ -136,6 +196,15 @@ bool Lig4::verifyDown(Coordinates c, const BoardType& board, int counter){
     return verifyDown({c.getRow()+1, c.getCol()}, board, counter+1);
 }
 
+/**
+* @brief Verifica uma sequência diagonal para baixo e à direita de símbolos.
+* 
+* @param coord Coordenadas da peça inicial.
+* @param board Tabuleiro atual.
+* @param counter Contador de símbolos na sequência.
+* @return true Se existe uma sequência completa.
+* @return false Se não há sequência.
+ */
 bool Lig4::verifyDownRight(Coordinates c, const BoardType& board, int counter){
     if(counter == 4){
         return true;
@@ -153,6 +222,15 @@ bool Lig4::verifyDownRight(Coordinates c, const BoardType& board, int counter){
     return verifyDownRight({c.getRow()+1, c.getCol()+1}, board, counter+1);
 }
 
+/**
+ * @brief Verifica uma sequência diagonal para cima e à direita de símbolos.
+ * 
+ * @param coord Coordenadas da peça inicial.
+ * @param board Tabuleiro atual.
+ * @param counter Contador de símbolos na sequência.
+ * @return true Se existe uma sequência completa.
+ * @return false Se não há sequência.
+ */
 bool Lig4::verifyUpRight(Coordinates c, const BoardType& board, int counter){
     if(counter == 4){
         return true;
@@ -170,6 +248,13 @@ bool Lig4::verifyUpRight(Coordinates c, const BoardType& board, int counter){
     return verifyUpRight({c.getRow()-1, c.getCol()+1}, board, counter+1);
 }
 
+/**
+ * @brief analisa as possíveis jogadas a serem feitas a partir de um tabuleiro
+ * 
+ * @param board Tabuleiro do jogo
+ * 
+ * @return Vetor de inteiros com as colunas possíveis de jogar
+ */
 std::vector<int> Lig4::possiblePlays(const BoardType& board){
     std::vector<int> plays;
     for(int col = 0; col < getCols(); col++){
@@ -180,10 +265,24 @@ std::vector<int> Lig4::possiblePlays(const BoardType& board){
     return plays;
 }
 
+/**
+ * @brief Verifica se o estado atual do tabuleiro é terminal
+ * 
+ * @param board Estado atual do tabuleiro
+ * 
+ * @return true se o estado é terminal (vitória ou empate), false caso contrário
+ */
 bool Lig4::terminalState(const BoardType& board){
     return checkWinner(board) != nullptr || possiblePlays(board).empty();
 }
 
+/**
+ * @brief Determina de quem é a vez de jogar
+ * 
+ * @param board Estado atual do tabuleiro
+ * 
+ * @return 1 ou 2 dependendo do jogador que deve jogar
+ */
 int Lig4::whoseTurn(const BoardType& board){
     int x = 0;
     int o = 0;
@@ -200,6 +299,12 @@ int Lig4::whoseTurn(const BoardType& board){
     }
     return x == o ? 1 : 2;
 }
+/**
+ * @brief Aplica uma jogada e retorna o novo estado do tabuleiro.
+ * @param board Estado atual do tabuleiro.
+ * @param play Coluna onde a jogada será realizada.
+ * @return O novo estado do tabuleiro após a jogada.
+ */
 
 BoardType Lig4::result(const BoardType& board, int play){
     BoardType newBoard = board;
@@ -212,6 +317,16 @@ BoardType Lig4::result(const BoardType& board, int play){
     return newBoard;
 }
 
+/**
+ * @brief Implementa o algoritmo Minimax para escolher a melhor jogada.
+ *    
+ * @param board Estado atual do tabuleiro.
+ * @param alpha Valor alfa para poda alfa-beta.
+ * @param beta Valor beta para poda alfa-beta.
+ * @param maximizing Booleano indicando se o algoritmo deve maximizar ou minimizar.
+ * @param depth Profundidade máxima da árvore de busca.
+ *  @return O valor da jogada calculado pelo algoritmo Minimax.
+ */ 
 int Lig4::minimax(const BoardType& board, int alpha, int beta, bool maximizing, int depth){
     std::vector<int> plays = possiblePlays(board);
     std::string boardString = boardToString(board);
@@ -260,6 +375,12 @@ int Lig4::minimax(const BoardType& board, int alpha, int beta, bool maximizing, 
     return 0;
 }
 
+/**
+ * @brief Retorna a melhor jogada calculada pelo algoritmo Minimax.
+ * 
+ * @param board Estado atual do tabuleiro.
+ * @return Inteiro representando a coluna onde deve ser feita a melhor jogada.
+ */
 int Lig4::bestPlay(const BoardType& board){
     std::vector<int> plays = possiblePlays(board);
     std::vector<int> orderedPlays = {2, 3, 1, 4, 0, 5};

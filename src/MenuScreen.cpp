@@ -70,6 +70,7 @@ void MenuScreen::handleEvents(sf::RenderWindow &window){
             window.close();
         }
         if(event.type == sf::Event::MouseButtonPressed){
+
             if(event.mouseButton.button == sf::Mouse::Left){
                 if(isMouseOver(playButton.getGlobalBounds(), window)){
                     if(getPlayers()->getsize() > 0){
