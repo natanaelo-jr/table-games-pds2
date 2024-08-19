@@ -72,8 +72,12 @@ void TicTacToe::addStats(Player* winner, Player* loser){
         std::cout << "Partidas contra o computador não contam para as estatísticas." << std::endl;
         return;
     }
-    //winner->increaseVictories();
-    //loser->increaseDefeats();
+    else {
+        winner -> winTicTacToe();
+        changePlayer();
+        loser -> loseTicTacToe();
+        return;
+    }
 }
 
 bool TicTacToe::verifySequence(const BoardType &board){
@@ -284,9 +288,4 @@ Coordinates TicTacToe::bestPlay(const BoardType& board){
     bestPlay.row++;
     bestPlay.col++;
     return bestPlay;
-}
-virtual void addStats(Player* player) override{
-    player -> winTicTacToe();
-    changeplayer();
-    player -> loseTicTacToe();
 }

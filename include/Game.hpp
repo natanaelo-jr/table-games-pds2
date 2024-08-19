@@ -32,7 +32,7 @@ class Game{
         void setSquare(Coordinates coord, char symbol);
         char getSquare(Coordinates coord, const BoardType& board);
         bool isValidSquare(Coordinates move);
-        virtual void addStats(Player* player) = 0;
+        virtual void addStats(Player* winner, Player* loser) = 0;
 
         Player* getWaitingPlayer();
         Player* getCurrentPlayer();

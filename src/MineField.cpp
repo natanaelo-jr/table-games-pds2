@@ -165,15 +165,20 @@ void MineField::play(){
             try{
                 if(!makePlay(move)){
                     std::cout << getCurrentPlayer()->getNickname() <<" perdeu!" << std::endl;
-                    player -> addStats();
+                    Player* player = getCurrentPlayer();
+                    addStats(player, nullptr);
+
                     break;
                 }
                 if(isGameOver()){
                     player == 1 ? p1win = true : p1win = false;
                     player == 2 ? p2win = true : p2win = false;
                     std::cout << getCurrentPlayer()->getNickname() << " ganhou!" << std::endl;
+                    Player* player = getCurrentPlayer();
                     changePlayer();
-                    player -> addStats();
+                    addStats(player, nullptr); 
+                    
+                    
                     break;
                 }         
             }catch(const std::exception& e){
@@ -183,17 +188,21 @@ void MineField::play(){
     }
 
     if(!isVersusGame()){
-        //todo addstatus p1
         p1win ? void() : void();
     }else{
         if(p1win == p2win){
             std::cout << "Empate!" << std::endl;
             //todo addstatus
-        }else{
+        } else{
             std::cout << "Vitória de " << (p1win ? getPlayer1()->getNickname() : getPlayer2()->getNickname()) << std::endl;
-            //todo addstatus
+            if(p1win){
+                addStats(getPlayer1(), getPlayer2());
+            }
+            else if(p2win){
+                addStats(getPlayer2(), getPlayer1());
+            }
         }
-    }
+    }   
 }
 
 bool MineField::makePlay(Coordinates move){
@@ -244,8 +253,8 @@ void MineField::resetGame(){
         }
     }
 }
-virtual void addStats(Player* player) override{
-    player -> loseMinefield();
+ void MineField::addStats(Player* player, Player* loser) {
+    loser -> loseMinefield();
     changePlayer();
-    player -> winMinefield();
+    player -> winMinefield();  
 }

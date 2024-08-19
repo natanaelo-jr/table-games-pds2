@@ -146,6 +146,14 @@ void TicTacToeScreen::processPlay(sf::FloatRect &playTile){
             cardText.setString(game->checkWinner(game->getBoard())->getNickname() + " Ganhou!");
             cardText.setOrigin(cardText.getLocalBounds().width / 2, 0);
             cardText.setPosition(416, 222);
+            if (winner == game->getPlayer1()){
+                Player* loser = game->getPlayer2();
+                game->addStats(winner, loser);
+            }
+            else if (winner == game->getPlayer2()){
+                Player* loser = game->getPlayer1();
+                game->addStats(winner, loser);
+            }
         }else{
             cardText.setString("Empate!");
             cardText.setOrigin(cardText.getLocalBounds().width / 2, 0);

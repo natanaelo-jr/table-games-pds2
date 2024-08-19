@@ -12,7 +12,7 @@ class TicTacToe: public Game{
         virtual void play() override;
         bool makePlay(Coordinates play);
         Player* checkWinner(const BoardType& board);
-        void addStats(Player* winner, Player* loser);
+        void addStats(Player* winner, Player* loser)override;
         bool verifySequence(const BoardType& board);
         bool verifyRight(Coordinates c, const BoardType& board, int counter);
         bool verifyDown(Coordinates c, const BoardType& board, int counter);
@@ -23,7 +23,7 @@ class TicTacToe: public Game{
         bool terminalState(const BoardType &board);
         int whoseTurn(const BoardType& board);
         BoardType result(const BoardType& board, Coordinates play);
-        virtual void addStats(Player* player) override;
+        
         
         int minimax(const BoardType& board, int alpha, int beta, bool maximizing);
         Coordinates bestPlay(const BoardType& board);

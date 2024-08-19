@@ -11,7 +11,7 @@ class Reversi : public Game{
         virtual void play() override;
         bool makePlay(int row, int col);
         Player* checkWinner();
-        void addStats(Player* winner, Player* loser);
+        void addStats(Player* winner, Player* loser)override;
         int countSymbols(char symbol);
         void reverseSymbols(int row, int col);
         void initializeBoard();
