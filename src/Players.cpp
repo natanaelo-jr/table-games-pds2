@@ -155,9 +155,21 @@ void Players::loadFromDataFile() {
             linestream << line;
             std::string name, nickname;
             linestream >> name >> nickname;
+            
             Player* player = new Player(name, nickname);
             int victories, defeats;
             linestream >> victories >> defeats;
+            player->setTicTacToeVictories(victories);
+            player->setTicTacToeDefeats(defeats);
+            linestream >> victories >> defeats;
+            player->setLig4Victories(victories);
+            player->setLig4Defeats(defeats);
+            linestream >> victories >> defeats;
+            player->setReversiVictories(victories);
+            player->setReversiDefeats(defeats);
+            linestream >> victories >> defeats;
+            player->setMinefieldVictories(victories);
+            player->setMinefieldDefeats(defeats);
 
             players.insert(player);
         }
@@ -174,7 +186,11 @@ void Players::saveToDataFile() {
     std::ofstream file("Data.txt", std::ios::out | std::ios::binary);
     if(file.is_open()){
         for(auto player : players){
-            file << player->getName() << " " << player->getNickname() << " " << player->getVictories() << " " << player->getDefeats();
+            file << player->getName() << " " << player->getNickname() << " "
+             << player->getTicTacToeVictories() << " " << player->getTicTacToeDefeats() << " "
+                << player->getLig4Victories() << " " << player->getLig4Defeats() << " "
+                << player->getReversiVictories() << " " << player->getReversiDefeats() << " "
+                << player->getMinefieldVictories() << " " << player->getMinefieldDefeats();
             if(player != *players.rbegin()){
                 file << std::endl;
             }

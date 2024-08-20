@@ -89,6 +89,8 @@ void MenuScreen::handleEvents(sf::RenderWindow &window){
                         getScreenManager()->change(std::make_shared<CreditsScreen>(getScreenManager(), getPlayers()));
                 }
                 if(isMouseOver(exitButton.getGlobalBounds(), window)){
+                    getPlayers()->saveToDataFile();
+                    delete getPlayers();
                     window.close();
                 }
             }

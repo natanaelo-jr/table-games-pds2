@@ -61,7 +61,7 @@ class Player{
         void setNickname(std::string nickname);
 
         /** 
-         * @brief Métodos para getters vitórias e derrotas de cada jogo específico
+         * @brief Métodos para aumentar em 1 vitórias e derrotas de cada jogo específico
          */
         void winTicTacToe();
         void loseTicTacToe();
@@ -83,6 +83,20 @@ class Player{
         int getReversiDefeats() const;
         int getMinefieldVictories() const;
         int getMinefieldDefeats() const;
+
+        /** 
+        * @brief Métodos setters incisivos para vitórias e derrotas de cada jogo específico
+        */
+
+        void setTicTacToeVictories(int victories);
+        void setTicTacToeDefeats(int defeats);
+        void setLig4Victories(int victories);
+        void setLig4Defeats(int defeats);
+        void setReversiVictories(int victories);
+        void setReversiDefeats(int defeats);
+        void setMinefieldVictories(int victories);
+        void setMinefieldDefeats(int defeats);
+        
 };
 
 #endif

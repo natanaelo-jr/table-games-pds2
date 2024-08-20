@@ -227,3 +227,40 @@ int Player::getMinefieldVictories() const {
 int Player::getMinefieldDefeats() const {
     return minefieldDefeats;
 }
+
+
+/** 
+* @brief Métodos setters de vitórias e derrotas de cada jogo específico
+*/
+
+void Player::setTicTacToeVictories(int victories){
+    tictactoeVictories = victories;
+}
+
+void Player::setTicTacToeDefeats(int defeats){
+    tictactoeDefeats = defeats;
+}
+
+void Player::setLig4Victories(int victories){
+    lig4Victories = victories;
+}
+
+void Player::setLig4Defeats(int defeats){
+    lig4Defeats = defeats;
+}
+
+void Player::setReversiVictories(int victories){
+    reversiVictories = victories;
+}
+
+void Player::setReversiDefeats(int defeats){
+    reversiDefeats = defeats;
+}
+
+void Player::setMinefieldVictories(int victories){
+    minefieldVictories = victories;
+}
+
+void Player::setMinefieldDefeats(int defeats){
+    minefieldDefeats = defeats;
+}

@@ -11,6 +11,7 @@
 
 int main(){  
     Players* players = new Players();
+    players->loadFromDataFile();
     ScreenManager* screenManager = new ScreenManager();
     screenManager->push(std::make_shared<MenuScreen>(screenManager, players));
 
