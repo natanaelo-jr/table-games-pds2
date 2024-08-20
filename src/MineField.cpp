@@ -5,34 +5,12 @@
 #include <ctime>
 #include <set>
 
-/**
- * @brief Construtor da classe MineField
- * 
- * Inicializa um jogo de campo minado com um jogador e o tamanho do tabuleiro e número de bombas padrão.
- */
 MineField::MineField(Player* player) : MineField(player, 9, 10){}
 
-/**
- * @brief Construtor da classe MineField
- * 
- * Inicializa um jogo de campo minado com um jogador e o tamanho do tabuleiro e número de bombas pré-definido.
- */
 MineField::MineField(Player* player, int fieldSize, int bombs) : MineField(player, nullptr, fieldSize, bombs){}
 
-/**
- * @brief Construtor da classe MineField
- * 
- * Inicializa um jogo de campo minado com dois jogadores e o tamanho do tabuleiro e número de bombas padrão.
- */
 MineField::MineField(Player* player1, Player* player2) : MineField(player1, player2, 9, 10){}
 
-/**
- * @brief Construtor da classe MineField
- * 
- * Inicializa um jogo de campo minado com dois jogadores e o tamanho do tabuleiro e número de bombas pré-definido.
- * Se o tamanho do lado do tabuleiro for menor ou igual a 5, ou o número de bombas for menor que 1 ou o número de bombas for maior que o número de casas do tabuleiro dividido por 5, uma exceção é lançada.
- * Se um dos jogadores for a CPU, uma exceção é lançada.
- */
 MineField::MineField(Player* player1, Player* player2, int fieldSize, int bombs): Game(player1, player2, fieldSize, fieldSize){
     if(fieldSize <= 5){
         throw std::invalid_argument("Tamanho do campo inválido.");
@@ -60,20 +38,10 @@ MineField::MineField(Player* player1, Player* player2, int fieldSize, int bombs)
     }
 }
 
-/**
- * @brief Retorna o tamanho do campo minado.
- * 
- * @return Tamanho do campo minado.
- */
 int MineField::getFieldSize(){
     return fieldSize;
 }
 
-/**
- * @brief Define o campo de referência do campo minado.
- * 
- * @param firstPlay Coordenadas da primeira jogada.
- */
 void MineField::setReferenceField(Coordinates firstPlay){
     std::set<Coordinates> invalidHouses;
 
@@ -95,17 +63,8 @@ void MineField::setReferenceField(Coordinates firstPlay){
     
     std::default_random_engine generator(std::time(0));
 
-    /**
-     * @brief Embaralha as coordenadas das minas.
-     */
     std::shuffle(mines.begin(), mines.end(), generator);
 
-    /**
-     * @brief Coloca as minas no campo minado.
-     * 
-     * Se a casa for inválida, ela não recebe uma mina.
-     * Se o número de minas for igual ao número de bombas, o loop é interrompido.
-     */
     int count = 0;
     for(Coordinates c : mines){
         if(invalidHouses.find(c) == invalidHouses.end()){
@@ -139,12 +98,6 @@ void MineField::setReferenceField(Coordinates firstPlay){
     }
 }
 
-/**
- * @brief Retorna o valor de uma casa do campo minado.
- * 
- * @param reference Coordenadas da casa de referência.
- * @return Valor da casa.
- */
 int MineField::getReference(Coordinates reference){
     if(isValidSquare(reference)){
         return referenceField[reference.row][reference.col];
@@ -152,20 +105,10 @@ int MineField::getReference(Coordinates reference){
     throw std::invalid_argument("Coordenadas inválidas");
 }
 
-/**
- * @brief Retorna o número de bombas do campo minado.
- * 
- * @return Número de bombas.
- */
 int MineField::getNumberOfBombs(){
     return numberOfBombs;
 }
 
-/**
- * @brief Abertura recursiva de casas do campo minado.
- * 
- * @param reference Coordenadas da casa de referência.
- */
 void MineField::recursiveOpen(Coordinates reference){
     if(!isValidSquare(reference)){
         return;
@@ -190,18 +133,6 @@ void MineField::recursiveOpen(Coordinates reference){
     }
 }
 
-/**
- * @brief Inicia o jogo de campo minado.
- * 
- * Se for um jogo versus, imprime os jogadores.
- * Se for um jogo single player, imprime o jogador.
- * 
- * Faz a jogada inicial e, enquanto o jogo não acabar, pede as coordenadas da jogada e faz a jogada.
- * Se a jogada for inválida, uma exceção é lançada.
- * Se a casa já estiver aberta, uma exceção é lançada.
- * Se a casa tiver uma mina, o jogador perde.
- * Se o jogo acabar, o jogador que ganhou é impresso.
- */
 void MineField::play(){
     int row, col;
     bool p1win = false;
@@ -275,12 +206,6 @@ void MineField::play(){
   //A FEATURE VERSUSGAME FOI DESCONTINUADA, USAREMOS APENAS O JOGO COM APENAS UM JOGADOR.
 }
 
-/**
- * @brief Faz a jogada no campo minado.
- * 
- * @param move Coordenadas da jogada.
- * @return true se a jogada for válida, false caso contrário.
- */
 bool MineField::makePlay(Coordinates move){
     move.setRow(move.getRow() - 1);
     move.setCol(move.getCol() - 1);
@@ -298,20 +223,10 @@ bool MineField::makePlay(Coordinates move){
     return true;
 }
 
-/**
- * @brief Verifica se o jogo é versus.
- * 
- * @return true se o jogo é versus, false caso contrário.
- */
 bool MineField::isVersusGame(){
     return versusGame;
 }
 
-/**
- * @brief Verifica se o jogo acabou.
- * 
- * @return true se o jogo acabou, false caso contrário.
- */
 bool MineField::isGameOver(){
     int counter = 0;
     for(int i = 0; i < getFieldSize(); i++){
@@ -327,9 +242,6 @@ bool MineField::isGameOver(){
     return false;
 }
 
-/**
- * @brief Reseta o jogo de campo minado.
- */
 void MineField::resetGame(){
     for(int i = 0; i < getFieldSize(); i++){
         for(int j = 0; j < getFieldSize(); j++){

@@ -3,19 +3,11 @@
 #include <sstream>
 #include "Players.hpp"
 
-/**
- * @brief Construtor padrão da classe Players.
- */
+
 Players::Players() {
 }
 
-/**
- * @brief Busca um jogador pela combinação de nome e apelido.
- * 
- * @param name Nome do jogador a ser buscado.
- * @param nickname Apelido do jogador a ser buscado.
- * @return Player* Ponteiro para o jogador encontrado ou nullptr se não encontrado.
- */
+
 Player* Players::search(std::string name, std::string nickname) {
     for(auto player : players){
         if(player->getName() == name && player->getNickname() == nickname){
@@ -25,11 +17,7 @@ Player* Players::search(std::string name, std::string nickname) {
     return nullptr;
 }
 
-/**
- * @brief Obtém uma lista de jogadores ordenada pelo número de vitórias.
- * 
- * @return std::list<Player*> Lista de jogadores ordenada por vitórias.
- */
+
 std::list<Player*> Players::getPlayersByVictories() {
     std::list<Player*> playersByVictories;
     for(auto player : players){
@@ -39,11 +27,7 @@ std::list<Player*> Players::getPlayersByVictories() {
     return playersByVictories;
 }
 
-/**
- * @brief Obtém uma lista de todos os jogadores.
- * 
- * @return std::list<Player*> Lista de todos os jogadores.
- */
+
 std::list<Player*> Players::getPlayers() {
     std::list<Player*> playersList;
     for(auto player : players){
@@ -52,12 +36,7 @@ std::list<Player*> Players::getPlayers() {
     return playersList;
 }
 
-/**
- * @brief Busca um jogador pelo apelido.
- * 
- * @param nickname Apelido do jogador a ser buscado.
- * @return Player* Ponteiro para o jogador encontrado ou nullptr se não encontrado.
- */
+
 Player* Players::searchByNickname(std::string nickname) {
     for(auto player : players){
         if(player->getNickname() == nickname){
@@ -67,13 +46,7 @@ Player* Players::searchByNickname(std::string nickname) {
     return nullptr;
 }
 
-/**
- * @brief Cadastra um novo jogador com nome e apelido fornecidos.
- * 
- * @param name Nome do novo jogador.
- * @param nickname Apelido do novo jogador.
- * @throws std::invalid_argument Se o jogador já existir.
- */
+
 void Players::signUpPlayer(std::string name, std::string nickname) {
     if (search(name, nickname) != nullptr) {
         std::cout << "ERRO: jogador repetido" << std::endl;
@@ -84,12 +57,7 @@ void Players::signUpPlayer(std::string name, std::string nickname) {
     }
 }
 
-/**
- * @brief Remove um jogador pelo apelido.
- * 
- * @param nickname Apelido do jogador a ser removido.
- * @throws std::invalid_argument Se o jogador não existir.
- */
+
 void Players::deletePlayer(std::string nickname) {
     Player* player = searchByNickname(nickname);
     if(player != nullptr) {
@@ -101,9 +69,7 @@ void Players::deletePlayer(std::string nickname) {
     throw std::invalid_argument("Jogador inexistente");
 }
 
-/**
- * @brief Exibe informações sobre todos os jogadores cadastrados.
- */
+
 void Players::displayPlayers() {
     for(auto player : players){
         std::cout << player->getNickname() << " " << player->getName() << std::endl;
@@ -115,35 +81,19 @@ void Players::displayPlayers() {
     }
 }
 
-/**
- * @brief Functor para comparar jogadores pelo apelido.
- */
+
 bool ComparePlayer::operator()(const Player* p1, const Player* p2) const {
     return p1->getNickname() < p2->getNickname();
 }
 
-/**
- * @brief Functor para comparar jogadores pelo número de vitórias.
- */
 bool CompareByVictories::operator()(const Player* p1, const Player* p2) const {
     return p1->getVictories() > p2->getVictories();
 }
 
-/**
- * @brief Obtém o número de jogadores cadastrados.
- * 
- * @return int Número de jogadores.
- */
 int Players::getsize() {
     return players.size();
 }
 
-
-/**
- * @brief Carrega os dados dos jogadores a partir de um arquivo.
- * 
- * O arquivo deve estar no formato: nome apelido vitórias derrotas.
- */
 void Players::loadFromDataFile() {
     std::ifstream file("Data.txt", std::ios::in | std::ios::binary);
     if(file.is_open()){
@@ -177,11 +127,6 @@ void Players::loadFromDataFile() {
     }
 }
 
-/**
- * @brief Salva os dados dos jogadores em um arquivo.
- * 
- * O arquivo será salvo no formato: nome apelido vitórias derrotas.
- */
 void Players::saveToDataFile() {
     std::ofstream file("Data.txt", std::ios::out | std::ios::binary);
     if(file.is_open()){
