@@ -21,5 +21,7 @@ int main(){
     while (window.isOpen()) {
         screenManager->getCurrentState()->process(window);
     }
+    delete players;
+    delete screenManager;
     return 0;
 }
