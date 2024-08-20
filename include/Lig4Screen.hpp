@@ -1,46 +1,107 @@
 #ifndef LIG4SCREEN_HPP
 #define LIG4SCREEN_HPP
+
 #include "Screen.hpp"
 #include "Lig4.hpp"
 
-class Lig4Screen : public Screen{
+/**
+ * @class Lig4Screen
+ * @brief Classe responsável por gerenciar a tela do jogo Lig4.
+ * 
+ * Essa classe lida com a renderização, atualização e eventos da tela do jogo Lig4,
+ * além de gerenciar os recursos gráficos e os jogadores.
+ */
+class Lig4Screen : public Screen {
     public:
+        /**
+         * @brief Construtor da classe Lig4Screen.
+         * 
+         * @param screenManager Gerenciador de telas que controla a navegação entre as telas.
+         * @param player1 Ponteiro para o primeiro jogador.
+         * @param player2 Ponteiro para o segundo jogador.
+         * @param players Ponteiro para o objeto que gerencia os jogadores.
+         */
         Lig4Screen(ScreenManager* screenManager, Player* player1, Player* player2, Players* players);
+
+        /**
+         * @brief Lida com os eventos da janela, como cliques e movimentação do mouse.
+         * 
+         * @param window Referência para a janela onde os eventos serão processados.
+         */
         void handleEvents(sf::RenderWindow &window) override;
+
+        /**
+         * @brief Atualiza o estado da tela do jogo.
+         * 
+         * @param window Referência para a janela que será atualizada.
+         */
         void update(sf::RenderWindow &window) override;
+
+        /**
+         * @brief Renderiza os elementos gráficos na tela.
+         * 
+         * @param window Referência para a janela onde os elementos serão desenhados.
+         */
         void render(sf::RenderWindow &window) override;
 
+        /**
+         * @brief Atualiza a posição e o estado da peça fantasma.
+         * 
+         * @param window Referência para a janela onde a peça fantasma será atualizada.
+         */
         void updatePhantomPiece(sf::RenderWindow &window);
+
+        /**
+         * @brief Carrega as texturas necessárias para os elementos gráficos da tela.
+         */
         void loadTextures();
+
+        /**
+         * @brief Obtém as coordenadas de um tile a partir de seu retângulo delimitador.
+         * 
+         * @param tile Referência para o retângulo delimitador do tile.
+         * @return Coordenadas do tile.
+         */
         Coordinates getTileCoordinates(sf::FloatRect &tile);
+
+        /**
+         * @brief Obtém as jogadas possíveis na tela.
+         * 
+         * @return Vetor de retângulos delimitadores das jogadas possíveis.
+         */
         std::vector<sf::FloatRect> getPossiblePlays();
+
+        /**
+         * @brief Processa uma jogada na tela.
+         * 
+         * @param playTile Referência para o retângulo delimitador da jogada que será processada.
+         */
         void processPlay(sf::FloatRect &playTile);
 
-
     private:
-        float tileSize;
-        Lig4* game;
-        sf::Vector2f screenOffset;
-        sf::Texture pieceVTexture;
-        sf::Texture pieceATexture;
-        sf::Texture boardTexture;
-        sf::Sprite phantomPiece;
-        sf::Font font;
+        float tileSize; ///< Tamanho de cada tile no tabuleiro.
+        Lig4* game; ///< Ponteiro para o objeto do jogo Lig4.
+        sf::Vector2f screenOffset; ///< Offset da tela em relação à posição padrão.
+        sf::Texture pieceVTexture; ///< Textura da peça do jogador 1.
+        sf::Texture pieceATexture; ///< Textura da peça do jogador 2.
+        sf::Texture boardTexture; ///< Textura do tabuleiro.
+        sf::Sprite phantomPiece; ///< Sprite da peça fantasma.
+        sf::Font font; ///< Fonte usada para os textos na tela.
 
-        sf::Text player1Nick;
-        sf::Text player2Nick;
-        sf::Sprite player1Piece;
-        sf::Sprite player2Piece;
+        sf::Text player1Nick; ///< Texto do nome do jogador 1.
+        sf::Text player2Nick; ///< Texto do nome do jogador 2.
+        sf::Sprite player1Piece; ///< Sprite da peça do jogador 1.
+        sf::Sprite player2Piece; ///< Sprite da peça do jogador 2.
 
-        std::vector<sf::Sprite> pieces;
-        sf::Sprite board;
+        std::vector<sf::Sprite> pieces; ///< Vetor de sprites das peças no tabuleiro.
+        sf::Sprite board; ///< Sprite do tabuleiro.
 
-        sf::RectangleShape cardShape;
-        sf::Sprite cardButton1;
-        sf::Sprite cardButton2;
-        sf::Text cardText;
+        sf::RectangleShape cardShape; ///< Forma retangular usada para um cartão na tela.
+        sf::Sprite cardButton1; ///< Sprite do botão 1 do cartão.
+        sf::Sprite cardButton2; ///< Sprite do botão 2 do cartão.
+        sf::Text cardText; ///< Texto exibido no cartão.
 
-        bool finishGame;
+        bool finishGame; ///< Indica se o jogo foi finalizado.
 };
 
 #endif
