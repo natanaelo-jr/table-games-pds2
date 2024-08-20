@@ -1,0 +1,568 @@
+\doxysection{Tic\+Tac\+Toe Class Reference}
+\hypertarget{classTicTacToe}{}\label{classTicTacToe}\index{TicTacToe@{TicTacToe}}
+
+
+Classe \doxylink{classTicTacToe}{Tic\+Tac\+Toe}.  
+
+
+
+
+{\ttfamily \#include $<$Tic\+Tac\+Toe.\+hpp$>$}
+
+
+
+Inheritance diagram for Tic\+Tac\+Toe\+:
+% FIG 0
+
+
+Collaboration diagram for Tic\+Tac\+Toe\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTicTacToe_acb1f32a2d6e0ff73e8e98ec740feae98}{Tic\+Tac\+Toe}} (\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player1, \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player2)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{classTicTacToe}{Tic\+Tac\+Toe}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classTicTacToe_a5d6f76f1827886d5c563fb57ccf32388}{play}} () override
+\begin{DoxyCompactList}\small\item\em Método play. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTicTacToe_a329a469bcda2367baa499e306280b4bf}{make\+Play}} (\mbox{\hyperlink{classCoordinates}{Coordinates}} \mbox{\hyperlink{classTicTacToe_a5d6f76f1827886d5c563fb57ccf32388}{play}})
+\begin{DoxyCompactList}\small\item\em Método make\+Play. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classTicTacToe_ad01da18c91756779bcad25aae4f732ef}{check\+Winner}} (const Board\+Type \&board)
+\begin{DoxyCompactList}\small\item\em Método check\+Winner. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTicTacToe_ae25a7fe0d050d76441482bae4cc0a436}{add\+Stats}} (\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}winner, \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}loser) override
+\begin{DoxyCompactList}\small\item\em Método add\+Stats. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTicTacToe_a5300fc91ab71ae9b193884911916d62c}{verify\+Sequence}} (const Board\+Type \&board)
+\begin{DoxyCompactList}\small\item\em Método verify\+Sequence. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTicTacToe_a92919d88996b2b0ad146aab27a5f7bde}{verify\+Right}} (\mbox{\hyperlink{classCoordinates}{Coordinates}} c, const Board\+Type \&board, int counter)
+\begin{DoxyCompactList}\small\item\em Métodos chamados pelo verify\+Sequence verificam se há uma sequência de 3 peças iguais no tabuleiro para cada direção. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTicTacToe_a7b164f670851d79d907706dd579e13e1}{verify\+Down}} (\mbox{\hyperlink{classCoordinates}{Coordinates}} c, const Board\+Type \&board, int counter)
+\begin{DoxyCompactList}\small\item\em Verifica uma sequência vertical de símbolos. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTicTacToe_a169dbe73f16182eebcb853fed4099b9d}{verify\+Down\+Right}} (\mbox{\hyperlink{classCoordinates}{Coordinates}} c, const Board\+Type \&board, int counter)
+\begin{DoxyCompactList}\small\item\em Verifica uma sequência diagonal para baixo e à direita de símbolos. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTicTacToe_a589aa7d7cf226970413a170cbe4fa988}{verify\+Up\+Right}} (\mbox{\hyperlink{classCoordinates}{Coordinates}} c, const Board\+Type \&board, int counter)
+\begin{DoxyCompactList}\small\item\em Verifica uma sequência diagonal para cima e à direita de símbolos. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ \mbox{\hyperlink{classCoordinates}{Coordinates}} $>$ \mbox{\hyperlink{classTicTacToe_a1fed2294576327471fd3ed7833119ec5}{possible\+Plays}} (const Board\+Type \&board)
+\begin{DoxyCompactList}\small\item\em Método possible\+Plays. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTicTacToe_ac691c2627126e12482bb663957b21cdd}{terminal\+State}} (const Board\+Type \&board)
+\begin{DoxyCompactList}\small\item\em Método terminal\+State. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTicTacToe_a76d4c3a88be0cf5e300110d124150219}{whose\+Turn}} (const Board\+Type \&board)
+\begin{DoxyCompactList}\small\item\em Método whose\+Turn. \end{DoxyCompactList}\item 
+Board\+Type \mbox{\hyperlink{classTicTacToe_ab94402a301acb07e2c3e02475d51050c}{result}} (const Board\+Type \&board, \mbox{\hyperlink{classCoordinates}{Coordinates}} \mbox{\hyperlink{classTicTacToe_a5d6f76f1827886d5c563fb57ccf32388}{play}})
+\begin{DoxyCompactList}\small\item\em Método result. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTicTacToe_a84d306d92b3c13e59656e7deee78e3ec}{minimax}} (const Board\+Type \&board, int alpha, int beta, bool maximizing)
+\begin{DoxyCompactList}\small\item\em Método minimax. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCoordinates}{Coordinates}} \mbox{\hyperlink{classTicTacToe_a154781f597858779200018dbcf08ae93}{best\+Play}} (const Board\+Type \&board)
+\begin{DoxyCompactList}\small\item\em Método best\+Play. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classGame}{Game}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Game} ()
+\begin{DoxyCompactList}\small\item\em Construtor padrão da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGame_a884ac2dcb2fba67cc6ba353f4d6edf25}{Game}} (\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player1, \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player2)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGame_a592382f09c33f1916bb95587432b1ce8}{Game}} (\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player1, \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player2, int rows, int cols)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Game} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+Board\+Type \mbox{\hyperlink{classGame_abb2c52d8a407621c4ef9dcde7cf9c9fe}{get\+Board}} ()
+\begin{DoxyCompactList}\small\item\em Métodos getters para os atributos da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+int {\bfseries get\+Rows} ()
+\item 
+int {\bfseries get\+Cols} ()
+\item 
+void \mbox{\hyperlink{classGame_a33a4e56bc86a8697b62bcc65852e5f56}{set\+Square}} (\mbox{\hyperlink{classCoordinates}{Coordinates}} coord, char symbol)
+\begin{DoxyCompactList}\small\item\em Métodos setters para os atributos da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+char {\bfseries get\+Square} (\mbox{\hyperlink{classCoordinates}{Coordinates}} coord, const Board\+Type \&board)
+\item 
+bool \mbox{\hyperlink{classGame_a041001ab1b8a22311d1bc4c6fa537765}{is\+Valid\+Square}} (\mbox{\hyperlink{classCoordinates}{Coordinates}} move)
+\begin{DoxyCompactList}\small\item\em Verifica se a jogada é válida. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classGame_a340bd2268f4bca6ddce7de526ae8582c}{get\+Waiting\+Player}} ()
+\begin{DoxyCompactList}\small\item\em Retorna o jogador que está esperando a jogada. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classGame_a6ee4c45fb533cf83f69803d368abf92d}{get\+Current\+Player}} ()
+\begin{DoxyCompactList}\small\item\em Retorna o jogador atual. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classGame_a01d7146d789990ee8195bdcca57c327e}{get\+Player1}} ()
+\begin{DoxyCompactList}\small\item\em Ponteiro para os jogadores. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Player2} ()
+\item 
+void {\bfseries print\+Board} ()
+\begin{DoxyCompactList}\small\item\em Imprime o tabuleiro do jogo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_a478c3b61f622bf63ea377766e11e73f2}{change\+Player}} ()
+\begin{DoxyCompactList}\small\item\em Troca o jogador atual com o jogador que está esperando a jogada. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe \doxylink{classTicTacToe}{Tic\+Tac\+Toe}. 
+
+Classe responsável por gerenciar o jogo \doxylink{classTicTacToe}{Tic\+Tac\+Toe}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classTicTacToe_acb1f32a2d6e0ff73e8e98ec740feae98}\index{TicTacToe@{TicTacToe}!TicTacToe@{TicTacToe}}
+\index{TicTacToe@{TicTacToe}!TicTacToe@{TicTacToe}}
+\doxysubsubsection{\texorpdfstring{TicTacToe()}{TicTacToe()}}
+{\footnotesize\ttfamily \label{classTicTacToe_acb1f32a2d6e0ff73e8e98ec740feae98} 
+Tic\+Tac\+Toe\+::\+Tic\+Tac\+Toe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}}]{player1}{, }\item[{\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}}]{player2}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{classTicTacToe}{Tic\+Tac\+Toe}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player1} & Ponteiro para o jogador 1 \\
+\hline
+{\em player2} & Ponteiro para o jogador 2\\
+\hline
+{\em player1} & Primeiro jogador. \\
+\hline
+{\em player2} & Segundo jogador. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classTicTacToe_ae25a7fe0d050d76441482bae4cc0a436}\index{TicTacToe@{TicTacToe}!addStats@{addStats}}
+\index{addStats@{addStats}!TicTacToe@{TicTacToe}}
+\doxysubsubsection{\texorpdfstring{addStats()}{addStats()}}
+{\footnotesize\ttfamily \label{classTicTacToe_ae25a7fe0d050d76441482bae4cc0a436} 
+void Tic\+Tac\+Toe\+::add\+Stats (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}}]{winner}{, }\item[{\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}}]{loser}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Método add\+Stats. 
+
+Atualiza as estatísticas do jogador após uma vitória.
+
+Adiciona as estatísticas de vitória e derrota no jogo \doxylink{classTicTacToe}{Tic\+Tac\+Toe} dos jogadores.
+
+
+\begin{DoxyParams}{Parameters}
+{\em winner} & Ponteiro para o jogador vencedor \\
+\hline
+{\em loser} & Ponteiro para o jogador perdedor\\
+\hline
+{\em winner} & Jogador vencedor. \\
+\hline
+{\em loser} & Jogador perdedor. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classGame_a3f05180b2b9ce40bd0d2892d4aa3cc3c}{Game}}.
+
+\Hypertarget{classTicTacToe_a154781f597858779200018dbcf08ae93}\index{TicTacToe@{TicTacToe}!bestPlay@{bestPlay}}
+\index{bestPlay@{bestPlay}!TicTacToe@{TicTacToe}}
+\doxysubsubsection{\texorpdfstring{bestPlay()}{bestPlay()}}
+{\footnotesize\ttfamily \label{classTicTacToe_a154781f597858779200018dbcf08ae93} 
+\mbox{\hyperlink{classCoordinates}{Coordinates}} Tic\+Tac\+Toe\+::best\+Play (\begin{DoxyParamCaption}\item[{const Board\+Type \&}]{board}{}\end{DoxyParamCaption})}
+
+
+
+Método best\+Play. 
+
+Retorna a melhor jogada calculada pelo algoritmo Minimax.
+
+Retorna a melhor jogada para o método minimax
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Tabuleiro do jogo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Coordenadas da melhor jogada encontrada
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Estado atual do tabuleiro. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Inteiro representando a coluna onde deve ser feita a melhor jogada. 
+\end{DoxyReturn}
+\Hypertarget{classTicTacToe_ad01da18c91756779bcad25aae4f732ef}\index{TicTacToe@{TicTacToe}!checkWinner@{checkWinner}}
+\index{checkWinner@{checkWinner}!TicTacToe@{TicTacToe}}
+\doxysubsubsection{\texorpdfstring{checkWinner()}{checkWinner()}}
+{\footnotesize\ttfamily \label{classTicTacToe_ad01da18c91756779bcad25aae4f732ef} 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} Tic\+Tac\+Toe\+::check\+Winner (\begin{DoxyParamCaption}\item[{const Board\+Type \&}]{board}{}\end{DoxyParamCaption})}
+
+
+
+Método check\+Winner. 
+
+Verifica se existe um vencedor.
+
+Verifica se há um vencedor no jogo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Tabuleiro do jogo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ponteiro para o jogador vencedor
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Tabuleiro atual. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Player\texorpdfstring{$\ast$}{*} Jogador vencedor ou nullptr em caso de empate ou sem vencedor. 
+\end{DoxyReturn}
+\Hypertarget{classTicTacToe_a329a469bcda2367baa499e306280b4bf}\index{TicTacToe@{TicTacToe}!makePlay@{makePlay}}
+\index{makePlay@{makePlay}!TicTacToe@{TicTacToe}}
+\doxysubsubsection{\texorpdfstring{makePlay()}{makePlay()}}
+{\footnotesize\ttfamily \label{classTicTacToe_a329a469bcda2367baa499e306280b4bf} 
+bool Tic\+Tac\+Toe\+::make\+Play (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoordinates}{Coordinates}}}]{play}{}\end{DoxyParamCaption})}
+
+
+
+Método make\+Play. 
+
+Realiza uma jogada no tabuleiro.
+
+Realiza a jogada do jogador atual.
+
+
+\begin{DoxyParams}{Parameters}
+{\em play} & Coordenadas da jogada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Verdadeiro se a jogada foi realizada com sucesso e falso caso contrário
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em play} & Coordenadas da jogada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Se a jogada foi realizada com sucesso. 
+
+false Se a jogada foi inválida. 
+\end{DoxyReturn}
+\Hypertarget{classTicTacToe_a84d306d92b3c13e59656e7deee78e3ec}\index{TicTacToe@{TicTacToe}!minimax@{minimax}}
+\index{minimax@{minimax}!TicTacToe@{TicTacToe}}
+\doxysubsubsection{\texorpdfstring{minimax()}{minimax()}}
+{\footnotesize\ttfamily \label{classTicTacToe_a84d306d92b3c13e59656e7deee78e3ec} 
+int Tic\+Tac\+Toe\+::minimax (\begin{DoxyParamCaption}\item[{const Board\+Type \&}]{board}{, }\item[{int}]{alpha}{, }\item[{int}]{beta}{, }\item[{bool}]{maximizing}{}\end{DoxyParamCaption})}
+
+
+
+Método minimax. 
+
+Implementa o algoritmo Minimax para escolher a melhor jogada.
+
+Implementa o algoritmo minimax para o jogo \doxylink{classTicTacToe}{Tic\+Tac\+Toe}
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Tabuleiro do jogo \\
+\hline
+{\em alpha} & Valor de alpha \\
+\hline
+{\em beta} & Valor de beta \\
+\hline
+{\em maximizing} & Verdadeiro se é a vez do jogador maximizador e falso caso contrário \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Valor da jogada (quanto maior melhor a jogada)
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Estado atual do tabuleiro. \\
+\hline
+{\em alpha} & Valor alfa para poda alfa-\/beta. \\
+\hline
+{\em beta} & Valor beta para poda alfa-\/beta. \\
+\hline
+{\em maximizing} & Booleano indicando se o algoritmo deve maximizar ou minimizar. \\
+\hline
+{\em depth} & Profundidade máxima da árvore de busca.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O valor da jogada calculado pelo algoritmo Minimax se o algoritmo rodar corretamente. 
+
+0 se ocorrer um erro 
+\end{DoxyReturn}
+\Hypertarget{classTicTacToe_a5d6f76f1827886d5c563fb57ccf32388}\index{TicTacToe@{TicTacToe}!play@{play}}
+\index{play@{play}!TicTacToe@{TicTacToe}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}}
+{\footnotesize\ttfamily \label{classTicTacToe_a5d6f76f1827886d5c563fb57ccf32388} 
+void Tic\+Tac\+Toe\+::play (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Método play. 
+
+Função principal que executa o ciclo do jogo.
+
+Implementa a função virtual pura da classe \doxylink{classGame}{Game}. 
+
+Implements \mbox{\hyperlink{classGame}{Game}}.
+
+\Hypertarget{classTicTacToe_a1fed2294576327471fd3ed7833119ec5}\index{TicTacToe@{TicTacToe}!possiblePlays@{possiblePlays}}
+\index{possiblePlays@{possiblePlays}!TicTacToe@{TicTacToe}}
+\doxysubsubsection{\texorpdfstring{possiblePlays()}{possiblePlays()}}
+{\footnotesize\ttfamily \label{classTicTacToe_a1fed2294576327471fd3ed7833119ec5} 
+std\+::vector$<$ \mbox{\hyperlink{classCoordinates}{Coordinates}} $>$ Tic\+Tac\+Toe\+::possible\+Plays (\begin{DoxyParamCaption}\item[{const Board\+Type \&}]{board}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Método possible\+Plays. 
+
+Retorna todas as jogadas possíveis no tabuleiro.
+
+armazena todas as jogadas possíveis a partir de um tabuleiro
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Tabuleiro do jogo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vetor de coordinates com as jogadas possíveis
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Tabuleiro atual. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Coordinates$>$ Vetor com as coordenadas das jogadas possíveis. 
+\end{DoxyReturn}
+\Hypertarget{classTicTacToe_ab94402a301acb07e2c3e02475d51050c}\index{TicTacToe@{TicTacToe}!result@{result}}
+\index{result@{result}!TicTacToe@{TicTacToe}}
+\doxysubsubsection{\texorpdfstring{result()}{result()}}
+{\footnotesize\ttfamily \label{classTicTacToe_ab94402a301acb07e2c3e02475d51050c} 
+Board\+Type Tic\+Tac\+Toe\+::result (\begin{DoxyParamCaption}\item[{const Board\+Type \&}]{board}{, }\item[{\mbox{\hyperlink{classCoordinates}{Coordinates}}}]{play}{}\end{DoxyParamCaption})}
+
+
+
+Método result. 
+
+Retorna o tabuleiro resultante de uma jogada.
+
+Retorna o tabuleiro resultante de uma jogada
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Tabuleiro do jogo \\
+\hline
+{\em play} & Coordenadas da jogada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Tabuleiro resultante da jogada
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Tabuleiro atual. \\
+\hline
+{\em play} & Coordenadas da jogada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Board\+Type Tabuleiro resultante da jogada. 
+\end{DoxyReturn}
+\Hypertarget{classTicTacToe_ac691c2627126e12482bb663957b21cdd}\index{TicTacToe@{TicTacToe}!terminalState@{terminalState}}
+\index{terminalState@{terminalState}!TicTacToe@{TicTacToe}}
+\doxysubsubsection{\texorpdfstring{terminalState()}{terminalState()}}
+{\footnotesize\ttfamily \label{classTicTacToe_ac691c2627126e12482bb663957b21cdd} 
+bool Tic\+Tac\+Toe\+::terminal\+State (\begin{DoxyParamCaption}\item[{const Board\+Type \&}]{board}{}\end{DoxyParamCaption})}
+
+
+
+Método terminal\+State. 
+
+Verifica se o estado do jogo é terminal (fim de jogo).
+
+Verifica se o jogo chegou a um estado terminal
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Tabuleiro do jogo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Verdadeiro se o jogo chegou a um estado terminal e falso caso contrário
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Tabuleiro atual. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Se o jogo chegou ao estado terminal. 
+
+false Se o jogo ainda não terminou. 
+\end{DoxyReturn}
+\Hypertarget{classTicTacToe_a7b164f670851d79d907706dd579e13e1}\index{TicTacToe@{TicTacToe}!verifyDown@{verifyDown}}
+\index{verifyDown@{verifyDown}!TicTacToe@{TicTacToe}}
+\doxysubsubsection{\texorpdfstring{verifyDown()}{verifyDown()}}
+{\footnotesize\ttfamily \label{classTicTacToe_a7b164f670851d79d907706dd579e13e1} 
+bool Tic\+Tac\+Toe\+::verify\+Down (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoordinates}{Coordinates}}}]{coord}{, }\item[{const Board\+Type \&}]{board}{, }\item[{int}]{counter}{}\end{DoxyParamCaption})}
+
+
+
+Verifica uma sequência vertical de símbolos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coord} & Coordenadas da peça inicial. \\
+\hline
+{\em board} & Tabuleiro atual. \\
+\hline
+{\em counter} & Contador de símbolos na sequência. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Se existe uma sequência completa. 
+
+false Se não há sequência. 
+\end{DoxyReturn}
+\Hypertarget{classTicTacToe_a169dbe73f16182eebcb853fed4099b9d}\index{TicTacToe@{TicTacToe}!verifyDownRight@{verifyDownRight}}
+\index{verifyDownRight@{verifyDownRight}!TicTacToe@{TicTacToe}}
+\doxysubsubsection{\texorpdfstring{verifyDownRight()}{verifyDownRight()}}
+{\footnotesize\ttfamily \label{classTicTacToe_a169dbe73f16182eebcb853fed4099b9d} 
+bool Tic\+Tac\+Toe\+::verify\+Down\+Right (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoordinates}{Coordinates}}}]{coord}{, }\item[{const Board\+Type \&}]{board}{, }\item[{int}]{counter}{}\end{DoxyParamCaption})}
+
+
+
+Verifica uma sequência diagonal para baixo e à direita de símbolos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coord} & Coordenadas da peça inicial. \\
+\hline
+{\em board} & Tabuleiro atual. \\
+\hline
+{\em counter} & Contador de símbolos na sequência. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Se existe uma sequência completa. 
+
+false Se não há sequência. 
+\end{DoxyReturn}
+\Hypertarget{classTicTacToe_a92919d88996b2b0ad146aab27a5f7bde}\index{TicTacToe@{TicTacToe}!verifyRight@{verifyRight}}
+\index{verifyRight@{verifyRight}!TicTacToe@{TicTacToe}}
+\doxysubsubsection{\texorpdfstring{verifyRight()}{verifyRight()}}
+{\footnotesize\ttfamily \label{classTicTacToe_a92919d88996b2b0ad146aab27a5f7bde} 
+bool Tic\+Tac\+Toe\+::verify\+Right (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoordinates}{Coordinates}}}]{coord}{, }\item[{const Board\+Type \&}]{board}{, }\item[{int}]{counter}{}\end{DoxyParamCaption})}
+
+
+
+Métodos chamados pelo verify\+Sequence verificam se há uma sequência de 3 peças iguais no tabuleiro para cada direção. 
+
+Verifica uma sequência horizontal de símbolos.
+
+
+\begin{DoxyParams}{Parameters}
+{\em coord} & Coordenadas da peça inicial. \\
+\hline
+{\em board} & Tabuleiro atual. \\
+\hline
+{\em counter} & Contador de símbolos na sequência. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Se existe uma sequência completa. 
+
+false Se não há sequência. 
+\end{DoxyReturn}
+\Hypertarget{classTicTacToe_a5300fc91ab71ae9b193884911916d62c}\index{TicTacToe@{TicTacToe}!verifySequence@{verifySequence}}
+\index{verifySequence@{verifySequence}!TicTacToe@{TicTacToe}}
+\doxysubsubsection{\texorpdfstring{verifySequence()}{verifySequence()}}
+{\footnotesize\ttfamily \label{classTicTacToe_a5300fc91ab71ae9b193884911916d62c} 
+bool Tic\+Tac\+Toe\+::verify\+Sequence (\begin{DoxyParamCaption}\item[{const Board\+Type \&}]{board}{}\end{DoxyParamCaption})}
+
+
+
+Método verify\+Sequence. 
+
+Verifica se há uma sequência de três símbolos iguais.
+
+Verifica se há uma sequência de 3 peças iguais no tabuleiro.
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Tabuleiro do jogo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Verdadeiro se houver uma sequência e falso caso contrário
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Tabuleiro atual. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Se existe uma sequência. 
+
+false Se não há sequência. 
+\end{DoxyReturn}
+\Hypertarget{classTicTacToe_a589aa7d7cf226970413a170cbe4fa988}\index{TicTacToe@{TicTacToe}!verifyUpRight@{verifyUpRight}}
+\index{verifyUpRight@{verifyUpRight}!TicTacToe@{TicTacToe}}
+\doxysubsubsection{\texorpdfstring{verifyUpRight()}{verifyUpRight()}}
+{\footnotesize\ttfamily \label{classTicTacToe_a589aa7d7cf226970413a170cbe4fa988} 
+bool Tic\+Tac\+Toe\+::verify\+Up\+Right (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoordinates}{Coordinates}}}]{coord}{, }\item[{const Board\+Type \&}]{board}{, }\item[{int}]{counter}{}\end{DoxyParamCaption})}
+
+
+
+Verifica uma sequência diagonal para cima e à direita de símbolos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coord} & Coordenadas da peça inicial. \\
+\hline
+{\em board} & Tabuleiro atual. \\
+\hline
+{\em counter} & Contador de símbolos na sequência. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Se existe uma sequência completa. 
+
+false Se não há sequência. 
+\end{DoxyReturn}
+\Hypertarget{classTicTacToe_a76d4c3a88be0cf5e300110d124150219}\index{TicTacToe@{TicTacToe}!whoseTurn@{whoseTurn}}
+\index{whoseTurn@{whoseTurn}!TicTacToe@{TicTacToe}}
+\doxysubsubsection{\texorpdfstring{whoseTurn()}{whoseTurn()}}
+{\footnotesize\ttfamily \label{classTicTacToe_a76d4c3a88be0cf5e300110d124150219} 
+int Tic\+Tac\+Toe\+::whose\+Turn (\begin{DoxyParamCaption}\item[{const Board\+Type \&}]{board}{}\end{DoxyParamCaption})}
+
+
+
+Método whose\+Turn. 
+
+Verifica de quem é a vez no jogo.
+
+Retorna o jogador que deve realizar a próxima jogada
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Tabuleiro do jogo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 ou 2 dependendo do jogador que deve jogar
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Tabuleiro atual\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 se é a vez do jogador 1 
+
+2 se é a vez do jogador 2 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Tic\+Tac\+Toe.\+hpp\item 
+src/Tic\+Tac\+Toe.\+cpp\end{DoxyCompactItemize}

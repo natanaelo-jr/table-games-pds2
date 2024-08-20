@@ -1,0 +1,249 @@
+\doxysection{Manage\+Screen Class Reference}
+\hypertarget{classManageScreen}{}\label{classManageScreen}\index{ManageScreen@{ManageScreen}}
+
+
+Classe responsável pela tela de gerenciamento de jogadores.  
+
+
+
+
+{\ttfamily \#include $<$Manage\+Screen.\+hpp$>$}
+
+
+
+Inheritance diagram for Manage\+Screen\+:
+% FIG 0
+
+
+Collaboration diagram for Manage\+Screen\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classManageScreen_af01cc0a6da89fd024ac2b4f2e08c6768}{Manage\+Screen}} (\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}screen\+Manager, \mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}players)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{classManageScreen}{Manage\+Screen}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classManageScreen_ab3c3dc6ed2c408935ac5cfcd8347fe67}{handle\+Events}} (sf\+::\+Render\+Window \&window) override
+\begin{DoxyCompactList}\small\item\em Manipula os eventos da tela de gerenciamento. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classManageScreen_a47a35fe219e957c5919e20311a3a2567}{update}} (sf\+::\+Render\+Window \&window) override
+\begin{DoxyCompactList}\small\item\em Atualiza a lógica da tela de gerenciamento. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classManageScreen_aa331a730406122fdcd14610c95bc51e6}{render}} (sf\+::\+Render\+Window \&window) override
+\begin{DoxyCompactList}\small\item\em Renderiza os elementos visuais da tela de gerenciamento na janela. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classManageScreen_ad85ccf1e4c7a74fcc09046259c599343}{handle\+Text\+Input}} (sf\+::\+Event \&event)
+\begin{DoxyCompactList}\small\item\em Manipula a entrada de texto dos jogadores. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classManageScreen_ad254cd8e756ee3fa373047fb047b9fd9}{load\+Textures}} () override
+\begin{DoxyCompactList}\small\item\em Carrega as texturas necessárias para a tela de gerenciamento. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classManageScreen_a9ec230f35c75f4c17363822618a340db}{validate\+Nickname}} ()
+\begin{DoxyCompactList}\small\item\em Valida o apelido do jogador. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classManageScreen_ace152db6e25e1290a8a9b409f4f04da3}{validate\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Valida o nome do jogador. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classManageScreen_a73bf06247e7e505f2b287843f5e1d3ef}{setup\+Strings}} ()
+\begin{DoxyCompactList}\small\item\em Configura as strings de texto para exibição. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classManageScreen_abfa37273f10adc8693a76d31ac9d5c5b}{update\+Texts}} ()
+\begin{DoxyCompactList}\small\item\em Atualiza o conteúdo dos textos na tela de gerenciamento. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classScreen}{Screen}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Screen} (\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}players, \mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}screen\+Manager)
+\item 
+void {\bfseries process} (sf\+::\+Render\+Window \&window)
+\item 
+void {\bfseries setup\+Window} (sf\+::\+Render\+Window \&window)
+\item 
+sf\+::\+Color {\bfseries get\+Background\+Color} ()
+\item 
+bool {\bfseries is\+Mouse\+Over} (const sf\+::\+Float\+Rect \&bounds, const sf\+::\+Render\+Window \&window)
+\item 
+\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Players} ()
+\item 
+\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Screen\+Manager} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classScreen}{Screen}}}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Texture {\bfseries back\+Menu\+Texture}
+\item 
+sf\+::\+Texture {\bfseries hover\+Back\+Menu\+Texture}
+\item 
+sf\+::\+Texture {\bfseries play\+Again\+Texture}
+\item 
+sf\+::\+Texture {\bfseries hover\+Play\+Again\+Texture}
+\item 
+sf\+::\+Font {\bfseries card\+Font}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe responsável pela tela de gerenciamento de jogadores. 
+
+A classe {\ttfamily \doxylink{classManageScreen}{Manage\+Screen}} permite ao usuário adicionar e remover jogadores, bem como manipular seus dados, como apelido e nome. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classManageScreen_af01cc0a6da89fd024ac2b4f2e08c6768}\index{ManageScreen@{ManageScreen}!ManageScreen@{ManageScreen}}
+\index{ManageScreen@{ManageScreen}!ManageScreen@{ManageScreen}}
+\doxysubsubsection{\texorpdfstring{ManageScreen()}{ManageScreen()}}
+{\footnotesize\ttfamily \label{classManageScreen_af01cc0a6da89fd024ac2b4f2e08c6768} 
+Manage\+Screen\+::\+Manage\+Screen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}}]{screen\+Manager}{, }\item[{\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}}]{players}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{classManageScreen}{Manage\+Screen}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em screen\+Manager} & Gerenciador de telas responsável por alternar entre as diferentes telas. \\
+\hline
+{\em players} & Ponteiro para a lista de jogadores cadastrados no sistema. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classManageScreen_ab3c3dc6ed2c408935ac5cfcd8347fe67}\index{ManageScreen@{ManageScreen}!handleEvents@{handleEvents}}
+\index{handleEvents@{handleEvents}!ManageScreen@{ManageScreen}}
+\doxysubsubsection{\texorpdfstring{handleEvents()}{handleEvents()}}
+{\footnotesize\ttfamily \label{classManageScreen_ab3c3dc6ed2c408935ac5cfcd8347fe67} 
+void Manage\+Screen\+::handle\+Events (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Manipula os eventos da tela de gerenciamento. 
+
+Processa cliques do mouse e outros eventos da janela.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Referência para a janela SFML onde os eventos serão manipulados. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classManageScreen_ad85ccf1e4c7a74fcc09046259c599343}\index{ManageScreen@{ManageScreen}!handleTextInput@{handleTextInput}}
+\index{handleTextInput@{handleTextInput}!ManageScreen@{ManageScreen}}
+\doxysubsubsection{\texorpdfstring{handleTextInput()}{handleTextInput()}}
+{\footnotesize\ttfamily \label{classManageScreen_ad85ccf1e4c7a74fcc09046259c599343} 
+void Manage\+Screen\+::handle\+Text\+Input (\begin{DoxyParamCaption}\item[{sf\+::\+Event \&}]{event}{}\end{DoxyParamCaption})}
+
+
+
+Manipula a entrada de texto dos jogadores. 
+
+Processa a entrada de texto quando o jogador insere ou edita seu nome ou apelido.
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Evento SFML de texto. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classManageScreen_ad254cd8e756ee3fa373047fb047b9fd9}\index{ManageScreen@{ManageScreen}!loadTextures@{loadTextures}}
+\index{loadTextures@{loadTextures}!ManageScreen@{ManageScreen}}
+\doxysubsubsection{\texorpdfstring{loadTextures()}{loadTextures()}}
+{\footnotesize\ttfamily \label{classManageScreen_ad254cd8e756ee3fa373047fb047b9fd9} 
+void Manage\+Screen\+::load\+Textures (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Carrega as texturas necessárias para a tela de gerenciamento. 
+
+Carrega imagens e texturas utilizadas pelos botões e campos de texto. 
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classManageScreen_aa331a730406122fdcd14610c95bc51e6}\index{ManageScreen@{ManageScreen}!render@{render}}
+\index{render@{render}!ManageScreen@{ManageScreen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{classManageScreen_aa331a730406122fdcd14610c95bc51e6} 
+void Manage\+Screen\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Renderiza os elementos visuais da tela de gerenciamento na janela. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Referência para a janela SFML onde os elementos serão renderizados. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classManageScreen_a73bf06247e7e505f2b287843f5e1d3ef}\index{ManageScreen@{ManageScreen}!setupStrings@{setupStrings}}
+\index{setupStrings@{setupStrings}!ManageScreen@{ManageScreen}}
+\doxysubsubsection{\texorpdfstring{setupStrings()}{setupStrings()}}
+{\footnotesize\ttfamily \label{classManageScreen_a73bf06247e7e505f2b287843f5e1d3ef} 
+void Manage\+Screen\+::setup\+Strings (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Configura as strings de texto para exibição. 
+
+Inicializa as strings de texto exibidas na tela de gerenciamento, como títulos e campos de entrada. \Hypertarget{classManageScreen_a47a35fe219e957c5919e20311a3a2567}\index{ManageScreen@{ManageScreen}!update@{update}}
+\index{update@{update}!ManageScreen@{ManageScreen}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classManageScreen_a47a35fe219e957c5919e20311a3a2567} 
+void Manage\+Screen\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Atualiza a lógica da tela de gerenciamento. 
+
+Atualiza a interface da tela de gerenciamento com base nas interações do usuário.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Referência para a janela SFML onde a atualização ocorrerá. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classManageScreen_abfa37273f10adc8693a76d31ac9d5c5b}\index{ManageScreen@{ManageScreen}!updateTexts@{updateTexts}}
+\index{updateTexts@{updateTexts}!ManageScreen@{ManageScreen}}
+\doxysubsubsection{\texorpdfstring{updateTexts()}{updateTexts()}}
+{\footnotesize\ttfamily \label{classManageScreen_abfa37273f10adc8693a76d31ac9d5c5b} 
+void Manage\+Screen\+::update\+Texts (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Atualiza o conteúdo dos textos na tela de gerenciamento. 
+
+Atualiza os textos mostrados com base nas mudanças feitas pelo usuário. \Hypertarget{classManageScreen_ace152db6e25e1290a8a9b409f4f04da3}\index{ManageScreen@{ManageScreen}!validateName@{validateName}}
+\index{validateName@{validateName}!ManageScreen@{ManageScreen}}
+\doxysubsubsection{\texorpdfstring{validateName()}{validateName()}}
+{\footnotesize\ttfamily \label{classManageScreen_ace152db6e25e1290a8a9b409f4f04da3} 
+bool Manage\+Screen\+::validate\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Valida o nome do jogador. 
+
+Verifica se o nome inserido pelo jogador é válido.
+
+\begin{DoxyReturn}{Returns}
+true se o nome for válido, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{classManageScreen_a9ec230f35c75f4c17363822618a340db}\index{ManageScreen@{ManageScreen}!validateNickname@{validateNickname}}
+\index{validateNickname@{validateNickname}!ManageScreen@{ManageScreen}}
+\doxysubsubsection{\texorpdfstring{validateNickname()}{validateNickname()}}
+{\footnotesize\ttfamily \label{classManageScreen_a9ec230f35c75f4c17363822618a340db} 
+bool Manage\+Screen\+::validate\+Nickname (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Valida o apelido do jogador. 
+
+Verifica se o apelido inserido pelo jogador é válido.
+
+\begin{DoxyReturn}{Returns}
+true se o apelido for válido, false caso contrário. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Manage\+Screen.\+hpp\item 
+src/Manage\+Screen.\+cpp\end{DoxyCompactItemize}

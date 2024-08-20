@@ -1,0 +1,44 @@
+\doxysection{Screen.\+hpp}
+\hypertarget{Screen_8hpp_source}{}\label{Screen_8hpp_source}\index{include/Screen.hpp@{include/Screen.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SCREEN\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SCREEN\_HPP}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}ScreenManager.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Players.hpp"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classScreenManager}{ScreenManager}};}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classScreen}{Screen}}\{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classScreen}{Screen}}(\mbox{\hyperlink{classPlayers}{Players}}*\ players,\ \mbox{\hyperlink{classScreenManager}{ScreenManager}}*\ screenManager);}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ handleEvents(sf::RenderWindow\ \&window)\ =\ 0;}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ update(sf::RenderWindow\ \&window)\ =\ 0;}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ render(sf::RenderWindow\ \&window)\ =\ 0;}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ loadTextures()\ =\ 0;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ process(sf::RenderWindow\ \&window);}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setupWindow(sf::RenderWindow\ \&window);}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ sf::Color\ getBackgroundColor();}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isMouseOver(\textcolor{keyword}{const}\ sf::FloatRect\ \&bounds,\textcolor{keyword}{const}\ sf::RenderWindow\ \&window);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayers}{Players}}*\ getPlayers();}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classScreenManager}{ScreenManager}}*\ getScreenManager();}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ sf::Texture\ backMenuTexture;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ sf::Texture\ hoverBackMenuTexture;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ sf::Texture\ playAgainTexture;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ sf::Texture\ hoverPlayAgainTexture;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ sf::Font\ cardFont;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ sf::Color\ backgroundColor;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ sf::Cursor\ cursor;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ sf::Image\ cursorImage;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ sf::Image\ icon;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayers}{Players}}*\ players;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classScreenManager}{ScreenManager}}*\ screenManager;}
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

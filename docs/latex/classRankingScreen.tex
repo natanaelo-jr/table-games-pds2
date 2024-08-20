@@ -1,0 +1,172 @@
+\doxysection{Ranking\+Screen Class Reference}
+\hypertarget{classRankingScreen}{}\label{classRankingScreen}\index{RankingScreen@{RankingScreen}}
+
+
+Classe responsável pela tela de ranking dos jogadores.  
+
+
+
+
+{\ttfamily \#include $<$Ranking\+Screen.\+hpp$>$}
+
+
+
+Inheritance diagram for Ranking\+Screen\+:
+% FIG 0
+
+
+Collaboration diagram for Ranking\+Screen\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRankingScreen_aa456dd618d7be818a6a0d3cb161081b0}{Ranking\+Screen}} (\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}screen\+Manager, \mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}players)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{classRankingScreen}{Ranking\+Screen}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRankingScreen_ab571f8722ec7076ccf002d97eeb203fe}{handle\+Events}} (sf\+::\+Render\+Window \&window) override
+\begin{DoxyCompactList}\small\item\em Manipula os eventos da tela de ranking. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRankingScreen_a232eb2f8046ede9cc77e6118194108f0}{update}} (sf\+::\+Render\+Window \&window) override
+\begin{DoxyCompactList}\small\item\em Atualiza a lógica da tela de ranking. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRankingScreen_aac25fd76706a1b9df171cbbd76524778}{render}} (sf\+::\+Render\+Window \&window) override
+\begin{DoxyCompactList}\small\item\em Renderiza os elementos visuais da tela de ranking na janela. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRankingScreen_af80c1ea6a049c860680af98a25d1f1c1}{load\+Textures}} () override
+\begin{DoxyCompactList}\small\item\em Carrega as texturas necessárias para a tela de ranking. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classScreen}{Screen}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Screen} (\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}players, \mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}screen\+Manager)
+\item 
+void {\bfseries process} (sf\+::\+Render\+Window \&window)
+\item 
+void {\bfseries setup\+Window} (sf\+::\+Render\+Window \&window)
+\item 
+sf\+::\+Color {\bfseries get\+Background\+Color} ()
+\item 
+bool {\bfseries is\+Mouse\+Over} (const sf\+::\+Float\+Rect \&bounds, const sf\+::\+Render\+Window \&window)
+\item 
+\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Players} ()
+\item 
+\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Screen\+Manager} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classScreen}{Screen}}}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Texture {\bfseries back\+Menu\+Texture}
+\item 
+sf\+::\+Texture {\bfseries hover\+Back\+Menu\+Texture}
+\item 
+sf\+::\+Texture {\bfseries play\+Again\+Texture}
+\item 
+sf\+::\+Texture {\bfseries hover\+Play\+Again\+Texture}
+\item 
+sf\+::\+Font {\bfseries card\+Font}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe responsável pela tela de ranking dos jogadores. 
+
+A classe {\ttfamily \doxylink{classRankingScreen}{Ranking\+Screen}} exibe a lista de jogadores em ordem de classificação, permitindo navegar entre eles e visualizar suas estatísticas. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classRankingScreen_aa456dd618d7be818a6a0d3cb161081b0}\index{RankingScreen@{RankingScreen}!RankingScreen@{RankingScreen}}
+\index{RankingScreen@{RankingScreen}!RankingScreen@{RankingScreen}}
+\doxysubsubsection{\texorpdfstring{RankingScreen()}{RankingScreen()}}
+{\footnotesize\ttfamily \label{classRankingScreen_aa456dd618d7be818a6a0d3cb161081b0} 
+Ranking\+Screen\+::\+Ranking\+Screen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}}]{screen\+Manager}{, }\item[{\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}}]{players}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{classRankingScreen}{Ranking\+Screen}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em screen\+Manager} & Gerenciador de telas responsável por alternar entre as diferentes telas. \\
+\hline
+{\em players} & Ponteiro para a lista de jogadores cadastrados no sistema. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRankingScreen_ab571f8722ec7076ccf002d97eeb203fe}\index{RankingScreen@{RankingScreen}!handleEvents@{handleEvents}}
+\index{handleEvents@{handleEvents}!RankingScreen@{RankingScreen}}
+\doxysubsubsection{\texorpdfstring{handleEvents()}{handleEvents()}}
+{\footnotesize\ttfamily \label{classRankingScreen_ab571f8722ec7076ccf002d97eeb203fe} 
+void Ranking\+Screen\+::handle\+Events (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Manipula os eventos da tela de ranking. 
+
+Processa cliques e outros eventos relacionados à navegação no ranking.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Referência para a janela SFML onde os eventos serão manipulados. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classRankingScreen_af80c1ea6a049c860680af98a25d1f1c1}\index{RankingScreen@{RankingScreen}!loadTextures@{loadTextures}}
+\index{loadTextures@{loadTextures}!RankingScreen@{RankingScreen}}
+\doxysubsubsection{\texorpdfstring{loadTextures()}{loadTextures()}}
+{\footnotesize\ttfamily \label{classRankingScreen_af80c1ea6a049c860680af98a25d1f1c1} 
+void Ranking\+Screen\+::load\+Textures (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Carrega as texturas necessárias para a tela de ranking. 
+
+Carrega imagens e texturas utilizadas pelos botões e cartões dos jogadores. 
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classRankingScreen_aac25fd76706a1b9df171cbbd76524778}\index{RankingScreen@{RankingScreen}!render@{render}}
+\index{render@{render}!RankingScreen@{RankingScreen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{classRankingScreen_aac25fd76706a1b9df171cbbd76524778} 
+void Ranking\+Screen\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Renderiza os elementos visuais da tela de ranking na janela. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Referência para a janela SFML onde os elementos serão renderizados. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classRankingScreen_a232eb2f8046ede9cc77e6118194108f0}\index{RankingScreen@{RankingScreen}!update@{update}}
+\index{update@{update}!RankingScreen@{RankingScreen}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classRankingScreen_a232eb2f8046ede9cc77e6118194108f0} 
+void Ranking\+Screen\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Atualiza a lógica da tela de ranking. 
+
+Atualiza a tela de ranking com base na interação do usuário e na navegação entre os jogadores.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Referência para a janela SFML onde a atualização ocorrerá. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Ranking\+Screen.\+hpp\item 
+src/Ranking\+Screen.\+cpp\end{DoxyCompactItemize}

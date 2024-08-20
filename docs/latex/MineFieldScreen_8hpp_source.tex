@@ -1,0 +1,55 @@
+\doxysection{Mine\+Field\+Screen.\+hpp}
+\hypertarget{MineFieldScreen_8hpp_source}{}\label{MineFieldScreen_8hpp_source}\index{include/MineFieldScreen.hpp@{include/MineFieldScreen.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MINEFIELDSCREEN\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MINEFIELDSCREEN\_HPP}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Screen.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}MineField.hpp"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMineFieldScreen}{MineFieldScreen}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classScreen}{Screen}}\{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMineFieldScreen}{MineFieldScreen}}(\mbox{\hyperlink{classScreenManager}{ScreenManager}}*\ screenManager,\ \mbox{\hyperlink{classPlayer}{Player}}*\ player,\ \mbox{\hyperlink{classPlayers}{Players}}*\ players);}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ handleEvents(sf::RenderWindow\ \&window)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ update(sf::RenderWindow\ \&window)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ render(sf::RenderWindow\ \&window)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ loadTextures();}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ updatePieces();}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ getTileCoordinates(sf::FloatRect\ \&tile);}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ std::vector<sf::FloatRect>\ getPossiblePlays();}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ processPlay(sf::FloatRect\ \&playTile);}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ placeFlag(\mbox{\hyperlink{classCoordinates}{Coordinates}}\ coord);}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ removeFlag(\mbox{\hyperlink{classCoordinates}{Coordinates}}\ coord);}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isFlagOnTile(\mbox{\hyperlink{classCoordinates}{Coordinates}}\ coord);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isNewGame;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ tileSize;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMineField}{MineField}}*\ game;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ sf::Vector2f\ screenOffset;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ sf::Texture\ BombTexture;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ sf::Texture\ BandTexture;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ sf::Texture\ QuadTexture;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ sf::Texture\ boardTexture;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ sf::Font\ font;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ sf::Text\ playerNick;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ std::vector<sf::Sprite>\ pieces;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ std::vector<sf::Sprite>\ flags;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ std::vector<sf::Text>\ numbers;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ sf::Sprite\ board;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ sf::RectangleShape\ cardShape;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ sf::Sprite\ cardButton1;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ sf::Sprite\ cardButton2;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ sf::Text\ cardText;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ finishGame;}
+\DoxyCodeLine{00047\ \};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

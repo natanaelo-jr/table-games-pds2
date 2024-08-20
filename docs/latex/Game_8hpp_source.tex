@@ -1,0 +1,63 @@
+\doxysection{Game.\+hpp}
+\hypertarget{Game_8hpp_source}{}\label{Game_8hpp_source}\index{include/Game.hpp@{include/Game.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GAME\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GAME\_HPP}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ BoardType\ std::vector<std::vector<char>>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ MINIMAX\_DEPTH\ 7}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Player.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}Coordinates.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGame}{Game}}\{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cols;\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ rows;\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ BoardType\ board;\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}*\ player1;\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}*\ player2;\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}*\ currentPlayer;\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}*\ waitingPlayer;\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classGame_ad59df6562a58a614fda24622d3715b65}{Game}}();}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classGame_ad59df6562a58a614fda24622d3715b65}{Game}}(\mbox{\hyperlink{classPlayer}{Player}}*\ player1,\ \mbox{\hyperlink{classPlayer}{Player}}*\ player2);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classGame_ad59df6562a58a614fda24622d3715b65}{Game}}(\mbox{\hyperlink{classPlayer}{Player}}*\ player1,\ \mbox{\hyperlink{classPlayer}{Player}}*\ player2,\ \textcolor{keywordtype}{int}\ rows,\ \textcolor{keywordtype}{int}\ cols);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classGame_ae3d112ca6e0e55150d2fdbc704474530}{\string~Game}}();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ BoardType\ \mbox{\hyperlink{classGame_abb2c52d8a407621c4ef9dcde7cf9c9fe}{getBoard}}();}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getRows();}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getCols();}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame_a33a4e56bc86a8697b62bcc65852e5f56}{setSquare}}(\mbox{\hyperlink{classCoordinates}{Coordinates}}\ coord,\ \textcolor{keywordtype}{char}\ symbol);}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ getSquare(\mbox{\hyperlink{classCoordinates}{Coordinates}}\ coord,\ \textcolor{keyword}{const}\ BoardType\&\ board);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classGame_a041001ab1b8a22311d1bc4c6fa537765}{isValidSquare}}(\mbox{\hyperlink{classCoordinates}{Coordinates}}\ move);}
+\DoxyCodeLine{00086\ \ \ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame_a3f05180b2b9ce40bd0d2892d4aa3cc3c}{addStats}}(\mbox{\hyperlink{classPlayer}{Player}}*\ winner,\ \mbox{\hyperlink{classPlayer}{Player}}*\ loser)\ =\ 0;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}*\ \mbox{\hyperlink{classGame_a340bd2268f4bca6ddce7de526ae8582c}{getWaitingPlayer}}();}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}*\ \mbox{\hyperlink{classGame_a6ee4c45fb533cf83f69803d368abf92d}{getCurrentPlayer}}();}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}*\ \mbox{\hyperlink{classGame_a01d7146d789990ee8195bdcca57c327e}{getPlayer1}}();}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}*\ getPlayer2();}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame_a77611c82d15d9a191655ca57231908da}{printBoard}}();}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame_a478c3b61f622bf63ea377766e11e73f2}{changePlayer}}();}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ play()\ =\ 0;}
+\DoxyCodeLine{00132\ \};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

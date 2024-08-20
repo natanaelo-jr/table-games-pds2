@@ -1,0 +1,116 @@
+\doxysection{Lig4\+Screen Class Reference}
+\hypertarget{classLig4Screen}{}\label{classLig4Screen}\index{Lig4Screen@{Lig4Screen}}
+
+
+Inheritance diagram for Lig4\+Screen\+:
+% FIG 0
+
+
+Collaboration diagram for Lig4\+Screen\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classLig4Screen_ada309b574939c80e1a7b11607515810d}\label{classLig4Screen_ada309b574939c80e1a7b11607515810d} 
+{\bfseries Lig4\+Screen} (\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}screen\+Manager, \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player1, \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player2, \mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}players)
+\item 
+void \mbox{\hyperlink{classLig4Screen_ac42517226b1f82b6535995bdf950d8ad}{handle\+Events}} (sf\+::\+Render\+Window \&window) override
+\item 
+void \mbox{\hyperlink{classLig4Screen_a72d75a78067d16fd1a4b4140725caf63}{update}} (sf\+::\+Render\+Window \&window) override
+\item 
+void \mbox{\hyperlink{classLig4Screen_a8aa10c7c7008a171b1fea1246a58e0a2}{render}} (sf\+::\+Render\+Window \&window) override
+\item 
+\Hypertarget{classLig4Screen_a5dd0fe05c4c46c7b3a9d82f5e086255d}\label{classLig4Screen_a5dd0fe05c4c46c7b3a9d82f5e086255d} 
+void {\bfseries update\+Phantom\+Piece} (sf\+::\+Render\+Window \&window)
+\item 
+void \mbox{\hyperlink{classLig4Screen_afee13571ccbf6d3a354ee7a1d966b92d}{load\+Textures}} ()
+\item 
+\Hypertarget{classLig4Screen_a4802bb498441144593ec207df80ced63}\label{classLig4Screen_a4802bb498441144593ec207df80ced63} 
+\mbox{\hyperlink{classCoordinates}{Coordinates}} {\bfseries get\+Tile\+Coordinates} (sf\+::\+Float\+Rect \&tile)
+\item 
+\Hypertarget{classLig4Screen_a81c67a2833b5b700166ad0a748666e75}\label{classLig4Screen_a81c67a2833b5b700166ad0a748666e75} 
+std\+::vector$<$ sf\+::\+Float\+Rect $>$ {\bfseries get\+Possible\+Plays} ()
+\item 
+\Hypertarget{classLig4Screen_aef86c0454f3530bfd1008360fc52707c}\label{classLig4Screen_aef86c0454f3530bfd1008360fc52707c} 
+void {\bfseries process\+Play} (sf\+::\+Float\+Rect \&play\+Tile)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classScreen}{Screen}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Screen} (\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}players, \mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}screen\+Manager)
+\item 
+void {\bfseries process} (sf\+::\+Render\+Window \&window)
+\item 
+void {\bfseries setup\+Window} (sf\+::\+Render\+Window \&window)
+\item 
+sf\+::\+Color {\bfseries get\+Background\+Color} ()
+\item 
+bool {\bfseries is\+Mouse\+Over} (const sf\+::\+Float\+Rect \&bounds, const sf\+::\+Render\+Window \&window)
+\item 
+\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Players} ()
+\item 
+\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Screen\+Manager} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classScreen}{Screen}}}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Texture {\bfseries back\+Menu\+Texture}
+\item 
+sf\+::\+Texture {\bfseries hover\+Back\+Menu\+Texture}
+\item 
+sf\+::\+Texture {\bfseries play\+Again\+Texture}
+\item 
+sf\+::\+Texture {\bfseries hover\+Play\+Again\+Texture}
+\item 
+sf\+::\+Font {\bfseries card\+Font}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLig4Screen_ac42517226b1f82b6535995bdf950d8ad}\index{Lig4Screen@{Lig4Screen}!handleEvents@{handleEvents}}
+\index{handleEvents@{handleEvents}!Lig4Screen@{Lig4Screen}}
+\doxysubsubsection{\texorpdfstring{handleEvents()}{handleEvents()}}
+{\footnotesize\ttfamily \label{classLig4Screen_ac42517226b1f82b6535995bdf950d8ad} 
+void Lig4\+Screen\+::handle\+Events (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classLig4Screen_afee13571ccbf6d3a354ee7a1d966b92d}\index{Lig4Screen@{Lig4Screen}!loadTextures@{loadTextures}}
+\index{loadTextures@{loadTextures}!Lig4Screen@{Lig4Screen}}
+\doxysubsubsection{\texorpdfstring{loadTextures()}{loadTextures()}}
+{\footnotesize\ttfamily \label{classLig4Screen_afee13571ccbf6d3a354ee7a1d966b92d} 
+void Lig4\+Screen\+::load\+Textures (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classLig4Screen_a8aa10c7c7008a171b1fea1246a58e0a2}\index{Lig4Screen@{Lig4Screen}!render@{render}}
+\index{render@{render}!Lig4Screen@{Lig4Screen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{classLig4Screen_a8aa10c7c7008a171b1fea1246a58e0a2} 
+void Lig4\+Screen\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classLig4Screen_a72d75a78067d16fd1a4b4140725caf63}\index{Lig4Screen@{Lig4Screen}!update@{update}}
+\index{update@{update}!Lig4Screen@{Lig4Screen}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classLig4Screen_a72d75a78067d16fd1a4b4140725caf63} 
+void Lig4\+Screen\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Lig4\+Screen.\+hpp\item 
+src/Lig4\+Screen.\+cpp\end{DoxyCompactItemize}

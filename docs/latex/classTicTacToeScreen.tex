@@ -1,0 +1,116 @@
+\doxysection{Tic\+Tac\+Toe\+Screen Class Reference}
+\hypertarget{classTicTacToeScreen}{}\label{classTicTacToeScreen}\index{TicTacToeScreen@{TicTacToeScreen}}
+
+
+Inheritance diagram for Tic\+Tac\+Toe\+Screen\+:
+% FIG 0
+
+
+Collaboration diagram for Tic\+Tac\+Toe\+Screen\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classTicTacToeScreen_a430bfd38847e7f2644403d2858c40f79}\label{classTicTacToeScreen_a430bfd38847e7f2644403d2858c40f79} 
+{\bfseries Tic\+Tac\+Toe\+Screen} (\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}screen\+Manager, \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player1, \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player2, \mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}players)
+\item 
+void \mbox{\hyperlink{classTicTacToeScreen_a89814079ad2692b8330bb2cffd749a39}{handle\+Events}} (sf\+::\+Render\+Window \&window) override
+\item 
+void \mbox{\hyperlink{classTicTacToeScreen_a6dc4b131511885359393e534ac7f2d83}{update}} (sf\+::\+Render\+Window \&window) override
+\item 
+void \mbox{\hyperlink{classTicTacToeScreen_a1f95845038a4cd25999491301083e72a}{render}} (sf\+::\+Render\+Window \&window) override
+\item 
+\Hypertarget{classTicTacToeScreen_a8b4f4bb8240ca04e4c8f242003e6aab4}\label{classTicTacToeScreen_a8b4f4bb8240ca04e4c8f242003e6aab4} 
+void {\bfseries update\+Phantom\+Piece} (sf\+::\+Render\+Window \&window)
+\item 
+void \mbox{\hyperlink{classTicTacToeScreen_aec21f7f558c67c0debaff79ec43f90dd}{load\+Textures}} ()
+\item 
+\Hypertarget{classTicTacToeScreen_a4fef224d61f7a3558070567cda924442}\label{classTicTacToeScreen_a4fef224d61f7a3558070567cda924442} 
+\mbox{\hyperlink{classCoordinates}{Coordinates}} {\bfseries get\+Tile\+Coordinates} (sf\+::\+Float\+Rect \&tile)
+\item 
+\Hypertarget{classTicTacToeScreen_ab3b19c8f4e43f83d6dce38ce7457370f}\label{classTicTacToeScreen_ab3b19c8f4e43f83d6dce38ce7457370f} 
+std\+::vector$<$ sf\+::\+Float\+Rect $>$ {\bfseries get\+Possible\+Plays} ()
+\item 
+\Hypertarget{classTicTacToeScreen_ae594c02942e2d1f6510c50245236ddd8}\label{classTicTacToeScreen_ae594c02942e2d1f6510c50245236ddd8} 
+void {\bfseries process\+Play} (sf\+::\+Float\+Rect \&play\+Tile)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classScreen}{Screen}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Screen} (\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}players, \mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}screen\+Manager)
+\item 
+void {\bfseries process} (sf\+::\+Render\+Window \&window)
+\item 
+void {\bfseries setup\+Window} (sf\+::\+Render\+Window \&window)
+\item 
+sf\+::\+Color {\bfseries get\+Background\+Color} ()
+\item 
+bool {\bfseries is\+Mouse\+Over} (const sf\+::\+Float\+Rect \&bounds, const sf\+::\+Render\+Window \&window)
+\item 
+\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Players} ()
+\item 
+\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Screen\+Manager} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classScreen}{Screen}}}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Texture {\bfseries back\+Menu\+Texture}
+\item 
+sf\+::\+Texture {\bfseries hover\+Back\+Menu\+Texture}
+\item 
+sf\+::\+Texture {\bfseries play\+Again\+Texture}
+\item 
+sf\+::\+Texture {\bfseries hover\+Play\+Again\+Texture}
+\item 
+sf\+::\+Font {\bfseries card\+Font}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classTicTacToeScreen_a89814079ad2692b8330bb2cffd749a39}\index{TicTacToeScreen@{TicTacToeScreen}!handleEvents@{handleEvents}}
+\index{handleEvents@{handleEvents}!TicTacToeScreen@{TicTacToeScreen}}
+\doxysubsubsection{\texorpdfstring{handleEvents()}{handleEvents()}}
+{\footnotesize\ttfamily \label{classTicTacToeScreen_a89814079ad2692b8330bb2cffd749a39} 
+void Tic\+Tac\+Toe\+Screen\+::handle\+Events (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classTicTacToeScreen_aec21f7f558c67c0debaff79ec43f90dd}\index{TicTacToeScreen@{TicTacToeScreen}!loadTextures@{loadTextures}}
+\index{loadTextures@{loadTextures}!TicTacToeScreen@{TicTacToeScreen}}
+\doxysubsubsection{\texorpdfstring{loadTextures()}{loadTextures()}}
+{\footnotesize\ttfamily \label{classTicTacToeScreen_aec21f7f558c67c0debaff79ec43f90dd} 
+void Tic\+Tac\+Toe\+Screen\+::load\+Textures (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classTicTacToeScreen_a1f95845038a4cd25999491301083e72a}\index{TicTacToeScreen@{TicTacToeScreen}!render@{render}}
+\index{render@{render}!TicTacToeScreen@{TicTacToeScreen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{classTicTacToeScreen_a1f95845038a4cd25999491301083e72a} 
+void Tic\+Tac\+Toe\+Screen\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classTicTacToeScreen_a6dc4b131511885359393e534ac7f2d83}\index{TicTacToeScreen@{TicTacToeScreen}!update@{update}}
+\index{update@{update}!TicTacToeScreen@{TicTacToeScreen}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classTicTacToeScreen_a6dc4b131511885359393e534ac7f2d83} 
+void Tic\+Tac\+Toe\+Screen\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Tic\+Tac\+Toe\+Screen.\+hpp\item 
+src/Tic\+Tac\+Toe\+Screen.\+cpp\end{DoxyCompactItemize}

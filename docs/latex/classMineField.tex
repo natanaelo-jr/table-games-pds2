@@ -1,0 +1,140 @@
+\doxysection{Mine\+Field Class Reference}
+\hypertarget{classMineField}{}\label{classMineField}\index{MineField@{MineField}}
+
+
+Inheritance diagram for Mine\+Field\+:
+% FIG 0
+
+
+Collaboration diagram for Mine\+Field\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMineField_ac69e6f280bb51749d9f564b23c5af9cd}\label{classMineField_ac69e6f280bb51749d9f564b23c5af9cd} 
+{\bfseries Mine\+Field} (\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player)
+\item 
+\Hypertarget{classMineField_a8234c5e4ab9d3fb226d0e73309535fd6}\label{classMineField_a8234c5e4ab9d3fb226d0e73309535fd6} 
+{\bfseries Mine\+Field} (\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player, int field\+Size, int bombs)
+\item 
+\Hypertarget{classMineField_a9337921b55b78f80eb0f69fdb499aa55}\label{classMineField_a9337921b55b78f80eb0f69fdb499aa55} 
+{\bfseries Mine\+Field} (\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player1, \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player2)
+\item 
+\Hypertarget{classMineField_a9759c77006a2dfe0bc18249bbd650093}\label{classMineField_a9759c77006a2dfe0bc18249bbd650093} 
+{\bfseries Mine\+Field} (\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player1, \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player2, int field\+Size, int bombs)
+\item 
+\Hypertarget{classMineField_a072244ccaa035f8c1706ceed86b2bfb8}\label{classMineField_a072244ccaa035f8c1706ceed86b2bfb8} 
+int {\bfseries get\+Field\+Size} ()
+\item 
+\Hypertarget{classMineField_ac759d745553fc4e6b0ea7c3d26a4ed89}\label{classMineField_ac759d745553fc4e6b0ea7c3d26a4ed89} 
+int {\bfseries get\+Reference} (\mbox{\hyperlink{classCoordinates}{Coordinates}} reference)
+\item 
+\Hypertarget{classMineField_adaa59c157284fb63cd8064bdc8104e4d}\label{classMineField_adaa59c157284fb63cd8064bdc8104e4d} 
+int {\bfseries get\+Number\+Of\+Bombs} ()
+\item 
+virtual void \mbox{\hyperlink{classMineField_a55a72a04a22a502b4291ebca9b4b3c0f}{play}} () override
+\item 
+\Hypertarget{classMineField_a5eedfa4d43c03ae0d26154b8e4850815}\label{classMineField_a5eedfa4d43c03ae0d26154b8e4850815} 
+bool {\bfseries make\+Play} (\mbox{\hyperlink{classCoordinates}{Coordinates}} move)
+\item 
+\Hypertarget{classMineField_a85cd9f5f1f4d5b8fec878e992fe54143}\label{classMineField_a85cd9f5f1f4d5b8fec878e992fe54143} 
+void {\bfseries reveal\+Board} ()
+\item 
+void \mbox{\hyperlink{classMineField_a2bd3bd1368510044843a263e0452bcfd}{set\+Reference\+Field}} (\mbox{\hyperlink{classCoordinates}{Coordinates}} first\+Play)
+\item 
+\Hypertarget{classMineField_af31617021d1fb63308cafae645a6ce4a}\label{classMineField_af31617021d1fb63308cafae645a6ce4a} 
+void {\bfseries recursive\+Open} (\mbox{\hyperlink{classCoordinates}{Coordinates}} reference)
+\item 
+\Hypertarget{classMineField_ab54e3d49037b30a06cf994c735ea2b89}\label{classMineField_ab54e3d49037b30a06cf994c735ea2b89} 
+std\+::vector$<$ \mbox{\hyperlink{classCoordinates}{Coordinates}} $>$ {\bfseries get\+Possible\+Plays} ()
+\item 
+\Hypertarget{classMineField_a7adef9c3caf1a85c73a1afa85b2f85e4}\label{classMineField_a7adef9c3caf1a85c73a1afa85b2f85e4} 
+bool {\bfseries is\+Versus\+Game} ()
+\item 
+\Hypertarget{classMineField_a547fb191f4c150dddca4a6959b8c248d}\label{classMineField_a547fb191f4c150dddca4a6959b8c248d} 
+bool {\bfseries is\+Game\+Over} ()
+\item 
+\Hypertarget{classMineField_af5d8460f878f42d81a43e32d98763c3a}\label{classMineField_af5d8460f878f42d81a43e32d98763c3a} 
+void {\bfseries reset\+Game} ()
+\item 
+void \mbox{\hyperlink{classMineField_a5ada4c22b52125fba896fba70d08b23c}{add\+Stats}} (\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player, \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}loser) override
+\begin{DoxyCompactList}\small\item\em Atualiza os status dos players. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classGame}{Game}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Game} ()
+\begin{DoxyCompactList}\small\item\em Construtor padrão da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGame_a884ac2dcb2fba67cc6ba353f4d6edf25}{Game}} (\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player1, \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player2)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGame_a592382f09c33f1916bb95587432b1ce8}{Game}} (\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player1, \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player2, int rows, int cols)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Game} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+Board\+Type \mbox{\hyperlink{classGame_abb2c52d8a407621c4ef9dcde7cf9c9fe}{get\+Board}} ()
+\begin{DoxyCompactList}\small\item\em Métodos getters para os atributos da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+int {\bfseries get\+Rows} ()
+\item 
+int {\bfseries get\+Cols} ()
+\item 
+void \mbox{\hyperlink{classGame_a33a4e56bc86a8697b62bcc65852e5f56}{set\+Square}} (\mbox{\hyperlink{classCoordinates}{Coordinates}} coord, char symbol)
+\begin{DoxyCompactList}\small\item\em Métodos setters para os atributos da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+char {\bfseries get\+Square} (\mbox{\hyperlink{classCoordinates}{Coordinates}} coord, const Board\+Type \&board)
+\item 
+bool \mbox{\hyperlink{classGame_a041001ab1b8a22311d1bc4c6fa537765}{is\+Valid\+Square}} (\mbox{\hyperlink{classCoordinates}{Coordinates}} move)
+\begin{DoxyCompactList}\small\item\em Verifica se a jogada é válida. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classGame_a340bd2268f4bca6ddce7de526ae8582c}{get\+Waiting\+Player}} ()
+\begin{DoxyCompactList}\small\item\em Retorna o jogador que está esperando a jogada. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classGame_a6ee4c45fb533cf83f69803d368abf92d}{get\+Current\+Player}} ()
+\begin{DoxyCompactList}\small\item\em Retorna o jogador atual. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classGame_a01d7146d789990ee8195bdcca57c327e}{get\+Player1}} ()
+\begin{DoxyCompactList}\small\item\em Ponteiro para os jogadores. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Player2} ()
+\item 
+void {\bfseries print\+Board} ()
+\begin{DoxyCompactList}\small\item\em Imprime o tabuleiro do jogo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_a478c3b61f622bf63ea377766e11e73f2}{change\+Player}} ()
+\begin{DoxyCompactList}\small\item\em Troca o jogador atual com o jogador que está esperando a jogada. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMineField_a5ada4c22b52125fba896fba70d08b23c}\index{MineField@{MineField}!addStats@{addStats}}
+\index{addStats@{addStats}!MineField@{MineField}}
+\doxysubsubsection{\texorpdfstring{addStats()}{addStats()}}
+{\footnotesize\ttfamily \label{classMineField_a5ada4c22b52125fba896fba70d08b23c} 
+void Mine\+Field\+::add\+Stats (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}}]{winner}{, }\item[{\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}}]{loser}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Atualiza os status dos players. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Jogador} & vencedor e perdedor \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classGame_a3f05180b2b9ce40bd0d2892d4aa3cc3c}{Game}}.
+
+\Hypertarget{classMineField_a55a72a04a22a502b4291ebca9b4b3c0f}\index{MineField@{MineField}!play@{play}}
+\index{play@{play}!MineField@{MineField}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}}
+{\footnotesize\ttfamily \label{classMineField_a55a72a04a22a502b4291ebca9b4b3c0f} 
+void Mine\+Field\+::play (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classGame}{Game}}.
+
+\Hypertarget{classMineField_a2bd3bd1368510044843a263e0452bcfd}\index{MineField@{MineField}!setReferenceField@{setReferenceField}}
+\index{setReferenceField@{setReferenceField}!MineField@{MineField}}
+\doxysubsubsection{\texorpdfstring{setReferenceField()}{setReferenceField()}}
+{\footnotesize\ttfamily \label{classMineField_a2bd3bd1368510044843a263e0452bcfd} 
+void Mine\+Field\+::set\+Reference\+Field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoordinates}{Coordinates}}}]{first\+Play}{}\end{DoxyParamCaption})}
+
+Conta o número de minas ao redor de cada casa.
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Mine\+Field.\+hpp\item 
+src/Mine\+Field.\+cpp\end{DoxyCompactItemize}

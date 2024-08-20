@@ -1,0 +1,239 @@
+\doxysection{Game Class Reference}
+\hypertarget{classGame}{}\label{classGame}\index{Game@{Game}}
+
+
+Classe \doxylink{classGame}{Game}.  
+
+
+
+
+{\ttfamily \#include $<$Game.\+hpp$>$}
+
+
+
+Inheritance diagram for Game\+:
+% FIG 0
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classGame_ad59df6562a58a614fda24622d3715b65}\label{classGame_ad59df6562a58a614fda24622d3715b65} 
+{\bfseries Game} ()
+\begin{DoxyCompactList}\small\item\em Construtor padrão da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGame_a884ac2dcb2fba67cc6ba353f4d6edf25}{Game}} (\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player1, \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player2)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGame_a592382f09c33f1916bb95587432b1ce8}{Game}} (\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player1, \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player2, int rows, int cols)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+\Hypertarget{classGame_ae3d112ca6e0e55150d2fdbc704474530}\label{classGame_ae3d112ca6e0e55150d2fdbc704474530} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Game} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+Board\+Type \mbox{\hyperlink{classGame_abb2c52d8a407621c4ef9dcde7cf9c9fe}{get\+Board}} ()
+\begin{DoxyCompactList}\small\item\em Métodos getters para os atributos da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+\Hypertarget{classGame_a91a8686a072f6b12b1bdd3259c35f8aa}\label{classGame_a91a8686a072f6b12b1bdd3259c35f8aa} 
+int {\bfseries get\+Rows} ()
+\item 
+\Hypertarget{classGame_a1f06f7f3af522480e0c75f002d69cd33}\label{classGame_a1f06f7f3af522480e0c75f002d69cd33} 
+int {\bfseries get\+Cols} ()
+\item 
+void \mbox{\hyperlink{classGame_a33a4e56bc86a8697b62bcc65852e5f56}{set\+Square}} (\mbox{\hyperlink{classCoordinates}{Coordinates}} coord, char symbol)
+\begin{DoxyCompactList}\small\item\em Métodos setters para os atributos da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+\Hypertarget{classGame_a7e0112df7f48539a090d0ae04a519356}\label{classGame_a7e0112df7f48539a090d0ae04a519356} 
+char {\bfseries get\+Square} (\mbox{\hyperlink{classCoordinates}{Coordinates}} coord, const Board\+Type \&board)
+\item 
+bool \mbox{\hyperlink{classGame_a041001ab1b8a22311d1bc4c6fa537765}{is\+Valid\+Square}} (\mbox{\hyperlink{classCoordinates}{Coordinates}} move)
+\begin{DoxyCompactList}\small\item\em Verifica se a jogada é válida. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classGame_a3f05180b2b9ce40bd0d2892d4aa3cc3c}{add\+Stats}} (\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}winner, \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}loser)=0
+\begin{DoxyCompactList}\small\item\em Atualiza os status dos players. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classGame_a340bd2268f4bca6ddce7de526ae8582c}{get\+Waiting\+Player}} ()
+\begin{DoxyCompactList}\small\item\em Retorna o jogador que está esperando a jogada. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classGame_a6ee4c45fb533cf83f69803d368abf92d}{get\+Current\+Player}} ()
+\begin{DoxyCompactList}\small\item\em Retorna o jogador atual. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classGame_a01d7146d789990ee8195bdcca57c327e}{get\+Player1}} ()
+\begin{DoxyCompactList}\small\item\em Ponteiro para os jogadores. \end{DoxyCompactList}\item 
+\Hypertarget{classGame_af0be7c35ebd72bbbf428331bd81aeacd}\label{classGame_af0be7c35ebd72bbbf428331bd81aeacd} 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Player2} ()
+\item 
+\Hypertarget{classGame_a77611c82d15d9a191655ca57231908da}\label{classGame_a77611c82d15d9a191655ca57231908da} 
+void {\bfseries print\+Board} ()
+\begin{DoxyCompactList}\small\item\em Imprime o tabuleiro do jogo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_a478c3b61f622bf63ea377766e11e73f2}{change\+Player}} ()
+\begin{DoxyCompactList}\small\item\em Troca o jogador atual com o jogador que está esperando a jogada. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classGame_ad6be0b533864f0ec83af4e3e738e08a5}{play}} ()=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe \doxylink{classGame}{Game}. 
+
+A classe \doxylink{classGame}{Game} é responsável por gerenciar o tabuleiro, os jogadores e os acontecimentos de um jogo. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classGame_a884ac2dcb2fba67cc6ba353f4d6edf25}\index{Game@{Game}!Game@{Game}}
+\index{Game@{Game}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Game()}{Game()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classGame_a884ac2dcb2fba67cc6ba353f4d6edf25} 
+Game\+::\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}}]{player1}{, }\item[{\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}}]{player2}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{classGame}{Game}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player1} & Ponteiro para o jogador 1 \\
+\hline
+{\em player2} & Ponteiro para o jogador 2 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGame_a592382f09c33f1916bb95587432b1ce8}\index{Game@{Game}!Game@{Game}}
+\index{Game@{Game}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Game()}{Game()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classGame_a592382f09c33f1916bb95587432b1ce8} 
+Game\+::\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}}]{player1}{, }\item[{\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}}]{player2}{, }\item[{int}]{rows}{, }\item[{int}]{cols}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{classGame}{Game}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player1} & Ponteiro para o jogador 1 \\
+\hline
+{\em player2} & Ponteiro para o jogador 2 \\
+\hline
+{\em rows} & Número de linhas do tabuleiro \\
+\hline
+{\em cols} & Número de colunas do tabuleiro \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGame_a3f05180b2b9ce40bd0d2892d4aa3cc3c}\index{Game@{Game}!addStats@{addStats}}
+\index{addStats@{addStats}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{addStats()}{addStats()}}
+{\footnotesize\ttfamily \label{classGame_a3f05180b2b9ce40bd0d2892d4aa3cc3c} 
+virtual void Game\+::add\+Stats (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}}]{winner}{, }\item[{\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}}]{loser}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Atualiza os status dos players. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Jogador} & vencedor e perdedor \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classLig4_afedd039ae6b65fe77e312a21c645e580}{Lig4}}, \mbox{\hyperlink{classMineField_a5ada4c22b52125fba896fba70d08b23c}{Mine\+Field}}, \mbox{\hyperlink{classReversi_ab6d177ff30fbb7b29fef2d60f9fb5653}{Reversi}}, and \mbox{\hyperlink{classTicTacToe_ae25a7fe0d050d76441482bae4cc0a436}{Tic\+Tac\+Toe}}.
+
+\Hypertarget{classGame_a478c3b61f622bf63ea377766e11e73f2}\index{Game@{Game}!changePlayer@{changePlayer}}
+\index{changePlayer@{changePlayer}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{changePlayer()}{changePlayer()}}
+{\footnotesize\ttfamily \label{classGame_a478c3b61f622bf63ea377766e11e73f2} 
+void Game\+::change\+Player (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Troca o jogador atual com o jogador que está esperando a jogada. 
+
+Esse método é responsável por trocar o jogador atual com o jogador que está esperando a jogada. \Hypertarget{classGame_abb2c52d8a407621c4ef9dcde7cf9c9fe}\index{Game@{Game}!getBoard@{getBoard}}
+\index{getBoard@{getBoard}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getBoard()}{getBoard()}}
+{\footnotesize\ttfamily \label{classGame_abb2c52d8a407621c4ef9dcde7cf9c9fe} 
+std\+::vector$<$ std\+::vector$<$ char $>$ $>$ Game\+::get\+Board (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Métodos getters para os atributos da classe \doxylink{classGame}{Game}. 
+
+Esses métodos retornam o valor dos atributos da classe \doxylink{classGame}{Game}.
+
+\begin{DoxyReturn}{Returns}
+O valor do atributo correspondente 
+\end{DoxyReturn}
+\Hypertarget{classGame_a6ee4c45fb533cf83f69803d368abf92d}\index{Game@{Game}!getCurrentPlayer@{getCurrentPlayer}}
+\index{getCurrentPlayer@{getCurrentPlayer}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getCurrentPlayer()}{getCurrentPlayer()}}
+{\footnotesize\ttfamily \label{classGame_a6ee4c45fb533cf83f69803d368abf92d} 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} Game\+::get\+Current\+Player (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retorna o jogador atual. 
+
+\begin{DoxyReturn}{Returns}
+Ponteiro para o jogador atual 
+\end{DoxyReturn}
+\Hypertarget{classGame_a01d7146d789990ee8195bdcca57c327e}\index{Game@{Game}!getPlayer1@{getPlayer1}}
+\index{getPlayer1@{getPlayer1}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getPlayer1()}{getPlayer1()}}
+{\footnotesize\ttfamily \label{classGame_a01d7146d789990ee8195bdcca57c327e} 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} Game\+::get\+Player1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Ponteiro para os jogadores. 
+
+\begin{DoxyReturn}{Returns}
+Ponteiro para o jogador 1 
+
+Ponteiro para o jogador 2 
+\end{DoxyReturn}
+\Hypertarget{classGame_a340bd2268f4bca6ddce7de526ae8582c}\index{Game@{Game}!getWaitingPlayer@{getWaitingPlayer}}
+\index{getWaitingPlayer@{getWaitingPlayer}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getWaitingPlayer()}{getWaitingPlayer()}}
+{\footnotesize\ttfamily \label{classGame_a340bd2268f4bca6ddce7de526ae8582c} 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} Game\+::get\+Waiting\+Player (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retorna o jogador que está esperando a jogada. 
+
+\begin{DoxyReturn}{Returns}
+Ponteiro para o jogador que está esperando a jogada 
+\end{DoxyReturn}
+\Hypertarget{classGame_a041001ab1b8a22311d1bc4c6fa537765}\index{Game@{Game}!isValidSquare@{isValidSquare}}
+\index{isValidSquare@{isValidSquare}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{isValidSquare()}{isValidSquare()}}
+{\footnotesize\ttfamily \label{classGame_a041001ab1b8a22311d1bc4c6fa537765} 
+bool Game\+::is\+Valid\+Square (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoordinates}{Coordinates}}}]{move}{}\end{DoxyParamCaption})}
+
+
+
+Verifica se a jogada é válida. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em move} & Coordenadas da jogada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se a jogada é válida, false caso contrário 
+\end{DoxyReturn}
+\Hypertarget{classGame_ad6be0b533864f0ec83af4e3e738e08a5}\index{Game@{Game}!play@{play}}
+\index{play@{play}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}}
+{\footnotesize\ttfamily \label{classGame_ad6be0b533864f0ec83af4e3e738e08a5} 
+virtual void Game\+::play (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classLig4_abad8952db3eb415f817df901eb8a1e5d}{Lig4}}, \mbox{\hyperlink{classReversi_a0fee8427ca770bff9b50921a6d9daac7}{Reversi}}, and \mbox{\hyperlink{classTicTacToe_a5d6f76f1827886d5c563fb57ccf32388}{Tic\+Tac\+Toe}}.
+
+\Hypertarget{classGame_a33a4e56bc86a8697b62bcc65852e5f56}\index{Game@{Game}!setSquare@{setSquare}}
+\index{setSquare@{setSquare}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{setSquare()}{setSquare()}}
+{\footnotesize\ttfamily \label{classGame_a33a4e56bc86a8697b62bcc65852e5f56} 
+void Game\+::set\+Square (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoordinates}{Coordinates}}}]{coord}{, }\item[{char}]{symbol}{}\end{DoxyParamCaption})}
+
+
+
+Métodos setters para os atributos da classe \doxylink{classGame}{Game}. 
+
+Esses métodos atribuem um valor para os atributos da classe \doxylink{classGame}{Game}. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Game.\+hpp\item 
+src/Game.\+cpp\end{DoxyCompactItemize}

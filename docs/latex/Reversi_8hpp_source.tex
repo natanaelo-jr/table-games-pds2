@@ -1,0 +1,42 @@
+\doxysection{Reversi.\+hpp}
+\hypertarget{Reversi_8hpp_source}{}\label{Reversi_8hpp_source}\index{include/Reversi.hpp@{include/Reversi.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ REVERSI\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ REVERSI\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Game.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Coordinates.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classReversi}{Reversi}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classGame}{Game}}\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classReversi_a0178ea02e27aaa496e0472a9d75b2a9f}{Reversi}}(\mbox{\hyperlink{classPlayer}{Player}}*\ player1,\ \mbox{\hyperlink{classPlayer}{Player}}*\ player2);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classReversi_a0fee8427ca770bff9b50921a6d9daac7}{play}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classReversi_a88a86f0828f1d9c44443957950bc3afa}{makePlay}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}*\ \mbox{\hyperlink{classReversi_aadb12399f21f2626bcc6384f20475577}{checkWinner}}();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classReversi_ab6d177ff30fbb7b29fef2d60f9fb5653}{addStats}}(\mbox{\hyperlink{classPlayer}{Player}}*\ winner,\ \mbox{\hyperlink{classPlayer}{Player}}*\ loser);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classReversi_a78466df2338332c93d44280776b75cef}{countSymbols}}(\textcolor{keywordtype}{char}\ symbol);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classReversi_a4a5f25994a23a4d3f710aec894353e2c}{reverseSymbols}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classReversi_ace470cc1da371b211e5674c91eab082a}{initializeBoard}}();}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \mbox{\hyperlink{classReversi_ad61d8d0ef428622d1adb694922622d09}{searcherForPlay}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,\ \textcolor{keywordtype}{int}\ dRow,\ \textcolor{keywordtype}{int}\ dCol,\ \textcolor{keywordtype}{char}\ symbol,\ \textcolor{keywordtype}{char}\ opposite,\ \textcolor{keywordtype}{bool}\ passedOpponent,\ \textcolor{keyword}{const}\ BoardType\ \&board);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ std::vector<Coordinates>\ \mbox{\hyperlink{classReversi_abec4fe636c90a98294fcb6a0d38777a2}{getPossiblePlays}}(\textcolor{keywordtype}{char}\ symbol,\ \textcolor{keyword}{const}\ BoardType\&\ board);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classReversi_a7fddc26d17d76f92582ad9f7a2a8bc61}{verifyPlay}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,\ \textcolor{keywordtype}{char}\ symbol);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classReversi_a4438746f186c8a8efcbf6eeb4ad014f1}{turnPieces}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ dRow,\ \textcolor{keywordtype}{int}\ col,\ \textcolor{keywordtype}{int}\ dCol,\ \textcolor{keywordtype}{char}\ symbol,\ \textcolor{keywordtype}{bool}\ isOriginalTile,\ \textcolor{keyword}{const}\ BoardType\ \&board);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classReversi_a5dc7c8d28c5cbae285a0b5e9987e9eee}{terminalState}}(\textcolor{keyword}{const}\ BoardType\&\ board);}
+\DoxyCodeLine{00132\ \};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ REVERSI\_HPP}}
+
+\end{DoxyCode}

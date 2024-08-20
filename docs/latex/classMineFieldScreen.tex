@@ -1,0 +1,125 @@
+\doxysection{Mine\+Field\+Screen Class Reference}
+\hypertarget{classMineFieldScreen}{}\label{classMineFieldScreen}\index{MineFieldScreen@{MineFieldScreen}}
+
+
+Inheritance diagram for Mine\+Field\+Screen\+:
+% FIG 0
+
+
+Collaboration diagram for Mine\+Field\+Screen\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMineFieldScreen_a2e606defe16b9ba0c43d38bbc61f48ff}\label{classMineFieldScreen_a2e606defe16b9ba0c43d38bbc61f48ff} 
+{\bfseries Mine\+Field\+Screen} (\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}screen\+Manager, \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player, \mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}players)
+\item 
+void \mbox{\hyperlink{classMineFieldScreen_acfb9020e4aa2edd4501968ef26355c94}{handle\+Events}} (sf\+::\+Render\+Window \&window) override
+\item 
+void \mbox{\hyperlink{classMineFieldScreen_a0fc1a83787c951b21fc2878af45be7d0}{update}} (sf\+::\+Render\+Window \&window) override
+\item 
+void \mbox{\hyperlink{classMineFieldScreen_a4eed923c676afc599c56a50484e20b38}{render}} (sf\+::\+Render\+Window \&window) override
+\item 
+void \mbox{\hyperlink{classMineFieldScreen_a54919370cefe43868b6fd4141ec10d84}{load\+Textures}} ()
+\item 
+\Hypertarget{classMineFieldScreen_af82eb6f0eb92a5f1de2f3cacaa4b809e}\label{classMineFieldScreen_af82eb6f0eb92a5f1de2f3cacaa4b809e} 
+void {\bfseries update\+Pieces} ()
+\item 
+\Hypertarget{classMineFieldScreen_ab8477bae6b69359259474f65d340af8f}\label{classMineFieldScreen_ab8477bae6b69359259474f65d340af8f} 
+\mbox{\hyperlink{classCoordinates}{Coordinates}} {\bfseries get\+Tile\+Coordinates} (sf\+::\+Float\+Rect \&tile)
+\item 
+\Hypertarget{classMineFieldScreen_af7347411e07f6c04afca0433330a6b88}\label{classMineFieldScreen_af7347411e07f6c04afca0433330a6b88} 
+std\+::vector$<$ sf\+::\+Float\+Rect $>$ {\bfseries get\+Possible\+Plays} ()
+\item 
+\Hypertarget{classMineFieldScreen_a9b39dc2b6375ef9b969584b97c4df2fd}\label{classMineFieldScreen_a9b39dc2b6375ef9b969584b97c4df2fd} 
+void {\bfseries process\+Play} (sf\+::\+Float\+Rect \&play\+Tile)
+\item 
+\Hypertarget{classMineFieldScreen_a0f10fa8e687bfe633312a06d78349952}\label{classMineFieldScreen_a0f10fa8e687bfe633312a06d78349952} 
+void {\bfseries place\+Flag} (\mbox{\hyperlink{classCoordinates}{Coordinates}} coord)
+\item 
+\Hypertarget{classMineFieldScreen_a368d5b041a85c2fba29c1f57ee3a8230}\label{classMineFieldScreen_a368d5b041a85c2fba29c1f57ee3a8230} 
+void {\bfseries remove\+Flag} (\mbox{\hyperlink{classCoordinates}{Coordinates}} coord)
+\item 
+\Hypertarget{classMineFieldScreen_a909b9d2da0d2e82220a1ef8e97a8bdb5}\label{classMineFieldScreen_a909b9d2da0d2e82220a1ef8e97a8bdb5} 
+bool {\bfseries is\+Flag\+On\+Tile} (\mbox{\hyperlink{classCoordinates}{Coordinates}} coord)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classScreen}{Screen}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Screen} (\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}players, \mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}screen\+Manager)
+\item 
+void {\bfseries process} (sf\+::\+Render\+Window \&window)
+\item 
+void {\bfseries setup\+Window} (sf\+::\+Render\+Window \&window)
+\item 
+sf\+::\+Color {\bfseries get\+Background\+Color} ()
+\item 
+bool {\bfseries is\+Mouse\+Over} (const sf\+::\+Float\+Rect \&bounds, const sf\+::\+Render\+Window \&window)
+\item 
+\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Players} ()
+\item 
+\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Screen\+Manager} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classScreen}{Screen}}}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Texture {\bfseries back\+Menu\+Texture}
+\item 
+sf\+::\+Texture {\bfseries hover\+Back\+Menu\+Texture}
+\item 
+sf\+::\+Texture {\bfseries play\+Again\+Texture}
+\item 
+sf\+::\+Texture {\bfseries hover\+Play\+Again\+Texture}
+\item 
+sf\+::\+Font {\bfseries card\+Font}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMineFieldScreen_acfb9020e4aa2edd4501968ef26355c94}\index{MineFieldScreen@{MineFieldScreen}!handleEvents@{handleEvents}}
+\index{handleEvents@{handleEvents}!MineFieldScreen@{MineFieldScreen}}
+\doxysubsubsection{\texorpdfstring{handleEvents()}{handleEvents()}}
+{\footnotesize\ttfamily \label{classMineFieldScreen_acfb9020e4aa2edd4501968ef26355c94} 
+void Mine\+Field\+Screen\+::handle\+Events (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classMineFieldScreen_a54919370cefe43868b6fd4141ec10d84}\index{MineFieldScreen@{MineFieldScreen}!loadTextures@{loadTextures}}
+\index{loadTextures@{loadTextures}!MineFieldScreen@{MineFieldScreen}}
+\doxysubsubsection{\texorpdfstring{loadTextures()}{loadTextures()}}
+{\footnotesize\ttfamily \label{classMineFieldScreen_a54919370cefe43868b6fd4141ec10d84} 
+void Mine\+Field\+Screen\+::load\+Textures (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classMineFieldScreen_a4eed923c676afc599c56a50484e20b38}\index{MineFieldScreen@{MineFieldScreen}!render@{render}}
+\index{render@{render}!MineFieldScreen@{MineFieldScreen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{classMineFieldScreen_a4eed923c676afc599c56a50484e20b38} 
+void Mine\+Field\+Screen\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classMineFieldScreen_a0fc1a83787c951b21fc2878af45be7d0}\index{MineFieldScreen@{MineFieldScreen}!update@{update}}
+\index{update@{update}!MineFieldScreen@{MineFieldScreen}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classMineFieldScreen_a0fc1a83787c951b21fc2878af45be7d0} 
+void Mine\+Field\+Screen\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Mine\+Field\+Screen.\+hpp\item 
+src/Mine\+Field\+Screen.\+cpp\end{DoxyCompactItemize}

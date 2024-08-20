@@ -1,0 +1,174 @@
+\doxysection{Menu\+Screen Class Reference}
+\hypertarget{classMenuScreen}{}\label{classMenuScreen}\index{MenuScreen@{MenuScreen}}
+
+
+Classe responsável por representar a tela de menu principal.  
+
+
+
+
+{\ttfamily \#include $<$Menu\+Screen.\+hpp$>$}
+
+
+
+Inheritance diagram for Menu\+Screen\+:
+% FIG 0
+
+
+Collaboration diagram for Menu\+Screen\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMenuScreen_a1bd27b820f965c280abd04e86543703a}{Menu\+Screen}} (\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}screen\+Manager, \mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}players)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{classMenuScreen}{Menu\+Screen}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMenuScreen_a114d04d55c858dbc9d19d8b71f0f9aff}{handle\+Events}} (sf\+::\+Render\+Window \&window) override
+\begin{DoxyCompactList}\small\item\em Manipula os eventos do menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMenuScreen_a3658b25d1190c9c4913ac2933c4c8903}{update}} (sf\+::\+Render\+Window \&window) override
+\begin{DoxyCompactList}\small\item\em Atualiza a lógica do menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMenuScreen_adcd124421ae0d39eb112a86f802d812e}{render}} (sf\+::\+Render\+Window \&window) override
+\begin{DoxyCompactList}\small\item\em Renderiza os elementos visuais do menu na janela. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMenuScreen_a7620510e035d40b7bd00babbb1c104e1}{load\+Textures}} ()
+\begin{DoxyCompactList}\small\item\em Carrega as texturas dos botões do menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classScreen}{Screen}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Screen} (\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}players, \mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}screen\+Manager)
+\item 
+void {\bfseries process} (sf\+::\+Render\+Window \&window)
+\item 
+void {\bfseries setup\+Window} (sf\+::\+Render\+Window \&window)
+\item 
+sf\+::\+Color {\bfseries get\+Background\+Color} ()
+\item 
+bool {\bfseries is\+Mouse\+Over} (const sf\+::\+Float\+Rect \&bounds, const sf\+::\+Render\+Window \&window)
+\item 
+\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Players} ()
+\item 
+\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Screen\+Manager} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classScreen}{Screen}}}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Texture {\bfseries back\+Menu\+Texture}
+\item 
+sf\+::\+Texture {\bfseries hover\+Back\+Menu\+Texture}
+\item 
+sf\+::\+Texture {\bfseries play\+Again\+Texture}
+\item 
+sf\+::\+Texture {\bfseries hover\+Play\+Again\+Texture}
+\item 
+sf\+::\+Font {\bfseries card\+Font}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe responsável por representar a tela de menu principal. 
+
+A classe {\ttfamily \doxylink{classMenuScreen}{Menu\+Screen}} herda da classe {\ttfamily \doxylink{classScreen}{Screen}} e implementa as funções necessárias para manipular os eventos, atualizar e renderizar a tela de menu principal do jogo. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMenuScreen_a1bd27b820f965c280abd04e86543703a}\index{MenuScreen@{MenuScreen}!MenuScreen@{MenuScreen}}
+\index{MenuScreen@{MenuScreen}!MenuScreen@{MenuScreen}}
+\doxysubsubsection{\texorpdfstring{MenuScreen()}{MenuScreen()}}
+{\footnotesize\ttfamily \label{classMenuScreen_a1bd27b820f965c280abd04e86543703a} 
+Menu\+Screen\+::\+Menu\+Screen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}}]{screen\+Manager}{, }\item[{\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}}]{players}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{classMenuScreen}{Menu\+Screen}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em screen\+Manager} & Gerenciador de telas responsável por alternar entre as diferentes telas. \\
+\hline
+{\em players} & Ponteiro para a lista de jogadores cadastrados no sistema. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMenuScreen_a114d04d55c858dbc9d19d8b71f0f9aff}\index{MenuScreen@{MenuScreen}!handleEvents@{handleEvents}}
+\index{handleEvents@{handleEvents}!MenuScreen@{MenuScreen}}
+\doxysubsubsection{\texorpdfstring{handleEvents()}{handleEvents()}}
+{\footnotesize\ttfamily \label{classMenuScreen_a114d04d55c858dbc9d19d8b71f0f9aff} 
+void Menu\+Screen\+::handle\+Events (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Manipula os eventos do menu. 
+
+Este método é chamado para processar os eventos ocorridos na janela, como cliques ou movimentação do mouse sobre os botões.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Referência para a janela SFML onde os eventos serão manipulados. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classMenuScreen_a7620510e035d40b7bd00babbb1c104e1}\index{MenuScreen@{MenuScreen}!loadTextures@{loadTextures}}
+\index{loadTextures@{loadTextures}!MenuScreen@{MenuScreen}}
+\doxysubsubsection{\texorpdfstring{loadTextures()}{loadTextures()}}
+{\footnotesize\ttfamily \label{classMenuScreen_a7620510e035d40b7bd00babbb1c104e1} 
+void Menu\+Screen\+::load\+Textures (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Carrega as texturas dos botões do menu. 
+
+Este método carrega as texturas utilizadas pelos botões do menu (normal e hover), para que possam ser renderizadas corretamente na tela. 
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classMenuScreen_adcd124421ae0d39eb112a86f802d812e}\index{MenuScreen@{MenuScreen}!render@{render}}
+\index{render@{render}!MenuScreen@{MenuScreen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{classMenuScreen_adcd124421ae0d39eb112a86f802d812e} 
+void Menu\+Screen\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Renderiza os elementos visuais do menu na janela. 
+
+Este método desenha os botões e outros elementos gráficos do menu na janela.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Referência para a janela SFML onde os elementos serão renderizados. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classMenuScreen_a3658b25d1190c9c4913ac2933c4c8903}\index{MenuScreen@{MenuScreen}!update@{update}}
+\index{update@{update}!MenuScreen@{MenuScreen}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classMenuScreen_a3658b25d1190c9c4913ac2933c4c8903} 
+void Menu\+Screen\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Atualiza a lógica do menu. 
+
+Este método é chamado para atualizar o estado do menu (por exemplo, mudar o estado dos botões com base na interação do usuário).
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Referência para a janela SFML onde a atualização ocorrerá. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Menu\+Screen.\+hpp\item 
+src/Menu\+Screen.\+cpp\end{DoxyCompactItemize}

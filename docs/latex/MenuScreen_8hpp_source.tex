@@ -1,0 +1,41 @@
+\doxysection{Menu\+Screen.\+hpp}
+\hypertarget{MenuScreen_8hpp_source}{}\label{MenuScreen_8hpp_source}\index{include/MenuScreen.hpp@{include/MenuScreen.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MENU\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MENU\_HPP}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Screen.hpp"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMenuScreen}{MenuScreen}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classScreen}{Screen}}\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMenuScreen_a1bd27b820f965c280abd04e86543703a}{MenuScreen}}(\mbox{\hyperlink{classScreenManager}{ScreenManager}}*\ screenManager,\ \mbox{\hyperlink{classPlayers}{Players}}*\ players);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenuScreen_a114d04d55c858dbc9d19d8b71f0f9aff}{handleEvents}}(sf::RenderWindow\ \&window)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenuScreen_a3658b25d1190c9c4913ac2933c4c8903}{update}}(sf::RenderWindow\ \&window)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenuScreen_adcd124421ae0d39eb112a86f802d812e}{render}}(sf::RenderWindow\ \&window)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenuScreen_a7620510e035d40b7bd00babbb1c104e1}{loadTextures}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ sf::Texture\ playButtonTexture;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ sf::Texture\ hoverPlayButtonTexture;\ \ \ \ \ \ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ sf::Texture\ manageButtonTexture;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ sf::Texture\ hoverManageButtonTexture;\ \ \ \ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ sf::Texture\ rankingButtonTexture;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ sf::Texture\ hoverRankingButtonTexture;\ \ \ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ sf::Texture\ creditsButtonTexture;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ sf::Texture\ hoverCreditsButtonTexture;\ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ sf::Texture\ exitButtonTexture;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ sf::Texture\ hoverExitButtonTexture;\ \ \ \ \ \ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ sf::Sprite\ playButton;\ \ \ \ \ \ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ sf::Sprite\ rankingButton;\ \ \ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ sf::Sprite\ creditsButton;\ \ \ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ sf::Sprite\ manageButton;\ \ \ \ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ sf::Sprite\ exitButton;\ \ \ \ \ \ }
+\DoxyCodeLine{00075\ \};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

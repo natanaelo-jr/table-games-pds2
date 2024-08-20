@@ -1,0 +1,52 @@
+\doxysection{Lig4\+Screen.\+hpp}
+\hypertarget{Lig4Screen_8hpp_source}{}\label{Lig4Screen_8hpp_source}\index{include/Lig4Screen.hpp@{include/Lig4Screen.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ LIG4SCREEN\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ LIG4SCREEN\_HPP}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Screen.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Lig4.hpp"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLig4Screen}{Lig4Screen}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classScreen}{Screen}}\{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLig4Screen}{Lig4Screen}}(\mbox{\hyperlink{classScreenManager}{ScreenManager}}*\ screenManager,\ \mbox{\hyperlink{classPlayer}{Player}}*\ player1,\ \mbox{\hyperlink{classPlayer}{Player}}*\ player2,\ \mbox{\hyperlink{classPlayers}{Players}}*\ players);}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ handleEvents(sf::RenderWindow\ \&window)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ update(sf::RenderWindow\ \&window)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ render(sf::RenderWindow\ \&window)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ updatePhantomPiece(sf::RenderWindow\ \&window);}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ loadTextures();}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ getTileCoordinates(sf::FloatRect\ \&tile);}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ std::vector<sf::FloatRect>\ getPossiblePlays();}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ processPlay(sf::FloatRect\ \&playTile);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ tileSize;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLig4}{Lig4}}*\ game;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ sf::Vector2f\ screenOffset;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ sf::Texture\ pieceVTexture;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ sf::Texture\ pieceATexture;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ sf::Texture\ boardTexture;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ sf::Sprite\ phantomPiece;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ sf::Font\ font;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ sf::Text\ player1Nick;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ sf::Text\ player2Nick;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ sf::Sprite\ player1Piece;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ sf::Sprite\ player2Piece;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ std::vector<sf::Sprite>\ pieces;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ sf::Sprite\ board;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ sf::RectangleShape\ cardShape;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ sf::Sprite\ cardButton1;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ sf::Sprite\ cardButton2;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ sf::Text\ cardText;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ finishGame;}
+\DoxyCodeLine{00044\ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

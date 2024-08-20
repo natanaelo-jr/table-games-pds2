@@ -1,0 +1,122 @@
+\doxysection{Reversi\+Screen Class Reference}
+\hypertarget{classReversiScreen}{}\label{classReversiScreen}\index{ReversiScreen@{ReversiScreen}}
+
+
+Inheritance diagram for Reversi\+Screen\+:
+% FIG 0
+
+
+Collaboration diagram for Reversi\+Screen\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classReversiScreen_a00485d849e42569cc8d2f783e6bd212e}\label{classReversiScreen_a00485d849e42569cc8d2f783e6bd212e} 
+{\bfseries Reversi\+Screen} (\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}screen\+Manager, \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player1, \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player2, \mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}players)
+\item 
+void \mbox{\hyperlink{classReversiScreen_a5eec398504f91bca59316e7e7700fdae}{handle\+Events}} (sf\+::\+Render\+Window \&window) override
+\item 
+void \mbox{\hyperlink{classReversiScreen_ac707b6518ffcc82460d673477151b0c4}{update}} (sf\+::\+Render\+Window \&window) override
+\item 
+void \mbox{\hyperlink{classReversiScreen_a1e7507212cee672c883efdbe7646e4cc}{render}} (sf\+::\+Render\+Window \&window) override
+\item 
+\Hypertarget{classReversiScreen_a5241af1cdd0c9915cd7f63da5e317b67}\label{classReversiScreen_a5241af1cdd0c9915cd7f63da5e317b67} 
+void {\bfseries update\+Pieces} ()
+\item 
+\Hypertarget{classReversiScreen_ab48944f0361041577b596ae63f428dff}\label{classReversiScreen_ab48944f0361041577b596ae63f428dff} 
+void {\bfseries update\+Shadows} ()
+\item 
+\Hypertarget{classReversiScreen_a8d37eb315d594b475fcaed633d069900}\label{classReversiScreen_a8d37eb315d594b475fcaed633d069900} 
+void {\bfseries update\+Phantom\+Piece} (sf\+::\+Render\+Window \&window)
+\item 
+void \mbox{\hyperlink{classReversiScreen_a4d71cb953325d73d841540a52dc0b272}{load\+Textures}} ()
+\item 
+\Hypertarget{classReversiScreen_aee2890a49bc044b358ea4a29bddddd45}\label{classReversiScreen_aee2890a49bc044b358ea4a29bddddd45} 
+\mbox{\hyperlink{classCoordinates}{Coordinates}} {\bfseries get\+Tile\+Coordinates} (sf\+::\+Float\+Rect \&tile)
+\item 
+\Hypertarget{classReversiScreen_a70fe33f8b4022382d2cfa59250cb6aaf}\label{classReversiScreen_a70fe33f8b4022382d2cfa59250cb6aaf} 
+std\+::vector$<$ sf\+::\+Float\+Rect $>$ {\bfseries get\+Possible\+Plays} ()
+\item 
+\Hypertarget{classReversiScreen_afe31addff8ce1d9ee61f28ab4b8530bd}\label{classReversiScreen_afe31addff8ce1d9ee61f28ab4b8530bd} 
+void {\bfseries process\+Play} (sf\+::\+Float\+Rect \&play\+Tile)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classScreen}{Screen}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Screen} (\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}players, \mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}screen\+Manager)
+\item 
+void {\bfseries process} (sf\+::\+Render\+Window \&window)
+\item 
+void {\bfseries setup\+Window} (sf\+::\+Render\+Window \&window)
+\item 
+sf\+::\+Color {\bfseries get\+Background\+Color} ()
+\item 
+bool {\bfseries is\+Mouse\+Over} (const sf\+::\+Float\+Rect \&bounds, const sf\+::\+Render\+Window \&window)
+\item 
+\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Players} ()
+\item 
+\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Screen\+Manager} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classScreen}{Screen}}}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Texture {\bfseries back\+Menu\+Texture}
+\item 
+sf\+::\+Texture {\bfseries hover\+Back\+Menu\+Texture}
+\item 
+sf\+::\+Texture {\bfseries play\+Again\+Texture}
+\item 
+sf\+::\+Texture {\bfseries hover\+Play\+Again\+Texture}
+\item 
+sf\+::\+Font {\bfseries card\+Font}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classReversiScreen_a5eec398504f91bca59316e7e7700fdae}\index{ReversiScreen@{ReversiScreen}!handleEvents@{handleEvents}}
+\index{handleEvents@{handleEvents}!ReversiScreen@{ReversiScreen}}
+\doxysubsubsection{\texorpdfstring{handleEvents()}{handleEvents()}}
+{\footnotesize\ttfamily \label{classReversiScreen_a5eec398504f91bca59316e7e7700fdae} 
+void Reversi\+Screen\+::handle\+Events (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classReversiScreen_a4d71cb953325d73d841540a52dc0b272}\index{ReversiScreen@{ReversiScreen}!loadTextures@{loadTextures}}
+\index{loadTextures@{loadTextures}!ReversiScreen@{ReversiScreen}}
+\doxysubsubsection{\texorpdfstring{loadTextures()}{loadTextures()}}
+{\footnotesize\ttfamily \label{classReversiScreen_a4d71cb953325d73d841540a52dc0b272} 
+void Reversi\+Screen\+::load\+Textures (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classReversiScreen_a1e7507212cee672c883efdbe7646e4cc}\index{ReversiScreen@{ReversiScreen}!render@{render}}
+\index{render@{render}!ReversiScreen@{ReversiScreen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{classReversiScreen_a1e7507212cee672c883efdbe7646e4cc} 
+void Reversi\+Screen\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classReversiScreen_ac707b6518ffcc82460d673477151b0c4}\index{ReversiScreen@{ReversiScreen}!update@{update}}
+\index{update@{update}!ReversiScreen@{ReversiScreen}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classReversiScreen_ac707b6518ffcc82460d673477151b0c4} 
+void Reversi\+Screen\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Reversi\+Screen.\+hpp\item 
+src/Reversi\+Screen.\+cpp\end{DoxyCompactItemize}

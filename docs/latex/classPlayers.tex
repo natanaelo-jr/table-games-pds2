@@ -1,0 +1,78 @@
+\doxysection{Players Class Reference}
+\hypertarget{classPlayers}{}\label{classPlayers}\index{Players@{Players}}
+
+
+Classe que gerencia os jogadores.  
+
+
+
+
+{\ttfamily \#include $<$Players.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlayers_a3ff1a0488140a54cc4e355716b9bef9d}{Players}} ()
+\begin{DoxyCompactList}\small\item\em Método que carrega os jogadores de um arquivo de dados. \end{DoxyCompactList}\item 
+\Hypertarget{classPlayers_ad411ea0271b09c2d23c56d7969e849b1}\label{classPlayers_ad411ea0271b09c2d23c56d7969e849b1} 
+void {\bfseries load\+From\+Data\+File} ()
+\item 
+\Hypertarget{classPlayers_ab38097df60b2282943e885f4730d1954}\label{classPlayers_ab38097df60b2282943e885f4730d1954} 
+void {\bfseries save\+To\+Data\+File} ()
+\item 
+\Hypertarget{classPlayers_a166dad8b5e40e4e9448e90f044f4edde}\label{classPlayers_a166dad8b5e40e4e9448e90f044f4edde} 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} {\bfseries search\+By\+Nickname} (std\+::string nickname)
+\item 
+\Hypertarget{classPlayers_aea84c687cf6c534e5e52b4e844c7e352}\label{classPlayers_aea84c687cf6c534e5e52b4e844c7e352} 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} {\bfseries search} (std\+::string name, std\+::string nickname)
+\item 
+\Hypertarget{classPlayers_abfaaec7fbc62ab2af013774120a96fe1}\label{classPlayers_abfaaec7fbc62ab2af013774120a96fe1} 
+std\+::list$<$ \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+Players} ()
+\item 
+\Hypertarget{classPlayers_a0fc68fa05e26b928f06962f8f7534b65}\label{classPlayers_a0fc68fa05e26b928f06962f8f7534b65} 
+std\+::list$<$ \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+Players\+By\+Victories} ()
+\item 
+\Hypertarget{classPlayers_a57f352b11eca51c2e036394416ccbe3e}\label{classPlayers_a57f352b11eca51c2e036394416ccbe3e} 
+void {\bfseries sign\+Up\+Player} (std\+::string name, std\+::string nickname)
+\item 
+\Hypertarget{classPlayers_ab8c1f4ed52382f71f15765aa605a0cf4}\label{classPlayers_ab8c1f4ed52382f71f15765aa605a0cf4} 
+void {\bfseries delete\+Player} (std\+::string nickname)
+\item 
+\Hypertarget{classPlayers_a36a796cdc17dd82c9191d4d404497d10}\label{classPlayers_a36a796cdc17dd82c9191d4d404497d10} 
+void {\bfseries display\+Players} ()
+\item 
+int \mbox{\hyperlink{classPlayers_a47862b7699ec3a41788e6d0b79ff7406}{getsize}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe que gerencia os jogadores. 
+
+A classe \doxylink{classPlayers}{Players} gerencia os jogadores cadastrados no jogo, permitindo a busca, cadastro e remoção de jogadores. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classPlayers_a3ff1a0488140a54cc4e355716b9bef9d}\index{Players@{Players}!Players@{Players}}
+\index{Players@{Players}!Players@{Players}}
+\doxysubsubsection{\texorpdfstring{Players()}{Players()}}
+{\footnotesize\ttfamily \label{classPlayers_a3ff1a0488140a54cc4e355716b9bef9d} 
+Players\+::\+Players (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Método que carrega os jogadores de um arquivo de dados. 
+
+O método carrega os jogadores de um arquivo de dados, permitindo que os jogadores cadastrados sejam recuperados 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classPlayers_a47862b7699ec3a41788e6d0b79ff7406}\index{Players@{Players}!getsize@{getsize}}
+\index{getsize@{getsize}!Players@{Players}}
+\doxysubsubsection{\texorpdfstring{getsize()}{getsize()}}
+{\footnotesize\ttfamily \label{classPlayers_a47862b7699ec3a41788e6d0b79ff7406} 
+int Players\+::getsize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Quantidade de jogadores 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Players.\+hpp\item 
+src/Players.\+cpp\end{DoxyCompactItemize}

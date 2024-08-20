@@ -1,0 +1,85 @@
+\doxysection{Utilities.\+hpp}
+\hypertarget{Utilities_8hpp_source}{}\label{Utilities_8hpp_source}\index{include/Utilities.hpp@{include/Utilities.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Player.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Players.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}TicTacToe.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SFML/Window.hpp>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <SFML/Graphics/Texture.hpp>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keywordtype}{void}\ printInstructions()\{}
+\DoxyCodeLine{00013\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}LISTA\ DE\ COMANDOS:"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00014\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Cadastro\ de\ Jogador:\ CJ\ <nome>\ <apelido>"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00015\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Remoção\ de\ Jogador:\ RJ\ <apelido>"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00016\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Listagem\ de\ Jogadores:\ LJ"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00017\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Executar\ Jogo:\ EJ\ <apelido1>\ <apelido2>"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00018\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Finalizar\ Programa:\ FIM"{}}\ <<\ std::endl\ <<\ std::endl;}
+\DoxyCodeLine{00019\ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ cleanTerminal()\{}
+\DoxyCodeLine{00022\ \ \ \ \ system(\textcolor{stringliteral}{"{}clear\ ||\ cls"{}});}
+\DoxyCodeLine{00023\ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ run(\mbox{\hyperlink{classPlayers}{Players}}\ players)\{}
+\DoxyCodeLine{00026\ \ \ \ \ std::string\ comando;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{while}(std::cin\ >>\ comando)\{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(comando\ ==\ \textcolor{stringliteral}{"{}CJ"{}})\{\ \textcolor{comment}{//cadastro\ de\ jogadores}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ name,\ nickname;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ name\ >>\ nickname;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ players.signUpPlayer(name,\ nickname);}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(comando\ ==\ \textcolor{stringliteral}{"{}RJ"{}})\{\ \textcolor{comment}{//remoção\ de\ jogadores}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ nickname;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ nickname;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ players.deletePlayer(nickname);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(comando\ ==\ \textcolor{stringliteral}{"{}LJ"{}})\{\ \textcolor{comment}{//listagem\ de\ jogadores}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ players.displayPlayers();}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(comando\ ==\ \textcolor{stringliteral}{"{}EJ"{}})\{\ \textcolor{comment}{//executar\ jogo}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ playagain;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(players.\mbox{\hyperlink{classPlayers_a47862b7699ec3a41788e6d0b79ff7406}{getsize}}()\ >\ 1)\{\ \textcolor{comment}{//tratamento\ de\ possivel\ segmentation\ fault}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ nickname1,\ nickname2;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ nickname1\ >>\ nickname2;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}*\ player1\ =\ players.searchByNickname(nickname1);}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}*\ player2\ =\ players.searchByNickname(nickname2);}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classGame}{Game}}*\ game\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}(player1,\ player2);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ game-\/>play();}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ game;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Deseja\ jogar\ novamente?\ (S/N)"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ playagain;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(playagain\ ==\ \textcolor{charliteral}{'S'})\{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ game\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}(player1,\ player2);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ game-\/>play();}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ game;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{\ \textcolor{comment}{//todo:\ adicionar\ mensagem\ e\ printar\ os\ comandos\ básicos}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (players.\mbox{\hyperlink{classPlayers_a47862b7699ec3a41788e6d0b79ff7406}{getsize}}()\ ==\ 1)\{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Apenas\ um\ jogador\ cadastrado.\ Cadastre\ outro\ para\ jogar!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Nenhum\ jogador\ cadastrado.\ Cadastre\ jogadores\ para\ jogar!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(comando\ ==\ \textcolor{stringliteral}{"{}FIM"{}})\{\ \textcolor{comment}{//finalizar\ programa}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \}}
+
+\end{DoxyCode}

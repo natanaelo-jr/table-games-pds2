@@ -1,0 +1,55 @@
+\doxysection{Manage\+Screen.\+hpp}
+\hypertarget{ManageScreen_8hpp_source}{}\label{ManageScreen_8hpp_source}\index{include/ManageScreen.hpp@{include/ManageScreen.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MANAGESCREEN\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MANAGESCREEN\_HPP}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Screen.hpp"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classManageScreen}{ManageScreen}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classScreen}{Screen}}\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{public}:\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classManageScreen_af01cc0a6da89fd024ac2b4f2e08c6768}{ManageScreen}}(\mbox{\hyperlink{classScreenManager}{ScreenManager}}*\ screenManager,\ \mbox{\hyperlink{classPlayers}{Players}}*\ players);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classManageScreen_ab3c3dc6ed2c408935ac5cfcd8347fe67}{handleEvents}}(sf::RenderWindow\ \&window)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classManageScreen_a47a35fe219e957c5919e20311a3a2567}{update}}(sf::RenderWindow\ \&window)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classManageScreen_aa331a730406122fdcd14610c95bc51e6}{render}}(sf::RenderWindow\ \&window)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classManageScreen_ad85ccf1e4c7a74fcc09046259c599343}{handleTextInput}}(sf::Event\ \&event);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classManageScreen_ad254cd8e756ee3fa373047fb047b9fd9}{loadTextures}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classManageScreen_a9ec230f35c75f4c17363822618a340db}{validateNickname}}();}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classManageScreen_ace152db6e25e1290a8a9b409f4f04da3}{validateName}}();}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classManageScreen_a73bf06247e7e505f2b287843f5e1d3ef}{setupStrings}}();}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classManageScreen_abfa37273f10adc8693a76d31ac9d5c5b}{updateTexts}}();}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ sf::RectangleShape\ nicknameCase;\ \ \ \ \ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ sf::RectangleShape\ nameCase;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ sf::Text\ nicknameTitle;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ sf::Text\ nicknameString;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ sf::Text\ nameTitle;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ sf::Text\ nameString;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isNickCaseSelected;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isNameCaseSelected;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ currentPlayerExists;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ sf::Texture\ addButtonTexture;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ sf::Texture\ hoverAddButtonTexture;\ \ \ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ sf::Texture\ removeButtonTexture;\ \ \ \ \ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ sf::Texture\ hoverRemoveButtonTexture;}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ sf::Sprite\ pushDataButton;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ sf::Texture\ backButtonTexture;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ sf::Texture\ hoverBackButtonTexture;\ \ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ sf::Sprite\ backButton;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ sf::Font\ textFont;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ sf::Color\ textColor;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00117\ \};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,39 @@
+\doxysection{Tic\+Tac\+Toe.\+hpp}
+\hypertarget{TicTacToe_8hpp_source}{}\label{TicTacToe_8hpp_source}\index{include/TicTacToe.hpp@{include/TicTacToe.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TICTACTOE\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TICTACTOE\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Game.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTicTacToe}{TicTacToe}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classGame}{Game}}\{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe_acb1f32a2d6e0ff73e8e98ec740feae98}{TicTacToe}}(\mbox{\hyperlink{classPlayer}{Player}}*\ player1,\ \mbox{\hyperlink{classPlayer}{Player}}*player2);}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTicTacToe_a5d6f76f1827886d5c563fb57ccf32388}{play}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTicTacToe_a329a469bcda2367baa499e306280b4bf}{makePlay}}(\mbox{\hyperlink{classCoordinates}{Coordinates}}\ \mbox{\hyperlink{classTicTacToe_a5d6f76f1827886d5c563fb57ccf32388}{play}});}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}*\ \mbox{\hyperlink{classTicTacToe_ad01da18c91756779bcad25aae4f732ef}{checkWinner}}(\textcolor{keyword}{const}\ BoardType\&\ board);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTicTacToe_ae25a7fe0d050d76441482bae4cc0a436}{addStats}}(\mbox{\hyperlink{classPlayer}{Player}}*\ winner,\ \mbox{\hyperlink{classPlayer}{Player}}*\ loser)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00057\ \ \ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTicTacToe_a5300fc91ab71ae9b193884911916d62c}{verifySequence}}(\textcolor{keyword}{const}\ BoardType\&\ board);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTicTacToe_a92919d88996b2b0ad146aab27a5f7bde}{verifyRight}}(\mbox{\hyperlink{classCoordinates}{Coordinates}}\ c,\ \textcolor{keyword}{const}\ BoardType\&\ board,\ \textcolor{keywordtype}{int}\ counter);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTicTacToe_a7b164f670851d79d907706dd579e13e1}{verifyDown}}(\mbox{\hyperlink{classCoordinates}{Coordinates}}\ c,\ \textcolor{keyword}{const}\ BoardType\&\ board,\ \textcolor{keywordtype}{int}\ counter);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTicTacToe_a169dbe73f16182eebcb853fed4099b9d}{verifyDownRight}}(\mbox{\hyperlink{classCoordinates}{Coordinates}}\ c,\ \textcolor{keyword}{const}\ BoardType\&\ board,\ \textcolor{keywordtype}{int}\ counter);}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTicTacToe_a589aa7d7cf226970413a170cbe4fa988}{verifyUpRight}}(\mbox{\hyperlink{classCoordinates}{Coordinates}}\ c,\ \textcolor{keyword}{const}\ BoardType\&\ board,\ \textcolor{keywordtype}{int}\ counter);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<Coordinates>\ \mbox{\hyperlink{classTicTacToe_a1fed2294576327471fd3ed7833119ec5}{possiblePlays}}(\textcolor{keyword}{const}\ BoardType\&\ board);\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTicTacToe_ac691c2627126e12482bb663957b21cdd}{terminalState}}(\textcolor{keyword}{const}\ BoardType\ \&board);}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classTicTacToe_a76d4c3a88be0cf5e300110d124150219}{whoseTurn}}(\textcolor{keyword}{const}\ BoardType\&\ board);}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ BoardType\ \mbox{\hyperlink{classTicTacToe_ab94402a301acb07e2c3e02475d51050c}{result}}(\textcolor{keyword}{const}\ BoardType\&\ board,\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \mbox{\hyperlink{classTicTacToe_a5d6f76f1827886d5c563fb57ccf32388}{play}});}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classTicTacToe_a84d306d92b3c13e59656e7deee78e3ec}{minimax}}(\textcolor{keyword}{const}\ BoardType\&\ board,\ \textcolor{keywordtype}{int}\ alpha,\ \textcolor{keywordtype}{int}\ beta,\ \textcolor{keywordtype}{bool}\ maximizing);}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \mbox{\hyperlink{classTicTacToe_a154781f597858779200018dbcf08ae93}{bestPlay}}(\textcolor{keyword}{const}\ BoardType\&\ board);}
+\DoxyCodeLine{00137\ \};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,198 @@
+\doxysection{Game\+Selection\+Screen Class Reference}
+\hypertarget{classGameSelectionScreen}{}\label{classGameSelectionScreen}\index{GameSelectionScreen@{GameSelectionScreen}}
+
+
+Classe responsável pela tela de seleção de jogos.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Selection\+Screen.\+hpp$>$}
+
+
+
+Inheritance diagram for Game\+Selection\+Screen\+:
+% FIG 0
+
+
+Collaboration diagram for Game\+Selection\+Screen\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGameSelectionScreen_a8b075db901c412bf29392ef8992b2ffd}{Game\+Selection\+Screen}} (\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}screen\+Manager, \mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}players)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{classGameSelectionScreen}{Game\+Selection\+Screen}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameSelectionScreen_a41c240d5cbf01179ad78a7f02ee4daff}{handle\+Events}} (sf\+::\+Render\+Window \&window) override
+\begin{DoxyCompactList}\small\item\em Manipula os eventos da tela de seleção de jogos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameSelectionScreen_ae9320e6429ef0b59230ec5b30cea4d0b}{update}} (sf\+::\+Render\+Window \&window) override
+\begin{DoxyCompactList}\small\item\em Atualiza a lógica da tela de seleção de jogos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameSelectionScreen_a69c53465306623044d76181f9d0c187c}{render}} (sf\+::\+Render\+Window \&window) override
+\begin{DoxyCompactList}\small\item\em Renderiza os elementos visuais da tela de seleção de jogos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameSelectionScreen_ab3d8a0b42b9ccc23c70f6f293eb38d54}{load\+Textures}} () override
+\begin{DoxyCompactList}\small\item\em Carrega as texturas necessárias para a tela de seleção de jogos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameSelectionScreen_abab24ac2b720c1a0ef87bbabced2be29}{update\+Selected\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Atualiza o jogo selecionado com base nas interações do usuário. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameSelectionScreen_ab3e8bc0920c3d6483915a4b2c9b34a42}{update\+Texts}} ()
+\begin{DoxyCompactList}\small\item\em Atualiza os textos exibidos na tela. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classScreen}{Screen}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Screen} (\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}players, \mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}screen\+Manager)
+\item 
+void {\bfseries process} (sf\+::\+Render\+Window \&window)
+\item 
+void {\bfseries setup\+Window} (sf\+::\+Render\+Window \&window)
+\item 
+sf\+::\+Color {\bfseries get\+Background\+Color} ()
+\item 
+bool {\bfseries is\+Mouse\+Over} (const sf\+::\+Float\+Rect \&bounds, const sf\+::\+Render\+Window \&window)
+\item 
+\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Players} ()
+\item 
+\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Screen\+Manager} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classScreen}{Screen}}}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Texture {\bfseries back\+Menu\+Texture}
+\item 
+sf\+::\+Texture {\bfseries hover\+Back\+Menu\+Texture}
+\item 
+sf\+::\+Texture {\bfseries play\+Again\+Texture}
+\item 
+sf\+::\+Texture {\bfseries hover\+Play\+Again\+Texture}
+\item 
+sf\+::\+Font {\bfseries card\+Font}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe responsável pela tela de seleção de jogos. 
+
+A classe {\ttfamily \doxylink{classGameSelectionScreen}{Game\+Selection\+Screen}} permite ao usuário escolher um jogo para jogar e selecionar os jogadores participantes. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classGameSelectionScreen_a8b075db901c412bf29392ef8992b2ffd}\index{GameSelectionScreen@{GameSelectionScreen}!GameSelectionScreen@{GameSelectionScreen}}
+\index{GameSelectionScreen@{GameSelectionScreen}!GameSelectionScreen@{GameSelectionScreen}}
+\doxysubsubsection{\texorpdfstring{GameSelectionScreen()}{GameSelectionScreen()}}
+{\footnotesize\ttfamily \label{classGameSelectionScreen_a8b075db901c412bf29392ef8992b2ffd} 
+Game\+Selection\+Screen\+::\+Game\+Selection\+Screen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}}]{screen\+Manager}{, }\item[{\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}}]{players}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{classGameSelectionScreen}{Game\+Selection\+Screen}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em screen\+Manager} & Gerenciador de telas responsável por alternar entre as diferentes telas. \\
+\hline
+{\em players} & Ponteiro para a lista de jogadores cadastrados no sistema. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGameSelectionScreen_a41c240d5cbf01179ad78a7f02ee4daff}\index{GameSelectionScreen@{GameSelectionScreen}!handleEvents@{handleEvents}}
+\index{handleEvents@{handleEvents}!GameSelectionScreen@{GameSelectionScreen}}
+\doxysubsubsection{\texorpdfstring{handleEvents()}{handleEvents()}}
+{\footnotesize\ttfamily \label{classGameSelectionScreen_a41c240d5cbf01179ad78a7f02ee4daff} 
+void Game\+Selection\+Screen\+::handle\+Events (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Manipula os eventos da tela de seleção de jogos. 
+
+Processa cliques e outros eventos relacionados à seleção de jogos e jogadores.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Referência para a janela SFML onde os eventos serão manipulados. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classGameSelectionScreen_ab3d8a0b42b9ccc23c70f6f293eb38d54}\index{GameSelectionScreen@{GameSelectionScreen}!loadTextures@{loadTextures}}
+\index{loadTextures@{loadTextures}!GameSelectionScreen@{GameSelectionScreen}}
+\doxysubsubsection{\texorpdfstring{loadTextures()}{loadTextures()}}
+{\footnotesize\ttfamily \label{classGameSelectionScreen_ab3d8a0b42b9ccc23c70f6f293eb38d54} 
+void Game\+Selection\+Screen\+::load\+Textures (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Carrega as texturas necessárias para a tela de seleção de jogos. 
+
+Carrega as imagens e texturas utilizadas pelos botões e demais elementos da tela. 
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classGameSelectionScreen_a69c53465306623044d76181f9d0c187c}\index{GameSelectionScreen@{GameSelectionScreen}!render@{render}}
+\index{render@{render}!GameSelectionScreen@{GameSelectionScreen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{classGameSelectionScreen_a69c53465306623044d76181f9d0c187c} 
+void Game\+Selection\+Screen\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Renderiza os elementos visuais da tela de seleção de jogos. 
+
+Exibe os botões de seleção de jogos, jogadores e outros elementos gráficos.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Referência para a janela SFML onde os elementos serão renderizados. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classGameSelectionScreen_ae9320e6429ef0b59230ec5b30cea4d0b}\index{GameSelectionScreen@{GameSelectionScreen}!update@{update}}
+\index{update@{update}!GameSelectionScreen@{GameSelectionScreen}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classGameSelectionScreen_ae9320e6429ef0b59230ec5b30cea4d0b} 
+void Game\+Selection\+Screen\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Atualiza a lógica da tela de seleção de jogos. 
+
+Atualiza as seleções dos jogos e dos jogadores com base nas interações do usuário.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Referência para a janela SFML onde a atualização ocorrerá. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classGameSelectionScreen_abab24ac2b720c1a0ef87bbabced2be29}\index{GameSelectionScreen@{GameSelectionScreen}!updateSelectedGame@{updateSelectedGame}}
+\index{updateSelectedGame@{updateSelectedGame}!GameSelectionScreen@{GameSelectionScreen}}
+\doxysubsubsection{\texorpdfstring{updateSelectedGame()}{updateSelectedGame()}}
+{\footnotesize\ttfamily \label{classGameSelectionScreen_abab24ac2b720c1a0ef87bbabced2be29} 
+void Game\+Selection\+Screen\+::update\+Selected\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Atualiza o jogo selecionado com base nas interações do usuário. 
+
+Altera o jogo selecionado entre as opções disponíveis (Jogo da Velha, \doxylink{classLig4}{Lig4}, etc.). \Hypertarget{classGameSelectionScreen_ab3e8bc0920c3d6483915a4b2c9b34a42}\index{GameSelectionScreen@{GameSelectionScreen}!updateTexts@{updateTexts}}
+\index{updateTexts@{updateTexts}!GameSelectionScreen@{GameSelectionScreen}}
+\doxysubsubsection{\texorpdfstring{updateTexts()}{updateTexts()}}
+{\footnotesize\ttfamily \label{classGameSelectionScreen_ab3e8bc0920c3d6483915a4b2c9b34a42} 
+void Game\+Selection\+Screen\+::update\+Texts (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Atualiza os textos exibidos na tela. 
+
+Atualiza as informações sobre o jogo selecionado e os jogadores exibidos na tela. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Game\+Selection\+Screen.\+hpp\item 
+src/Game\+Selection\+Screen.\+cpp\end{DoxyCompactItemize}

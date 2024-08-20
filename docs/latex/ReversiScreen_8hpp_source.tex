@@ -1,0 +1,56 @@
+\doxysection{Reversi\+Screen.\+hpp}
+\hypertarget{ReversiScreen_8hpp_source}{}\label{ReversiScreen_8hpp_source}\index{include/ReversiScreen.hpp@{include/ReversiScreen.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ REVERSISCREEN\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ REVERSISCREEN\_HPP}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Screen.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Reversi.hpp"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classReversiScreen}{ReversiScreen}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classScreen}{Screen}}\{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReversiScreen}{ReversiScreen}}(\mbox{\hyperlink{classScreenManager}{ScreenManager}}*\ screenManager,\ \mbox{\hyperlink{classPlayer}{Player}}*\ player1,\ \mbox{\hyperlink{classPlayer}{Player}}*\ player2,\ \mbox{\hyperlink{classPlayers}{Players}}*\ players);}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ handleEvents(sf::RenderWindow\ \&window)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ update(sf::RenderWindow\ \&window)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ render(sf::RenderWindow\ \&window)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ updatePieces();}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ updateShadows();}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ updatePhantomPiece(sf::RenderWindow\ \&window);}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ loadTextures();}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ getTileCoordinates(sf::FloatRect\ \&tile);}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ std::vector<sf::FloatRect>\ getPossiblePlays();}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ processPlay(sf::FloatRect\ \&playTile);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ tileSize;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ finishGame;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReversi}{Reversi}}*\ game;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ sf::Vector2f\ screenOffset;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ sf::Texture\ pieceBTexture;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ sf::Texture\ pieceWTexture;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ sf::Texture\ shadowTexture;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ sf::Texture\ boardTexture;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ sf::Sprite\ phantomPiece;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ sf::Font\ font;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ sf::Text\ player1Nick;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ sf::Text\ player2Nick;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ sf::Sprite\ player1Piece;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ sf::Sprite\ player2Piece;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ std::vector<sf::Sprite>\ pieces;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ std::vector<sf::Sprite>\ possiblePieces;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ sf::Sprite\ board;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ sf::RectangleShape\ cardShape;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ sf::Sprite\ cardButton1;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ sf::Sprite\ cardButton2;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ sf::Text\ cardText;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00048\ \};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

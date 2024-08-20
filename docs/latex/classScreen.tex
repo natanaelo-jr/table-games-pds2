@@ -1,0 +1,105 @@
+\doxysection{Screen Class Reference}
+\hypertarget{classScreen}{}\label{classScreen}\index{Screen@{Screen}}
+
+
+Inheritance diagram for Screen\+:
+% FIG 0
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classScreen_a8aabfae170b3aba706d283489bfa511b}\label{classScreen_a8aabfae170b3aba706d283489bfa511b} 
+{\bfseries Screen} (\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}players, \mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}screen\+Manager)
+\item 
+virtual void \mbox{\hyperlink{classScreen_a43fad67fd001c6b28aa10def269ef260}{handle\+Events}} (sf\+::\+Render\+Window \&window)=0
+\item 
+virtual void \mbox{\hyperlink{classScreen_a4cabe04ee203d238aa469803a6ad1631}{update}} (sf\+::\+Render\+Window \&window)=0
+\item 
+virtual void \mbox{\hyperlink{classScreen_ac5e4b91e46cf1ce984bf8f9822df8f95}{render}} (sf\+::\+Render\+Window \&window)=0
+\item 
+virtual void \mbox{\hyperlink{classScreen_a753851dfd9a7345e4a780a15df795d89}{load\+Textures}} ()=0
+\item 
+\Hypertarget{classScreen_aebc6bd5f46dec16ec744cb6799ae2f86}\label{classScreen_aebc6bd5f46dec16ec744cb6799ae2f86} 
+void {\bfseries process} (sf\+::\+Render\+Window \&window)
+\item 
+\Hypertarget{classScreen_aca0b213d3a95d0139763d0ee1a22b1e9}\label{classScreen_aca0b213d3a95d0139763d0ee1a22b1e9} 
+void {\bfseries setup\+Window} (sf\+::\+Render\+Window \&window)
+\item 
+\Hypertarget{classScreen_a21bf44f9988e61ee07d29a4d27724d7e}\label{classScreen_a21bf44f9988e61ee07d29a4d27724d7e} 
+sf\+::\+Color {\bfseries get\+Background\+Color} ()
+\item 
+\Hypertarget{classScreen_abb3083aa6c534f1f70eeb36b6de47bae}\label{classScreen_abb3083aa6c534f1f70eeb36b6de47bae} 
+bool {\bfseries is\+Mouse\+Over} (const sf\+::\+Float\+Rect \&bounds, const sf\+::\+Render\+Window \&window)
+\item 
+\Hypertarget{classScreen_a46f04e6678b9764a15313151ea5a227a}\label{classScreen_a46f04e6678b9764a15313151ea5a227a} 
+\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Players} ()
+\item 
+\Hypertarget{classScreen_af94536b35b8fb0ae4eaeeb3393814214}\label{classScreen_af94536b35b8fb0ae4eaeeb3393814214} 
+\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Screen\+Manager} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classScreen_abeb6200fcdff29fae5263c07090756bc}\label{classScreen_abeb6200fcdff29fae5263c07090756bc} 
+sf\+::\+Texture {\bfseries back\+Menu\+Texture}
+\item 
+\Hypertarget{classScreen_acc9fd18d074c30158a4e0e8d37bd2bba}\label{classScreen_acc9fd18d074c30158a4e0e8d37bd2bba} 
+sf\+::\+Texture {\bfseries hover\+Back\+Menu\+Texture}
+\item 
+\Hypertarget{classScreen_a296fa668cddd0fb09b18530a05bc7fba}\label{classScreen_a296fa668cddd0fb09b18530a05bc7fba} 
+sf\+::\+Texture {\bfseries play\+Again\+Texture}
+\item 
+\Hypertarget{classScreen_a13e6db06db0151cb9aaa6550d14bf532}\label{classScreen_a13e6db06db0151cb9aaa6550d14bf532} 
+sf\+::\+Texture {\bfseries hover\+Play\+Again\+Texture}
+\item 
+\Hypertarget{classScreen_abe1385f4cecbfbd2a3260e903d5cfd68}\label{classScreen_abe1385f4cecbfbd2a3260e903d5cfd68} 
+sf\+::\+Font {\bfseries card\+Font}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classScreen_a43fad67fd001c6b28aa10def269ef260}\index{Screen@{Screen}!handleEvents@{handleEvents}}
+\index{handleEvents@{handleEvents}!Screen@{Screen}}
+\doxysubsubsection{\texorpdfstring{handleEvents()}{handleEvents()}}
+{\footnotesize\ttfamily \label{classScreen_a43fad67fd001c6b28aa10def269ef260} 
+virtual void Screen\+::handle\+Events (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classCreditsScreen_a0d6cc73eca184f1e5947916b647b06f7}{Credits\+Screen}}, \mbox{\hyperlink{classGameSelectionScreen_a41c240d5cbf01179ad78a7f02ee4daff}{Game\+Selection\+Screen}}, \mbox{\hyperlink{classManageScreen_ab3c3dc6ed2c408935ac5cfcd8347fe67}{Manage\+Screen}}, \mbox{\hyperlink{classMenuScreen_a114d04d55c858dbc9d19d8b71f0f9aff}{Menu\+Screen}}, and \mbox{\hyperlink{classRankingScreen_ab571f8722ec7076ccf002d97eeb203fe}{Ranking\+Screen}}.
+
+\Hypertarget{classScreen_a753851dfd9a7345e4a780a15df795d89}\index{Screen@{Screen}!loadTextures@{loadTextures}}
+\index{loadTextures@{loadTextures}!Screen@{Screen}}
+\doxysubsubsection{\texorpdfstring{loadTextures()}{loadTextures()}}
+{\footnotesize\ttfamily \label{classScreen_a753851dfd9a7345e4a780a15df795d89} 
+virtual void Screen\+::load\+Textures (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classCreditsScreen_a600ca4f145f7050bda3ccebe61a09d52}{Credits\+Screen}}, \mbox{\hyperlink{classGameSelectionScreen_ab3d8a0b42b9ccc23c70f6f293eb38d54}{Game\+Selection\+Screen}}, \mbox{\hyperlink{classManageScreen_ad254cd8e756ee3fa373047fb047b9fd9}{Manage\+Screen}}, \mbox{\hyperlink{classMenuScreen_a7620510e035d40b7bd00babbb1c104e1}{Menu\+Screen}}, and \mbox{\hyperlink{classRankingScreen_af80c1ea6a049c860680af98a25d1f1c1}{Ranking\+Screen}}.
+
+\Hypertarget{classScreen_ac5e4b91e46cf1ce984bf8f9822df8f95}\index{Screen@{Screen}!render@{render}}
+\index{render@{render}!Screen@{Screen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{classScreen_ac5e4b91e46cf1ce984bf8f9822df8f95} 
+virtual void Screen\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classCreditsScreen_a50b53bbb9e977579262fc04a5e32e540}{Credits\+Screen}}, \mbox{\hyperlink{classGameSelectionScreen_a69c53465306623044d76181f9d0c187c}{Game\+Selection\+Screen}}, \mbox{\hyperlink{classManageScreen_aa331a730406122fdcd14610c95bc51e6}{Manage\+Screen}}, \mbox{\hyperlink{classMenuScreen_adcd124421ae0d39eb112a86f802d812e}{Menu\+Screen}}, and \mbox{\hyperlink{classRankingScreen_aac25fd76706a1b9df171cbbd76524778}{Ranking\+Screen}}.
+
+\Hypertarget{classScreen_a4cabe04ee203d238aa469803a6ad1631}\index{Screen@{Screen}!update@{update}}
+\index{update@{update}!Screen@{Screen}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classScreen_a4cabe04ee203d238aa469803a6ad1631} 
+virtual void Screen\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classCreditsScreen_a9431c50f20f1e761b3a4bdd6a2395c57}{Credits\+Screen}}, \mbox{\hyperlink{classGameSelectionScreen_ae9320e6429ef0b59230ec5b30cea4d0b}{Game\+Selection\+Screen}}, \mbox{\hyperlink{classManageScreen_a47a35fe219e957c5919e20311a3a2567}{Manage\+Screen}}, \mbox{\hyperlink{classMenuScreen_a3658b25d1190c9c4913ac2933c4c8903}{Menu\+Screen}}, and \mbox{\hyperlink{classRankingScreen_a232eb2f8046ede9cc77e6118194108f0}{Ranking\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Screen.\+hpp\item 
+src/Screen.\+cpp\end{DoxyCompactItemize}

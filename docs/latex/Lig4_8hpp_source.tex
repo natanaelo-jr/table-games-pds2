@@ -1,0 +1,40 @@
+\doxysection{Lig4.\+hpp}
+\hypertarget{Lig4_8hpp_source}{}\label{Lig4_8hpp_source}\index{include/Lig4.hpp@{include/Lig4.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ LIG4\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ LIG4\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Game.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLig4}{Lig4}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classGame}{Game}}\{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ std::unordered\_map<std::string,\ int>\ transpositionTable;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLig4_a3b8fb6a20ce215b8b7f63921937a647d}{Lig4}}(\mbox{\hyperlink{classPlayer}{Player}}*\ player1,\ \mbox{\hyperlink{classPlayer}{Player}}*\ player2);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLig4_abad8952db3eb415f817df901eb8a1e5d}{play}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLig4_a50b76af83c7a85049504f261bf901b8a}{makePlay}}(\textcolor{keywordtype}{int}\ col);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}*\ \mbox{\hyperlink{classLig4_afc8917c2ac7171db29b71b5bca00a8ab}{checkWinner}}(\textcolor{keyword}{const}\ BoardType\&\ board);}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLig4_afedd039ae6b65fe77e312a21c645e580}{addStats}}(\mbox{\hyperlink{classPlayer}{Player}}*\ winner,\ \mbox{\hyperlink{classPlayer}{Player}}*\ loser);}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLig4_a07b294406171ecb58d00843f047567ef}{verifySequence}}(\textcolor{keyword}{const}\ BoardType\&\ board);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLig4_a2da9218e1ba59823258562f68f688de3}{verifyRight}}(\mbox{\hyperlink{classCoordinates}{Coordinates}}\ c,\ \textcolor{keyword}{const}\ BoardType\&\ board,\ \textcolor{keywordtype}{int}\ counter);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLig4_a5a44a0be894de296f6344ebcec955b51}{verifyDown}}(\mbox{\hyperlink{classCoordinates}{Coordinates}}\ c,\ \textcolor{keyword}{const}\ BoardType\&\ board,\ \textcolor{keywordtype}{int}\ counter);}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLig4_a655479678d35209c40d2c74ed79396d8}{verifyDownRight}}(\mbox{\hyperlink{classCoordinates}{Coordinates}}\ c,\ \textcolor{keyword}{const}\ BoardType\&\ board,\ \textcolor{keywordtype}{int}\ counter);}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLig4_af54b950283d1e4f62046bf99f9774567}{verifyUpRight}}(\mbox{\hyperlink{classCoordinates}{Coordinates}}\ c,\ \textcolor{keyword}{const}\ BoardType\&\ board,\ \textcolor{keywordtype}{int}\ counter);}
+\DoxyCodeLine{00102\ \ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classLig4_addcd7c34ed5ca1e3da1bb7fd1af91dca}{boardToString}}(\textcolor{keyword}{const}\ BoardType\&\ board);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<int>\ \mbox{\hyperlink{classLig4_a7595b0d7e98d60eeeaa59368d5d1ab9d}{possiblePlays}}(\textcolor{keyword}{const}\ BoardType\&\ board);}
+\DoxyCodeLine{00115\ \ \ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLig4_acc4327217a5dee64124c6d5a72465c05}{terminalState}}(\textcolor{keyword}{const}\ BoardType\ \&board);}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classLig4_ab33d9328b64ac2c7e9ed6ccb7249a049}{whoseTurn}}(\textcolor{keyword}{const}\ BoardType\&\ board);}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ BoardType\ \mbox{\hyperlink{classLig4_a1de4dba63bd287129764a342773889dc}{result}}(\textcolor{keyword}{const}\ BoardType\&\ board,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classLig4_abad8952db3eb415f817df901eb8a1e5d}{play}});}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classLig4_acfbcd740747d65487e3bc74df0904678}{minimax}}(\textcolor{keyword}{const}\ BoardType\&\ board,\ \textcolor{keywordtype}{int}\ alpha,\ \textcolor{keywordtype}{int}\ beta,\ \textcolor{keywordtype}{bool}\ maximizing,\ \textcolor{keywordtype}{int}\ depth);}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classLig4_af28185422b6add613f9877530d7ae52d}{bestPlay}}(\textcolor{keyword}{const}\ BoardType\&\ board);}
+\DoxyCodeLine{00156\ \};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//LIG4\_HPP}}
+
+\end{DoxyCode}

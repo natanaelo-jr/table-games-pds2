@@ -1,0 +1,421 @@
+\doxysection{Lig4 Class Reference}
+\hypertarget{classLig4}{}\label{classLig4}\index{Lig4@{Lig4}}
+
+
+Implementa o jogo \doxylink{classLig4}{Lig4}, derivado da classe base \doxylink{classGame}{Game}.  
+
+
+
+
+{\ttfamily \#include $<$Lig4.\+hpp$>$}
+
+
+
+Inheritance diagram for Lig4\+:
+% FIG 0
+
+
+Collaboration diagram for Lig4\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLig4_a3b8fb6a20ce215b8b7f63921937a647d}{Lig4}} (\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player1, \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player2)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{classLig4}{Lig4}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classLig4_abad8952db3eb415f817df901eb8a1e5d}{play}} () override
+\begin{DoxyCompactList}\small\item\em Inicia o jogo de \doxylink{classLig4}{Lig4}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLig4_a50b76af83c7a85049504f261bf901b8a}{make\+Play}} (int col)
+\begin{DoxyCompactList}\small\item\em Realiza uma jogada na coluna especificada. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classLig4_afc8917c2ac7171db29b71b5bca00a8ab}{check\+Winner}} (const Board\+Type \&board)
+\begin{DoxyCompactList}\small\item\em Verifica se há um vencedor no tabuleiro atual. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLig4_afedd039ae6b65fe77e312a21c645e580}{add\+Stats}} (\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}winner, \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}loser)
+\begin{DoxyCompactList}\small\item\em Adiciona estatísticas ao final da partida. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLig4_a07b294406171ecb58d00843f047567ef}{verify\+Sequence}} (const Board\+Type \&board)
+\begin{DoxyCompactList}\small\item\em Verifica se há uma sequência vencedora no tabuleiro. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLig4_a2da9218e1ba59823258562f68f688de3}{verify\+Right}} (\mbox{\hyperlink{classCoordinates}{Coordinates}} c, const Board\+Type \&board, int counter)
+\begin{DoxyCompactList}\small\item\em Verifica uma sequência na direção direita. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLig4_a5a44a0be894de296f6344ebcec955b51}{verify\+Down}} (\mbox{\hyperlink{classCoordinates}{Coordinates}} c, const Board\+Type \&board, int counter)
+\begin{DoxyCompactList}\small\item\em Verifica uma sequência na direção para baixo. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLig4_a655479678d35209c40d2c74ed79396d8}{verify\+Down\+Right}} (\mbox{\hyperlink{classCoordinates}{Coordinates}} c, const Board\+Type \&board, int counter)
+\begin{DoxyCompactList}\small\item\em Verifica uma sequência na diagonal inferior direita. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLig4_af54b950283d1e4f62046bf99f9774567}{verify\+Up\+Right}} (\mbox{\hyperlink{classCoordinates}{Coordinates}} c, const Board\+Type \&board, int counter)
+\begin{DoxyCompactList}\small\item\em Verifica uma sequência na diagonal superior direita. \end{DoxyCompactList}\item 
+\Hypertarget{classLig4_addcd7c34ed5ca1e3da1bb7fd1af91dca}\label{classLig4_addcd7c34ed5ca1e3da1bb7fd1af91dca} 
+std\+::string {\bfseries board\+To\+String} (const Board\+Type \&board)
+\begin{DoxyCompactList}\small\item\em Converte o tabuleiro em uma string para salvamento. (Útil no minimax) \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ int $>$ \mbox{\hyperlink{classLig4_a7595b0d7e98d60eeeaa59368d5d1ab9d}{possible\+Plays}} (const Board\+Type \&board)
+\begin{DoxyCompactList}\small\item\em Retorna as jogadas possíveis no estado atual do tabuleiro. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLig4_acc4327217a5dee64124c6d5a72465c05}{terminal\+State}} (const Board\+Type \&board)
+\begin{DoxyCompactList}\small\item\em Verifica se o estado atual do tabuleiro é terminal. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLig4_ab33d9328b64ac2c7e9ed6ccb7249a049}{whose\+Turn}} (const Board\+Type \&board)
+\begin{DoxyCompactList}\small\item\em Determina de quem é a vez de jogar. \end{DoxyCompactList}\item 
+Board\+Type \mbox{\hyperlink{classLig4_a1de4dba63bd287129764a342773889dc}{result}} (const Board\+Type \&board, int \mbox{\hyperlink{classLig4_abad8952db3eb415f817df901eb8a1e5d}{play}})
+\begin{DoxyCompactList}\small\item\em Aplica uma jogada e retorna o novo estado do tabuleiro. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLig4_acfbcd740747d65487e3bc74df0904678}{minimax}} (const Board\+Type \&board, int alpha, int beta, bool maximizing, int depth)
+\begin{DoxyCompactList}\small\item\em Implementa o algoritmo Minimax para escolher a melhor jogada. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLig4_af28185422b6add613f9877530d7ae52d}{best\+Play}} (const Board\+Type \&board)
+\begin{DoxyCompactList}\small\item\em Retorna a melhor jogada calculada pelo algoritmo Minimax. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classGame}{Game}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Game} ()
+\begin{DoxyCompactList}\small\item\em Construtor padrão da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGame_a884ac2dcb2fba67cc6ba353f4d6edf25}{Game}} (\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player1, \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player2)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGame_a592382f09c33f1916bb95587432b1ce8}{Game}} (\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player1, \mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}player2, int rows, int cols)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Game} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+Board\+Type \mbox{\hyperlink{classGame_abb2c52d8a407621c4ef9dcde7cf9c9fe}{get\+Board}} ()
+\begin{DoxyCompactList}\small\item\em Métodos getters para os atributos da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+int {\bfseries get\+Rows} ()
+\item 
+int {\bfseries get\+Cols} ()
+\item 
+void \mbox{\hyperlink{classGame_a33a4e56bc86a8697b62bcc65852e5f56}{set\+Square}} (\mbox{\hyperlink{classCoordinates}{Coordinates}} coord, char symbol)
+\begin{DoxyCompactList}\small\item\em Métodos setters para os atributos da classe \doxylink{classGame}{Game}. \end{DoxyCompactList}\item 
+char {\bfseries get\+Square} (\mbox{\hyperlink{classCoordinates}{Coordinates}} coord, const Board\+Type \&board)
+\item 
+bool \mbox{\hyperlink{classGame_a041001ab1b8a22311d1bc4c6fa537765}{is\+Valid\+Square}} (\mbox{\hyperlink{classCoordinates}{Coordinates}} move)
+\begin{DoxyCompactList}\small\item\em Verifica se a jogada é válida. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classGame_a340bd2268f4bca6ddce7de526ae8582c}{get\+Waiting\+Player}} ()
+\begin{DoxyCompactList}\small\item\em Retorna o jogador que está esperando a jogada. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classGame_a6ee4c45fb533cf83f69803d368abf92d}{get\+Current\+Player}} ()
+\begin{DoxyCompactList}\small\item\em Retorna o jogador atual. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classGame_a01d7146d789990ee8195bdcca57c327e}{get\+Player1}} ()
+\begin{DoxyCompactList}\small\item\em Ponteiro para os jogadores. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Player2} ()
+\item 
+void {\bfseries print\+Board} ()
+\begin{DoxyCompactList}\small\item\em Imprime o tabuleiro do jogo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame_a478c3b61f622bf63ea377766e11e73f2}{change\+Player}} ()
+\begin{DoxyCompactList}\small\item\em Troca o jogador atual com o jogador que está esperando a jogada. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementa o jogo \doxylink{classLig4}{Lig4}, derivado da classe base \doxylink{classGame}{Game}. 
+
+A classe \doxylink{classLig4}{Lig4} gerencia a lógica específica do jogo \doxylink{classLig4}{Lig4}, incluindo a realização de jogadas, verificação de vencedores e execução de estratégias como o algoritmo Minimax. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classLig4_a3b8fb6a20ce215b8b7f63921937a647d}\index{Lig4@{Lig4}!Lig4@{Lig4}}
+\index{Lig4@{Lig4}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{Lig4()}{Lig4()}}
+{\footnotesize\ttfamily \label{classLig4_a3b8fb6a20ce215b8b7f63921937a647d} 
+Lig4\+::\+Lig4 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}}]{player1}{, }\item[{\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}}]{player2}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{classLig4}{Lig4}. 
+
+Inicializa o jogo com dois jogadores. 
+\begin{DoxyParams}{Parameters}
+{\em player1} & Ponteiro para o jogador 1. \\
+\hline
+{\em player2} & Ponteiro para o jogador 2. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLig4_afedd039ae6b65fe77e312a21c645e580}\index{Lig4@{Lig4}!addStats@{addStats}}
+\index{addStats@{addStats}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{addStats()}{addStats()}}
+{\footnotesize\ttfamily \label{classLig4_afedd039ae6b65fe77e312a21c645e580} 
+void Lig4\+::add\+Stats (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}}]{winner}{, }\item[{\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*}}]{loser}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Adiciona estatísticas ao final da partida. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em winner} & Ponteiro para o jogador vencedor. \\
+\hline
+{\em loser} & Ponteiro para o jogador perdedor. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classGame_a3f05180b2b9ce40bd0d2892d4aa3cc3c}{Game}}.
+
+\Hypertarget{classLig4_af28185422b6add613f9877530d7ae52d}\index{Lig4@{Lig4}!bestPlay@{bestPlay}}
+\index{bestPlay@{bestPlay}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{bestPlay()}{bestPlay()}}
+{\footnotesize\ttfamily \label{classLig4_af28185422b6add613f9877530d7ae52d} 
+int Lig4\+::best\+Play (\begin{DoxyParamCaption}\item[{const Board\+Type \&}]{board}{}\end{DoxyParamCaption})}
+
+
+
+Retorna a melhor jogada calculada pelo algoritmo Minimax. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Estado atual do tabuleiro. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Inteiro representando a coluna onde deve ser feita a melhor jogada. 
+\end{DoxyReturn}
+\Hypertarget{classLig4_afc8917c2ac7171db29b71b5bca00a8ab}\index{Lig4@{Lig4}!checkWinner@{checkWinner}}
+\index{checkWinner@{checkWinner}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{checkWinner()}{checkWinner()}}
+{\footnotesize\ttfamily \label{classLig4_afc8917c2ac7171db29b71b5bca00a8ab} 
+\mbox{\hyperlink{classPlayer}{Player}} \texorpdfstring{$\ast$}{*} Lig4\+::check\+Winner (\begin{DoxyParamCaption}\item[{const Board\+Type \&}]{board}{}\end{DoxyParamCaption})}
+
+
+
+Verifica se há um vencedor no tabuleiro atual. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Estado atual do tabuleiro. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ponteiro para o jogador vencedor ou nullptr se não houver vencedor. 
+\end{DoxyReturn}
+\Hypertarget{classLig4_a50b76af83c7a85049504f261bf901b8a}\index{Lig4@{Lig4}!makePlay@{makePlay}}
+\index{makePlay@{makePlay}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{makePlay()}{makePlay()}}
+{\footnotesize\ttfamily \label{classLig4_a50b76af83c7a85049504f261bf901b8a} 
+bool Lig4\+::make\+Play (\begin{DoxyParamCaption}\item[{int}]{col}{}\end{DoxyParamCaption})}
+
+
+
+Realiza uma jogada na coluna especificada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em col} & Coluna onde a jogada será realizada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se a jogada foi bem-\/sucedida, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{classLig4_acfbcd740747d65487e3bc74df0904678}\index{Lig4@{Lig4}!minimax@{minimax}}
+\index{minimax@{minimax}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{minimax()}{minimax()}}
+{\footnotesize\ttfamily \label{classLig4_acfbcd740747d65487e3bc74df0904678} 
+int Lig4\+::minimax (\begin{DoxyParamCaption}\item[{const Board\+Type \&}]{board}{, }\item[{int}]{alpha}{, }\item[{int}]{beta}{, }\item[{bool}]{maximizing}{, }\item[{int}]{depth}{}\end{DoxyParamCaption})}
+
+
+
+Implementa o algoritmo Minimax para escolher a melhor jogada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Estado atual do tabuleiro. \\
+\hline
+{\em alpha} & Valor alfa para poda alfa-\/beta. \\
+\hline
+{\em beta} & Valor beta para poda alfa-\/beta. \\
+\hline
+{\em maximizing} & Booleano indicando se o algoritmo deve maximizar ou minimizar. \\
+\hline
+{\em depth} & Profundidade máxima da árvore de busca. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O valor da jogada calculado pelo algoritmo Minimax. 
+\end{DoxyReturn}
+\Hypertarget{classLig4_abad8952db3eb415f817df901eb8a1e5d}\index{Lig4@{Lig4}!play@{play}}
+\index{play@{play}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}}
+{\footnotesize\ttfamily \label{classLig4_abad8952db3eb415f817df901eb8a1e5d} 
+void Lig4\+::play (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Inicia o jogo de \doxylink{classLig4}{Lig4}. 
+
+Implementa a lógica do jogo, sobrepondo o método {\ttfamily play} da classe base. 
+
+Implements \mbox{\hyperlink{classGame}{Game}}.
+
+\Hypertarget{classLig4_a7595b0d7e98d60eeeaa59368d5d1ab9d}\index{Lig4@{Lig4}!possiblePlays@{possiblePlays}}
+\index{possiblePlays@{possiblePlays}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{possiblePlays()}{possiblePlays()}}
+{\footnotesize\ttfamily \label{classLig4_a7595b0d7e98d60eeeaa59368d5d1ab9d} 
+std\+::vector$<$ int $>$ Lig4\+::possible\+Plays (\begin{DoxyParamCaption}\item[{const Board\+Type \&}]{board}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retorna as jogadas possíveis no estado atual do tabuleiro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Estado atual do tabuleiro. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vetor de inteiros representando as colunas onde é possível jogar. 
+\end{DoxyReturn}
+\Hypertarget{classLig4_a1de4dba63bd287129764a342773889dc}\index{Lig4@{Lig4}!result@{result}}
+\index{result@{result}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{result()}{result()}}
+{\footnotesize\ttfamily \label{classLig4_a1de4dba63bd287129764a342773889dc} 
+Board\+Type Lig4\+::result (\begin{DoxyParamCaption}\item[{const Board\+Type \&}]{board}{, }\item[{int}]{play}{}\end{DoxyParamCaption})}
+
+
+
+Aplica uma jogada e retorna o novo estado do tabuleiro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Estado atual do tabuleiro. \\
+\hline
+{\em play} & Coluna onde a jogada será realizada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O novo estado do tabuleiro após a jogada. 
+\end{DoxyReturn}
+\Hypertarget{classLig4_acc4327217a5dee64124c6d5a72465c05}\index{Lig4@{Lig4}!terminalState@{terminalState}}
+\index{terminalState@{terminalState}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{terminalState()}{terminalState()}}
+{\footnotesize\ttfamily \label{classLig4_acc4327217a5dee64124c6d5a72465c05} 
+bool Lig4\+::terminal\+State (\begin{DoxyParamCaption}\item[{const Board\+Type \&}]{board}{}\end{DoxyParamCaption})}
+
+
+
+Verifica se o estado atual do tabuleiro é terminal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Estado atual do tabuleiro. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o estado é terminal (vitória ou empate), false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{classLig4_a5a44a0be894de296f6344ebcec955b51}\index{Lig4@{Lig4}!verifyDown@{verifyDown}}
+\index{verifyDown@{verifyDown}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{verifyDown()}{verifyDown()}}
+{\footnotesize\ttfamily \label{classLig4_a5a44a0be894de296f6344ebcec955b51} 
+bool Lig4\+::verify\+Down (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoordinates}{Coordinates}}}]{c}{, }\item[{const Board\+Type \&}]{board}{, }\item[{int}]{counter}{}\end{DoxyParamCaption})}
+
+
+
+Verifica uma sequência na direção para baixo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Coordenadas da posição atual. \\
+\hline
+{\em board} & Estado atual do tabuleiro. \\
+\hline
+{\em counter} & Contador de peças consecutivas. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se uma sequência foi completada, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{classLig4_a655479678d35209c40d2c74ed79396d8}\index{Lig4@{Lig4}!verifyDownRight@{verifyDownRight}}
+\index{verifyDownRight@{verifyDownRight}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{verifyDownRight()}{verifyDownRight()}}
+{\footnotesize\ttfamily \label{classLig4_a655479678d35209c40d2c74ed79396d8} 
+bool Lig4\+::verify\+Down\+Right (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoordinates}{Coordinates}}}]{c}{, }\item[{const Board\+Type \&}]{board}{, }\item[{int}]{counter}{}\end{DoxyParamCaption})}
+
+
+
+Verifica uma sequência na diagonal inferior direita. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Coordenadas da posição atual. \\
+\hline
+{\em board} & Estado atual do tabuleiro. \\
+\hline
+{\em counter} & Contador de peças consecutivas. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se uma sequência foi completada, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{classLig4_a2da9218e1ba59823258562f68f688de3}\index{Lig4@{Lig4}!verifyRight@{verifyRight}}
+\index{verifyRight@{verifyRight}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{verifyRight()}{verifyRight()}}
+{\footnotesize\ttfamily \label{classLig4_a2da9218e1ba59823258562f68f688de3} 
+bool Lig4\+::verify\+Right (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoordinates}{Coordinates}}}]{c}{, }\item[{const Board\+Type \&}]{board}{, }\item[{int}]{counter}{}\end{DoxyParamCaption})}
+
+
+
+Verifica uma sequência na direção direita. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Coordenadas da posição atual. \\
+\hline
+{\em board} & Estado atual do tabuleiro. \\
+\hline
+{\em counter} & Contador de peças consecutivas. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se uma sequência foi completada, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{classLig4_a07b294406171ecb58d00843f047567ef}\index{Lig4@{Lig4}!verifySequence@{verifySequence}}
+\index{verifySequence@{verifySequence}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{verifySequence()}{verifySequence()}}
+{\footnotesize\ttfamily \label{classLig4_a07b294406171ecb58d00843f047567ef} 
+bool Lig4\+::verify\+Sequence (\begin{DoxyParamCaption}\item[{const Board\+Type \&}]{board}{}\end{DoxyParamCaption})}
+
+
+
+Verifica se há uma sequência vencedora no tabuleiro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Estado atual do tabuleiro. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se uma sequência vencedora foi encontrada, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{classLig4_af54b950283d1e4f62046bf99f9774567}\index{Lig4@{Lig4}!verifyUpRight@{verifyUpRight}}
+\index{verifyUpRight@{verifyUpRight}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{verifyUpRight()}{verifyUpRight()}}
+{\footnotesize\ttfamily \label{classLig4_af54b950283d1e4f62046bf99f9774567} 
+bool Lig4\+::verify\+Up\+Right (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoordinates}{Coordinates}}}]{c}{, }\item[{const Board\+Type \&}]{board}{, }\item[{int}]{counter}{}\end{DoxyParamCaption})}
+
+
+
+Verifica uma sequência na diagonal superior direita. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Coordenadas da posição atual. \\
+\hline
+{\em board} & Estado atual do tabuleiro. \\
+\hline
+{\em counter} & Contador de peças consecutivas. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se uma sequência foi completada, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{classLig4_ab33d9328b64ac2c7e9ed6ccb7249a049}\index{Lig4@{Lig4}!whoseTurn@{whoseTurn}}
+\index{whoseTurn@{whoseTurn}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{whoseTurn()}{whoseTurn()}}
+{\footnotesize\ttfamily \label{classLig4_ab33d9328b64ac2c7e9ed6ccb7249a049} 
+int Lig4\+::whose\+Turn (\begin{DoxyParamCaption}\item[{const Board\+Type \&}]{board}{}\end{DoxyParamCaption})}
+
+
+
+Determina de quem é a vez de jogar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em board} & Estado atual do tabuleiro. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Inteiro representando o jogador cuja vez é de jogar. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Lig4.\+hpp\item 
+src/Lig4.\+cpp\end{DoxyCompactItemize}

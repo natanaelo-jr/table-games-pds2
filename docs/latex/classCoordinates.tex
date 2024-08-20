@@ -1,0 +1,160 @@
+\doxysection{Coordinates Class Reference}
+\hypertarget{classCoordinates}{}\label{classCoordinates}\index{Coordinates@{Coordinates}}
+
+
+Class \doxylink{classCoordinates}{Coordinates}.  
+
+
+
+
+{\ttfamily \#include $<$Coordinates.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCoordinates_a89dd10af87d803fd51dfd9987f32e8cd}{Coordinates}} ()
+\begin{DoxyCompactList}\small\item\em Construtor padrão da classe \doxylink{classCoordinates}{Coordinates}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCoordinates_ae7d139fa0ea3bd399fbfc0d61d865eee}{Coordinates}} (int coord)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{classCoordinates}{Coordinates}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCoordinates_a06d6dfd27a9c1ef394268c28422b205d}{Coordinates}} (int row, int \mbox{\hyperlink{classCoordinates_a4d1e2bdd28dfd0a047e4b1f9fcb04a31}{col}})
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{classCoordinates}{Coordinates}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCoordinates_a585c89b983544783f65027d15ea7c43d}{get\+Row}} ()
+\begin{DoxyCompactList}\small\item\em Métodos getters para os atributos da classe \doxylink{classCoordinates}{Coordinates}. \end{DoxyCompactList}\item 
+\Hypertarget{classCoordinates_a3ed4f145bb4b59fba4bf4a4088b81da5}\label{classCoordinates_a3ed4f145bb4b59fba4bf4a4088b81da5} 
+int {\bfseries get\+Col} ()
+\item 
+void \mbox{\hyperlink{classCoordinates_a892d2e3aef4824559f0aa2260dd5ae69}{set\+Row}} (int row)
+\begin{DoxyCompactList}\small\item\em Métodos setters para os atributos da classe \doxylink{classCoordinates}{Coordinates}. \end{DoxyCompactList}\item 
+\Hypertarget{classCoordinates_a6095bc4277ecf0a712b240e72dd696a4}\label{classCoordinates_a6095bc4277ecf0a712b240e72dd696a4} 
+void {\bfseries set\+Col} (int \mbox{\hyperlink{classCoordinates_a4d1e2bdd28dfd0a047e4b1f9fcb04a31}{col}})
+\item 
+bool \mbox{\hyperlink{classCoordinates_a27873a28b13ec1c80f378801341cb08a}{operator$<$}} (const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&c) const
+\begin{DoxyCompactList}\small\item\em compara se as coordenadas são iguais ou nn para ordenar no set \end{DoxyCompactList}\item 
+\Hypertarget{classCoordinates_a03c3bb3faaa06f9805dd90366177e16b}\label{classCoordinates_a03c3bb3faaa06f9805dd90366177e16b} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&c) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCoordinates_aa3e522bbc0eab18fe35a7b17186df35e}\label{classCoordinates_aa3e522bbc0eab18fe35a7b17186df35e} 
+int {\bfseries row}
+\item 
+int \mbox{\hyperlink{classCoordinates_a4d1e2bdd28dfd0a047e4b1f9fcb04a31}{col}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class \doxylink{classCoordinates}{Coordinates}. 
+
+A classe \doxylink{classCoordinates}{Coordinates} cuida de gerenciar as posições de peças e jogadas 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCoordinates_a89dd10af87d803fd51dfd9987f32e8cd}\index{Coordinates@{Coordinates}!Coordinates@{Coordinates}}
+\index{Coordinates@{Coordinates}!Coordinates@{Coordinates}}
+\doxysubsubsection{\texorpdfstring{Coordinates()}{Coordinates()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classCoordinates_a89dd10af87d803fd51dfd9987f32e8cd} 
+Coordinates\+::\+Coordinates (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Construtor padrão da classe \doxylink{classCoordinates}{Coordinates}. 
+
+\texorpdfstring{$<$}{<}posição da coluna \Hypertarget{classCoordinates_ae7d139fa0ea3bd399fbfc0d61d865eee}\index{Coordinates@{Coordinates}!Coordinates@{Coordinates}}
+\index{Coordinates@{Coordinates}!Coordinates@{Coordinates}}
+\doxysubsubsection{\texorpdfstring{Coordinates()}{Coordinates()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classCoordinates_ae7d139fa0ea3bd399fbfc0d61d865eee} 
+Coordinates\+::\+Coordinates (\begin{DoxyParamCaption}\item[{int}]{coord}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{classCoordinates}{Coordinates}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coord} & posição da peça \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classCoordinates_a06d6dfd27a9c1ef394268c28422b205d}\index{Coordinates@{Coordinates}!Coordinates@{Coordinates}}
+\index{Coordinates@{Coordinates}!Coordinates@{Coordinates}}
+\doxysubsubsection{\texorpdfstring{Coordinates()}{Coordinates()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classCoordinates_a06d6dfd27a9c1ef394268c28422b205d} 
+Coordinates\+::\+Coordinates (\begin{DoxyParamCaption}\item[{int}]{row}{, }\item[{int}]{col}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{classCoordinates}{Coordinates}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & posição da linha \\
+\hline
+{\em col} & posição da coluna \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCoordinates_a585c89b983544783f65027d15ea7c43d}\index{Coordinates@{Coordinates}!getRow@{getRow}}
+\index{getRow@{getRow}!Coordinates@{Coordinates}}
+\doxysubsubsection{\texorpdfstring{getRow()}{getRow()}}
+{\footnotesize\ttfamily \label{classCoordinates_a585c89b983544783f65027d15ea7c43d} 
+int Coordinates\+::get\+Row (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Métodos getters para os atributos da classe \doxylink{classCoordinates}{Coordinates}. 
+
+Esses métodos retornam o valor dos atributos da classe \doxylink{classCoordinates}{Coordinates}.
+
+\begin{DoxyReturn}{Returns}
+O valor do atributo correspondente 
+\end{DoxyReturn}
+\Hypertarget{classCoordinates_a27873a28b13ec1c80f378801341cb08a}\index{Coordinates@{Coordinates}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Coordinates@{Coordinates}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily \label{classCoordinates_a27873a28b13ec1c80f378801341cb08a} 
+bool Coordinates\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{c}{}\end{DoxyParamCaption}) const}
+
+
+
+compara se as coordenadas são iguais ou nn para ordenar no set 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & coordenadas a serem comparadas \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classCoordinates_a892d2e3aef4824559f0aa2260dd5ae69}\index{Coordinates@{Coordinates}!setRow@{setRow}}
+\index{setRow@{setRow}!Coordinates@{Coordinates}}
+\doxysubsubsection{\texorpdfstring{setRow()}{setRow()}}
+{\footnotesize\ttfamily \label{classCoordinates_a892d2e3aef4824559f0aa2260dd5ae69} 
+void Coordinates\+::set\+Row (\begin{DoxyParamCaption}\item[{int}]{row}{}\end{DoxyParamCaption})}
+
+
+
+Métodos setters para os atributos da classe \doxylink{classCoordinates}{Coordinates}. 
+
+Esses métodos atribuem um valor para os atributos da classe \doxylink{classCoordinates}{Coordinates}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & valor a ser atribuído à linha \\
+\hline
+{\em col} & valor a ser atribuído à coluna \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classCoordinates_a4d1e2bdd28dfd0a047e4b1f9fcb04a31}\index{Coordinates@{Coordinates}!col@{col}}
+\index{col@{col}!Coordinates@{Coordinates}}
+\doxysubsubsection{\texorpdfstring{col}{col}}
+{\footnotesize\ttfamily \label{classCoordinates_a4d1e2bdd28dfd0a047e4b1f9fcb04a31} 
+int Coordinates\+::col}
+
+\texorpdfstring{$<$}{<}posição da linha 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Coordinates.\+hpp\item 
+src/Coodinates.\+cpp\end{DoxyCompactItemize}

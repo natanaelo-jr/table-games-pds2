@@ -1,0 +1,41 @@
+\doxysection{Players.\+hpp}
+\hypertarget{Players_8hpp_source}{}\label{Players_8hpp_source}\index{include/Players.hpp@{include/Players.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PLAYERS\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PLAYERS\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Player.hpp"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structComparePlayer}{ComparePlayer}}\{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator()(\textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}*\ player1,\textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}*\ player2)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00019\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structCompareByVictories}{CompareByVictories}}\{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator()(\textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}*\ player1,\textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}*\ player2)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00031\ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classPlayers}{Players}}\{}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{private}:\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ std::set<Player*,\ ComparePlayer>\ players;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayers_a3ff1a0488140a54cc4e355716b9bef9d}{Players}}();}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ loadFromDataFile();}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ saveToDataFile();}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}*\ searchByNickname(std::string\ nickname);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}*\ search(std::string\ name,\ std::string\ nickname);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ std::list<Player*>\ getPlayers();\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ std::list<Player*>\ getPlayersByVictories();}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ signUpPlayer(std::string\ name,\ std::string\ nickname);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ deletePlayer(std::string\ nickname);}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ displayPlayers();}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classPlayers_a47862b7699ec3a41788e6d0b79ff7406}{getsize}}();\ }
+\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

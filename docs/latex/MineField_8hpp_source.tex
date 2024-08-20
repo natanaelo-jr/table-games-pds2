@@ -1,0 +1,38 @@
+\doxysection{Mine\+Field.\+hpp}
+\hypertarget{MineField_8hpp_source}{}\label{MineField_8hpp_source}\index{include/MineField.hpp@{include/MineField.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MINEFIELD\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MINEFIELD\_HPP}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Game.hpp"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMineField}{MineField}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classGame}{Game}}\{}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ std::vector<std::vector<int>>\ referenceField;}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ fieldSize;}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ numberOfBombs;}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ versusGame;}
+\DoxyCodeLine{00011\ \ \ \ \ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMineField}{MineField}}(\mbox{\hyperlink{classPlayer}{Player}}*\ player);\ \textcolor{comment}{//}}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMineField}{MineField}}(\mbox{\hyperlink{classPlayer}{Player}}*\ player,\ \textcolor{keywordtype}{int}\ fieldSize,\ \textcolor{keywordtype}{int}\ bombs);}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMineField}{MineField}}(\mbox{\hyperlink{classPlayer}{Player}}*\ player1,\ \mbox{\hyperlink{classPlayer}{Player}}*\ player2);}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMineField}{MineField}}(\mbox{\hyperlink{classPlayer}{Player}}*\ player1,\ \mbox{\hyperlink{classPlayer}{Player}}*\ player2,\ \textcolor{keywordtype}{int}\ fieldSize,\ \textcolor{keywordtype}{int}\ bombs);}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getFieldSize();}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getReference(\mbox{\hyperlink{classCoordinates}{Coordinates}}\ reference);}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getNumberOfBombs();}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ play()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ makePlay(\mbox{\hyperlink{classCoordinates}{Coordinates}}\ move);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ revealBoard();}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMineField_a2bd3bd1368510044843a263e0452bcfd}{setReferenceField}}(\mbox{\hyperlink{classCoordinates}{Coordinates}}\ firstPlay);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ recursiveOpen(\mbox{\hyperlink{classCoordinates}{Coordinates}}\ reference);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ std::vector<Coordinates>\ getPossiblePlays();}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isVersusGame();}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isGameOver();}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ resetGame();}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMineField_a5ada4c22b52125fba896fba70d08b23c}{addStats}}(\mbox{\hyperlink{classPlayer}{Player}}*\ player,\ \mbox{\hyperlink{classPlayer}{Player}}*\ loser)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

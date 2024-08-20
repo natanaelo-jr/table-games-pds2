@@ -1,0 +1,52 @@
+\doxysection{Tic\+Tac\+Toe\+Screen.\+hpp}
+\hypertarget{TicTacToeScreen_8hpp_source}{}\label{TicTacToeScreen_8hpp_source}\index{include/TicTacToeScreen.hpp@{include/TicTacToeScreen.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TICTACTOESCREEN\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TICTACTOESCREEN\_HPP}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Screen.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}TicTacToe.hpp"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTicTacToeScreen}{TicTacToeScreen}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classScreen}{Screen}}\{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToeScreen}{TicTacToeScreen}}(\mbox{\hyperlink{classScreenManager}{ScreenManager}}*\ screenManager,\ \mbox{\hyperlink{classPlayer}{Player}}*\ player1,\ \mbox{\hyperlink{classPlayer}{Player}}*\ player2,\ \mbox{\hyperlink{classPlayers}{Players}}*\ players);}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ handleEvents(sf::RenderWindow\ \&window)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ update(sf::RenderWindow\ \&window)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ render(sf::RenderWindow\ \&window)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ updatePhantomPiece(sf::RenderWindow\ \&window);}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ loadTextures();}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ getTileCoordinates(sf::FloatRect\ \&tile);}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ std::vector<sf::FloatRect>\ getPossiblePlays();}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ processPlay(sf::FloatRect\ \&playTile);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ tileSize;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}*\ game;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ sf::Vector2f\ screenOffset;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ sf::Texture\ pieceOTexture;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ sf::Texture\ pieceXTexture;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ sf::Texture\ boardTexture;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ sf::Sprite\ phantomPiece;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ sf::Font\ font;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ sf::Text\ player1Nick;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ sf::Text\ player2Nick;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ sf::Sprite\ player1Piece;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ sf::Sprite\ player2Piece;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ std::vector<sf::Sprite>\ pieces;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ sf::Sprite\ board;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ sf::RectangleShape\ cardShape;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ sf::Sprite\ cardButton1;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ sf::Sprite\ cardButton2;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ sf::Text\ cardText;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ finishGame;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00044\ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

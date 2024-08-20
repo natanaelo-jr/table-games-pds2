@@ -1,0 +1,186 @@
+\doxysection{Credits\+Screen Class Reference}
+\hypertarget{classCreditsScreen}{}\label{classCreditsScreen}\index{CreditsScreen@{CreditsScreen}}
+
+
+Classe responsável pela tela de créditos do jogo.  
+
+
+
+
+{\ttfamily \#include $<$Credits\+Screen.\+hpp$>$}
+
+
+
+Inheritance diagram for Credits\+Screen\+:
+% FIG 0
+
+
+Collaboration diagram for Credits\+Screen\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCreditsScreen_a14e8e78ca3285e8a5c215e1067e5976b}{Credits\+Screen}} (\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}screen\+Manager, \mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}players)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{classCreditsScreen}{Credits\+Screen}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCreditsScreen_a50b53bbb9e977579262fc04a5e32e540}{render}} (sf\+::\+Render\+Window \&window) override
+\begin{DoxyCompactList}\small\item\em Renderiza os elementos visuais da tela de créditos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCreditsScreen_a0d6cc73eca184f1e5947916b647b06f7}{handle\+Events}} (sf\+::\+Render\+Window \&window) override
+\begin{DoxyCompactList}\small\item\em Manipula os eventos da tela de créditos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCreditsScreen_a9431c50f20f1e761b3a4bdd6a2395c57}{update}} (sf\+::\+Render\+Window \&window) override
+\begin{DoxyCompactList}\small\item\em Atualiza a lógica da tela de créditos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCreditsScreen_a600ca4f145f7050bda3ccebe61a09d52}{load\+Textures}} () override
+\begin{DoxyCompactList}\small\item\em Carrega as texturas necessárias para a tela de créditos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCreditsScreen_ae4bd5a8128650fc89addc6ad499eb65f}{generate\+Baloes}} ()
+\begin{DoxyCompactList}\small\item\em Gera os balões animados na tela. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classScreen}{Screen}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Screen} (\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}players, \mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}screen\+Manager)
+\item 
+void {\bfseries process} (sf\+::\+Render\+Window \&window)
+\item 
+void {\bfseries setup\+Window} (sf\+::\+Render\+Window \&window)
+\item 
+sf\+::\+Color {\bfseries get\+Background\+Color} ()
+\item 
+bool {\bfseries is\+Mouse\+Over} (const sf\+::\+Float\+Rect \&bounds, const sf\+::\+Render\+Window \&window)
+\item 
+\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Players} ()
+\item 
+\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Screen\+Manager} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classScreen}{Screen}}}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Texture {\bfseries back\+Menu\+Texture}
+\item 
+sf\+::\+Texture {\bfseries hover\+Back\+Menu\+Texture}
+\item 
+sf\+::\+Texture {\bfseries play\+Again\+Texture}
+\item 
+sf\+::\+Texture {\bfseries hover\+Play\+Again\+Texture}
+\item 
+sf\+::\+Font {\bfseries card\+Font}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe responsável pela tela de créditos do jogo. 
+
+A classe {\ttfamily \doxylink{classCreditsScreen}{Credits\+Screen}} exibe os créditos do jogo e permite que o usuário retorne à tela anterior. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCreditsScreen_a14e8e78ca3285e8a5c215e1067e5976b}\index{CreditsScreen@{CreditsScreen}!CreditsScreen@{CreditsScreen}}
+\index{CreditsScreen@{CreditsScreen}!CreditsScreen@{CreditsScreen}}
+\doxysubsubsection{\texorpdfstring{CreditsScreen()}{CreditsScreen()}}
+{\footnotesize\ttfamily \label{classCreditsScreen_a14e8e78ca3285e8a5c215e1067e5976b} 
+Credits\+Screen\+::\+Credits\+Screen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classScreenManager}{Screen\+Manager}} \texorpdfstring{$\ast$}{*}}]{screen\+Manager}{, }\item[{\mbox{\hyperlink{classPlayers}{Players}} \texorpdfstring{$\ast$}{*}}]{players}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{classCreditsScreen}{Credits\+Screen}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em screen\+Manager} & Gerenciador de telas responsável por alternar entre as diferentes telas. \\
+\hline
+{\em players} & Ponteiro para a lista de jogadores cadastrados no sistema. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCreditsScreen_ae4bd5a8128650fc89addc6ad499eb65f}\index{CreditsScreen@{CreditsScreen}!generateBaloes@{generateBaloes}}
+\index{generateBaloes@{generateBaloes}!CreditsScreen@{CreditsScreen}}
+\doxysubsubsection{\texorpdfstring{generateBaloes()}{generateBaloes()}}
+{\footnotesize\ttfamily \label{classCreditsScreen_ae4bd5a8128650fc89addc6ad499eb65f} 
+void Credits\+Screen\+::generate\+Baloes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gera os balões animados na tela. 
+
+Cria e posiciona os balões que aparecerão durante a exibição dos créditos. \Hypertarget{classCreditsScreen_a0d6cc73eca184f1e5947916b647b06f7}\index{CreditsScreen@{CreditsScreen}!handleEvents@{handleEvents}}
+\index{handleEvents@{handleEvents}!CreditsScreen@{CreditsScreen}}
+\doxysubsubsection{\texorpdfstring{handleEvents()}{handleEvents()}}
+{\footnotesize\ttfamily \label{classCreditsScreen_a0d6cc73eca184f1e5947916b647b06f7} 
+void Credits\+Screen\+::handle\+Events (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Manipula os eventos da tela de créditos. 
+
+Processa os cliques do mouse e outros eventos relacionados à tela de créditos.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Referência para a janela SFML onde os eventos serão manipulados. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classCreditsScreen_a600ca4f145f7050bda3ccebe61a09d52}\index{CreditsScreen@{CreditsScreen}!loadTextures@{loadTextures}}
+\index{loadTextures@{loadTextures}!CreditsScreen@{CreditsScreen}}
+\doxysubsubsection{\texorpdfstring{loadTextures()}{loadTextures()}}
+{\footnotesize\ttfamily \label{classCreditsScreen_a600ca4f145f7050bda3ccebe61a09d52} 
+void Credits\+Screen\+::load\+Textures (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Carrega as texturas necessárias para a tela de créditos. 
+
+Carrega as imagens e texturas dos elementos visuais, como os balões e o botão de voltar. 
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classCreditsScreen_a50b53bbb9e977579262fc04a5e32e540}\index{CreditsScreen@{CreditsScreen}!render@{render}}
+\index{render@{render}!CreditsScreen@{CreditsScreen}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{classCreditsScreen_a50b53bbb9e977579262fc04a5e32e540} 
+void Credits\+Screen\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Renderiza os elementos visuais da tela de créditos. 
+
+Exibe os créditos e balões animados.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Referência para a janela SFML onde os elementos serão renderizados. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+\Hypertarget{classCreditsScreen_a9431c50f20f1e761b3a4bdd6a2395c57}\index{CreditsScreen@{CreditsScreen}!update@{update}}
+\index{update@{update}!CreditsScreen@{CreditsScreen}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classCreditsScreen_a9431c50f20f1e761b3a4bdd6a2395c57} 
+void Credits\+Screen\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Atualiza a lógica da tela de créditos. 
+
+Atualiza a animação dos balões e outros elementos da tela.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Referência para a janela SFML onde a atualização ocorrerá. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classScreen}{Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Credits\+Screen.\+hpp\item 
+src/Credits\+Screen.\+cpp\end{DoxyCompactItemize}
