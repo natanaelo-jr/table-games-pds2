@@ -135,8 +135,6 @@ void MineField::recursiveOpen(Coordinates reference){
 
 void MineField::play(){
     int row, col;
-    bool p1win = false;
-    bool p2win = false;
     if(isVersusGame()){
         std::cout << "Esta é uma partida versus de campo minado." << std::endl;
         std::cout << getPlayer1()->getNickname() << " vs " << getPlayer2()->getNickname() << std::endl;
