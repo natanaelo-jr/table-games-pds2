@@ -13,6 +13,14 @@ Screen(players, screenManager){
     board.setPosition(193, 134);
     isNewGame = true;
     finishGame = false;
+
+    playerNick.setString(player->getNickname());
+    playerNick.setFont(font);
+    playerNick.setCharacterSize(60);
+    playerNick.setFillColor(sf::Color(77, 14, 70));
+    playerNick.setOrigin(playerNick.getLocalBounds().width / 2, 0);
+    playerNick.setPosition(400, 20);
+
     cardShape.setFillColor(sf::Color(204, 221, 211));
     cardShape.setSize(sf::Vector2f(500, 200));
     cardShape.setPosition(166, 204);
@@ -54,6 +62,7 @@ void MineFieldScreen::render(sf::RenderWindow &window){
         window.draw(cardButton2);
         window.draw(cardText);
     }
+    window.draw(playerNick);
 
     window.display();
 }

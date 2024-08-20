@@ -150,7 +150,7 @@ void GameSelectionScreen::handleEvents(sf::RenderWindow &window){
                         getPlayers()
                     ));
                 }
-                if(selectedGame.getString() == "Minefield"){
+                if(selectedGame.getString() == "MineField"){
                     getScreenManager()->change(std::make_shared<MineFieldScreen>(
                         getScreenManager(),
                         playerList[player1Index],

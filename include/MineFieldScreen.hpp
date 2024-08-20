@@ -30,10 +30,8 @@ class MineFieldScreen : public Screen{
         sf::Texture QuadTexture;
         sf::Texture boardTexture;
         sf::Font font;
-        sf::Font numberFont;
 
         sf::Text playerNick;
-        sf::Sprite playerPiece;
 
         std::vector<sf::Sprite> pieces;
         std::vector<sf::Sprite> flags;
