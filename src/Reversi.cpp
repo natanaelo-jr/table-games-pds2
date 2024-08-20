@@ -5,20 +5,13 @@
 #include <iterator>
 
 
-/**
- * @brief Construtor da classe Reversi. Inicializa o tabuleiro do jogo.
- * 
- * @param player1 Primeiro jogador.
- * @param player2 Segundo jogador.
- */
+
 Reversi::Reversi(Player* player1, Player* player2) : Game(player1, player2, 8, 8) {
     initializeBoard();
 }
 
 
-/**
- * @brief Inicializa o tabuleiro do jogo Reversi, colocando as peças iniciais.
- */
+
 void Reversi::initializeBoard() {
     setSquare({4, 3}, 'O');
     setSquare({3, 3}, 'X');
@@ -27,14 +20,7 @@ void Reversi::initializeBoard() {
 }
 
 
-/**
- * @brief Realiza uma jogada no tabuleiro.
- * 
- * @param row Linha da jogada.
- * @param col Coluna da jogada.
- * @return true Se a jogada foi realizada com sucesso.
- * @return false Se a jogada foi inválida.
- */
+
 bool Reversi::makePlay(int row, int col) {
     char symbol;
     getCurrentPlayer() == getPlayer1() ? symbol = 'X' : symbol = 'O';
@@ -60,9 +46,7 @@ bool Reversi::makePlay(int row, int col) {
     return true;
 }
 
-/**
- * @brief Função principal que executa o ciclo do jogo.
- */
+
 void Reversi::play() {
     int row; 
     int col;
@@ -117,19 +101,7 @@ void Reversi::play() {
 
 }
 
-/**
- * @brief Busca por jogadas válidas em uma direção específica.
- * 
- * @param row Linha da jogada.
- * @param col Coluna da jogada.
- * @param dRow Direção da linha.
- * @param dCol Direção da coluna.
- * @param symbol Símbolo do jogador atual.
- * @param opposite Símbolo do oponente.
- * @param passedOpponent Indica se a busca já passou por uma peça do oponente.
- * @param board Tabuleiro atual.
- * @return Coordinates Coordenadas da jogada válida ou {-1, -1} se não for válida.
- */
+
 Coordinates Reversi::searcherForPlay(int row, int col, int dRow, int dCol, char symbol, char opposite, bool passedOpponent, const BoardType &board) {
     if (row > 7 || row < 0 || col > 7 || col < 0)
         return {-1, -1};
@@ -151,13 +123,7 @@ Coordinates Reversi::searcherForPlay(int row, int col, int dRow, int dCol, char 
     return {-1, -1};
 }
 
-/**
- * @brief Retorna as jogadas possíveis para o jogador atual.
- * 
- * @param symbol Símbolo do jogador atual.
- * @param board Tabuleiro atual.
- * @return std::vector<Coordinates> Vetor contendo as coordenadas das jogadas possíveis.
- */
+
 std::vector<Coordinates> Reversi::getPossiblePlays(char symbol, const BoardType &board) {
     std::vector<Coordinates> validPlays;
     char opposite = (symbol == 'X') ? 'O' : 'X';
@@ -180,15 +146,7 @@ std::vector<Coordinates> Reversi::getPossiblePlays(char symbol, const BoardType 
     return validPlays;
 }
 
-/**
- * @brief Verifica se a jogada realizada é válida.
- * 
- * @param row Linha da jogada.
- * @param col Coluna da jogada.
- * @param symbol Símbolo do jogador atual.
- * @return true Se a jogada é válida.
- * @return false Se a jogada é inválida.
- */
+
 bool Reversi::verifyPlay(int row, int col, char symbol) {
     std::vector<Coordinates> validPlays = getPossiblePlays(symbol, getBoard());
     if (validPlays.size() == 0) 
@@ -202,13 +160,7 @@ bool Reversi::verifyPlay(int row, int col, char symbol) {
 }
 
 
-//PRECISA COMENTAR ESSA? ELA É INUTILIZADA
-/**
- * @brief Reverte os símbolos
- *  
- * @param row Linha da jogada
- * @param col Coluna da joagada
- */
+
 void Reversi::reverseSymbols(int row, int col){
     char symbol = getSquare({row, col}, getBoard());
     if (symbol == 'X')
@@ -221,12 +173,7 @@ void Reversi::reverseSymbols(int row, int col){
 
 
 
-/**
- * @brief Conta quantos símbolos de determinado tipo estão presentes no tabuleiro.
- * 
- * @param symbol Símbolo do jogador ('X' ou 'O').
- * @return int Número de peças do símbolo.
- */
+
 int Reversi::countSymbols(char symbol) {
     int counter = 0;
     for(int row = 0; row < getRows(); row++) {
@@ -238,11 +185,7 @@ int Reversi::countSymbols(char symbol) {
     return counter;
 }
 
-/**
- * @brief Verifica quem é o vencedor da partida, contando as peças no tabuleiro.
- * 
- * @return Player* Ponteiro para o jogador vencedor ou nullptr em caso de empate.
- */
+
 Player* Reversi::checkWinner() {
     int xCount = countSymbols('X');
     int oCount = countSymbols('O');
@@ -257,19 +200,7 @@ Player* Reversi::checkWinner() {
     }
 }
 
-/**
- * @brief Função recursiva para virar peças do oponente se possível.
- * 
- * @param row Linha da jogada.
- * @param dRow Direção da linha.
- * @param col Coluna da jogada.
- * @param dCol Direção da coluna.
- * @param symbol Símbolo do jogador atual.
- * @param isOriginalTile Indica se é a peça original jogada pelo jogador.
- * @param board Tabuleiro atual.
- * @return true Se foi possível virar as peças.
- * @return false Se não foi possível virar as peças.
- */
+
 bool Reversi::turnPieces(int row, int dRow, int col, int dCol, char symbol, bool isOriginalTile, const BoardType &board) {
     if (!isValidSquare({row, col})) 
         return false;
@@ -288,25 +219,13 @@ bool Reversi::turnPieces(int row, int dRow, int col, int dCol, char symbol, bool
     return false;
 }
 
-/**
- * @brief Atualiza as estatísticas do jogador após uma vitória.
- * 
- * @param winner Jogador vencedor.
- * @param loser Jogador perdedor.
- */
+
 void Reversi::addStats(Player* winner, Player* loser) {
     std::cout << winner->getNickname() << " ganhou a partida!" << std::endl;
     winner->winReversi();
     loser->loseReversi();
 }
 
-/**
- * @brief Verifica se o jogo chegou ao estado terminal (sem jogadas possíveis).
- * 
- * @param board Tabuleiro atual.
- * @return true Se o jogo está no estado terminal.
- * @return false Se o jogo ainda não terminou.
- */
 bool Reversi::terminalState(const BoardType &board) {
     if (getPossiblePlays('X', board).size() == 0 && getPossiblePlays('O', board).size() == 0)
         return true;
